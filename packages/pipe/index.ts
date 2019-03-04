@@ -1,16 +1,18 @@
 class PipeNodeInstance<Args extends any[], Return> {
-  constructor (
-    /**
-     * Resulting function of the pipeline
-     *
-     * **Parameters:** It's either
-     *   * the same parameters of the first function of the pipeline (when `pipe` is used)
-     *   * or empty (when `pass` is used)
-     *
-     * **Returns:** Result of the last function of the pipeline
-     */
-    public readonly get: (...args: Args) => Return
-  ) {}
+  /**
+   * Resulting function of the pipeline
+   *
+   * **Parameters:** It's either
+   *   * the same parameters of the first function of the pipeline (when `pipe` is used)
+   *   * or empty (when `pass` is used)
+   *
+   * **Returns:** Result of the last function of the pipeline
+   */
+  public readonly get: (...args: Args) => Return
+
+  constructor (fn: (...args: Args) => Return) {
+    this.get = fn
+  }
 
   /**
    * Add a node to the pipeline
