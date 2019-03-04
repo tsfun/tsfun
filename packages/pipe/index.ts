@@ -17,7 +17,7 @@ class PipeNodeInstance<Args extends any[], Return> {
   /**
    * Add a node to the pipeline
    * @param fn Function of the node
-   * @param args Parameters of `fn` without the first
+   * @param args All parameters of `fn` except the first one
    * @returns Another node of the pipeline
    */
   public to<NextArgs extends any[], NextReturn> (
