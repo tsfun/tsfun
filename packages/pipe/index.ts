@@ -17,15 +17,11 @@ class PipeNode<Args extends any[], Return> {
   /**
    * Add a node to the pipeline
    * @param fn Function of the node
-   * @param args All parameters of `fn` except the first one
    * @returns Another node of the pipeline
    */
-  public to<NextArgs extends any[], NextReturn> (
-    fn: (firstArg: Return, ...rest: NextArgs) => NextReturn,
-    ...args: NextArgs
-  ) {
+  public to<NextReturn> (fn: (firstArg: Return) => NextReturn) {
     return pipe(
-      (...firstArgs: Args) => fn(this.get(...firstArgs), ...args)
+      (...firstArgs: Args) => fn(this.get(...firstArgs))
     )
   }
 }
@@ -41,17 +37,16 @@ class PipeNode<Args extends any[], Return> {
  *   which in turn is equivalent to `h(g(f(x)))`
  *
  * @example
- *   const add = (...args: number[]) => args.reduce((a, b) => a + b, 0)
- *   const mul = (...args: number[]) => args.reduce((a, b) => a * b, 1)
- *   const pow = (x: number, n: number) => x ** n
- *   const arr = (...args: number[]) => args
- *   const result = pass(3) // x0 = 3
- *     .to(add, -2, 1) // x1 = add(...args)
- *     .to(mul, 2, 3) // x2 = mul(x1, 2, 3)
- *     .to(pow, 2) // x3 = pow(x2, 2)
- *     .to(arr, 0, 1, 2) // x4 = arr(x3, 0, 1, 2)
- *     .get() // result = x4 = arr(pow(mul(add(3, -2, 1), 2, 3), 2), 0, 1, 2)
- *   expect(result).toEqual(arr(pow(mul(add(3, -2, 1), 2, 3), 2), 0, 1, 2))
+ *   const increase = (x: number) => x + 1
+ *   const double = (x: number) => x * 2
+ *   const square = (x: number) => x * x
+ *   const result = pass(2) // x0 = 2
+ *     .to(increase) // x1 = increase(x0)
+ *     .to(double) // x2 = double(x1)
+ *     .to(square) // x3 = square(x2)
+ *     .to(String) // x4 = String(x3)
+ *     .get() // result = x4 = String(square(double(increase(2))))
+ *   expect(result).toBe(String(square(double(increase(2)))))
  */
 export const pass = <X> (x: X) => pipe(() => x)
 
@@ -65,16 +60,17 @@ export const pass = <X> (x: X) => pipe(() => x)
  *   which in turn is equivalent to `h(g(f(...args)))`
  *
  * @example
- *   const add = (...args: number[]) => args.reduce((a, b) => a + b, 0)
- *   const mul = (...args: number[]) => args.reduce((a, b) => a * b, 1)
- *   const pow = (x: number, n: number) => x ** n
- *   const arr = (...args: number[]) => args
- *   const pipeline = pipe(add) // x0 = add(...args)
- *     .to(mul, 2, 3) // x1 = mul(x0, 2, 3)
- *     .to(pow, 2) // x2 = pow(x1, 2)
- *     .to(arr, 0, 1, 2) // x3 = arr(x2, 0, 1, 2)
- *   const result = pipeline(3, -2, 1) // result = x3 = arr(pow(mul(add(3, -2, 1), 2, 3), 2), 0, 1, 2)
- *   expect(result).toEqual(arr(pow(mul(add(3, -2, 1), 2, 3), 2), 0, 1, 2))
+ *   const sum = (...args: number[]) => args.reduce((a, b) => a + b, 0)
+ *   const increase = (x: number) => x + 1
+ *   const double = (x: number) => x * 2
+ *   const square = (x: number) => x * x
+ *   const pipeline = pipe(sum) // x0 = sum(...args)
+ *     .to(increase) // x1 = increase(x0)
+ *     .to(double) // x2 = double(x1)
+ *     .to(square) // x3 = square(x2)
+ *     .to(String) // x4 = String(x3)
+ *     .get // pipeline(...args) = x4 = String(square(double(increase(sum(...args)))))
+ *   expect(pipeline(2, 3, -1)).toBe(String(square(double(increase(sum(2, 3, -1))))))
  */
 export const pipe =
   <Args extends any[], Return>
