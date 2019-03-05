@@ -1,4 +1,4 @@
-class PipeNodeInstance<Args extends any[], Return> {
+class PipeNode<Args extends any[], Return> {
   /**
    * Resulting function of the pipeline
    *
@@ -29,8 +29,6 @@ class PipeNodeInstance<Args extends any[], Return> {
     )
   }
 }
-
-export interface PipeNode<Args extends any[], Return> extends PipeNodeInstance<Args, Return> {}
 
 /**
  * Start a pipeline with a value
@@ -80,5 +78,5 @@ export const pass = <X> (x: X) => pipe(() => x)
  */
 export const pipe =
   <Args extends any[], Return>
-    (fn: (...args: Args) => Return): PipeNode<Args, Return> =>
-      new PipeNodeInstance(fn)
+    (fn: (...args: Args) => Return) =>
+      new PipeNode(fn)
