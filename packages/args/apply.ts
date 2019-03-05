@@ -15,9 +15,22 @@ export function apply<Args extends Iterable<any>, R> (fn: Callee<Args, R>): Appl
 /**
  * Resulting function of `apply`
  */
-export type Applied<Args extends Iterable<any>, R> = AnyApplied<Args, R> & IterableApplied<Args, R>
+export type Applied<
+  Args extends Iterable<any>,
+  R,
+  ByTuple = AppliedMain<Args, R>
+> =
+  Args extends Array<infer X> ?
+    X[] extends Args ?
+      AppliedMain<Iterable<X>, R>
+    : ByTuple :
+  Args extends Iterable<infer X> ?
+    Iterable<X> extends Args ?
+      AppliedMain<Iterable<X>, R>
+    : ByTuple :
+  ByTuple
 
-interface AnyApplied<Args, R> {
+interface AppliedMain<Args, R> {
   /**
    * Call the function
    * @param args Iterable of arguments
@@ -25,16 +38,5 @@ interface AnyApplied<Args, R> {
    */
   (args: Args): R
 }
-
-type IterableApplied<Args extends Iterable<any>, R> =
-  Args extends Array<infer X> ?
-    X[] extends Args ?
-      AnyApplied<Iterable<X>, R>
-    : {} :
-  Args extends Iterable<infer X> ?
-    Iterable<X> extends Args ?
-      AnyApplied<Iterable<X>, R>
-    : {} :
-  {}
 
 export default apply
