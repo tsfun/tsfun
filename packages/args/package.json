@@ -1,0 +1,26 @@
+{
+  "name": "@tsfun/args",
+  "version": "0.0.0",
+  "description": "Manipulate function arguments",
+  "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/tsfun/tsfun#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsfun/tsfun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsfun/tsfun/issues"
+  },
+  "keywords": [
+    "args",
+    "apply"
+  ],
+  "dependencies": {
+    "tslib": "^1.9.3",
+    "@types/node": "^11.10.4"
+  },
+  "engines": {
+    "node": ">= 8.9.0"
+  }
+}
