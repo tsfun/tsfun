@@ -1,5 +1,5 @@
 {
-  "name": "pipe",
+  "name": "@tsfun/pipe",
   "version": "0.0.0",
   "description": "Dot-chained pipeline",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
