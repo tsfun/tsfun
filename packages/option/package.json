@@ -1,0 +1,28 @@
+{
+  "name": "@tsfun/option",
+  "version": "0.0.0",
+  "description": "Option in TypeScript",
+  "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/tsfun/tsfun#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsfun/tsfun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsfun/tsfun/issues"
+  },
+  "keywords": [
+    "pattern",
+    "match",
+    "option"
+  ],
+  "dependencies": {
+    "utility-types": "^3.4.1",
+    "tslib": "^1.9.3",
+    "@types/node": "^11.10.5"
+  },
+  "engines": {
+    "node": ">= 8.9.0"
+  }
+}
