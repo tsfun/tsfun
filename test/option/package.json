@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "dependencies": {
+    "static-type-assert": "^3.0.1",
+    "@tsfun/option": "file:../../packages/option",
+    "@tsfun/pipe": "file:../../packages/pipe"
+  }
+}
