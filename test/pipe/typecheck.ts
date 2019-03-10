@@ -20,3 +20,25 @@ assert<() => 4>(
 assert<(a: 3, b: 2, c: 1) => 4>(
   pipe(f321t0).to(f0t1).to(f1t2).to(f2t3).to(f3t4).get
 )
+
+declare const y0: 'y0'
+declare const f: (a: 'y0', b: 'bf', c: 'cf') => 'y1'
+declare const g: (a: 'y1', b: 'bg') => 'y2'
+declare const h: (a: 'y2') => 'y3'
+
+assert<'y3'>(
+  pass(y0)
+    .to(f, 'bf', 'cf')
+    .to(g, 'bg')
+    .to(h)
+    .get()
+)
+
+assert<
+  (a: 'y0', b: 'bf', c: 'cf') => 'y3'
+>(
+  pipe(f)
+    .to(g, 'bg')
+    .to(h)
+    .get
+)
