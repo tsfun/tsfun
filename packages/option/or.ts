@@ -19,7 +19,7 @@ export const or = <Left = never, Right = Left> (
  * @param right Function to call when `left` does not contain a value
  * @returns Either `left` or `right`
  */
-export const orElse = <Left, Right = Left> (
+export const orElse = <Left = never, Right = Left> (
   left: Option<Left>,
   right: () => Option<Right>
 ) => left.tag ? left : right()

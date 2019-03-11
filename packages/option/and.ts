@@ -8,7 +8,7 @@ import { none } from './none'
  * @param right Option to return when `left` contains a value
  * @returns Either `right` or a `None`
  */
-export const and = <Left, Right = Left> (
+export const and = <Left = never, Right = Left> (
   left: Option<Left>,
   right: Option<Right>
 ) => left.tag ? right : left
@@ -20,7 +20,7 @@ export const and = <Left, Right = Left> (
  * @param right Function to call when `left` contains a value
  * @returns Either returning value of `right` or a `None`
  */
-export const andThen = <Left, Right = Left> (
+export const andThen = <Left = never, Right = Left> (
   left: Option<Left>,
   right: (value: Left) => Option<Right>
 ) => left.tag ? right(left.value) : none()
