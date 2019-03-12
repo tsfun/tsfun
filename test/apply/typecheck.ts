@@ -1,5 +1,5 @@
 import assert from 'static-type-assert'
-import { apply, unapply } from '@tsfun/args'
+import { apply, unapply } from '@tsfun/apply'
 
 declare function f (a: 'a', b: 'b', c: 'c'): 'r'
 declare function rf (abc: ['a', 'b', 'c']): 'r'
