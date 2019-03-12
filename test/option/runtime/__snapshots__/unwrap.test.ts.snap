@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unwrap with a None throws provided error 1`] = `"Cannot unwrap a None"`;
