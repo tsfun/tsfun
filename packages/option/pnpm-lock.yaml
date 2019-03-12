@@ -1,6 +1,7 @@
 dependencies:
   '@types/node': 11.11.1
   tslib: 1.9.3
+  utility-types: 3.4.1
 lockfileVersion: 5
 packages:
   /@types/node/11.11.1:
@@ -11,6 +12,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
+  /utility-types/3.4.1:
+    dev: false
+    engines:
+      node: '>= 4'
+    resolution:
+      integrity: sha512-GyH068kJf7c4vhfqj4aCM5X+TeV8jG2iPFLimpGpnQ7dvKfogZOHfiYxMww/nGEfMm/bEmnVbeZGO1see1OVKg==
 specifiers:
   '@types/node': ^11.10.5
   tslib: ^1.9.3
+  utility-types: ^3.4.1
