@@ -1,7 +1,7 @@
 {
-  "name": "@tsfun/args",
+  "name": "@tsfun/apply",
   "version": "0.0.0",
-  "description": "Manipulate function arguments",
+  "description": "Apply/unapply functions on/to array of arguments",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/tsfun/tsfun#readme",
@@ -13,8 +13,8 @@
     "url": "https://github.com/tsfun/tsfun/issues"
   },
   "keywords": [
-    "args",
-    "apply"
+    "apply",
+    "unapply"
   ],
   "dependencies": {
     "tslib": "^1.9.3",

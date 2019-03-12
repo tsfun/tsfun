@@ -1,4 +1,4 @@
-import { apply, unapply } from '@tsfun/args'
+import { apply, unapply } from '@tsfun/apply'
 
 it('apply works as expected', () => {
   const join = (...args: number[]) => args.join(', ')
