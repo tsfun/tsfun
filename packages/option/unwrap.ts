@@ -31,7 +31,7 @@ export const unwrapOrErr = <
  * @param def Value to return when `option` does not contain a value
  * @returns Either contained value or `def`
  */
-export const unwrapOr = <Value, Default> (
+export const unwrapOr = <Value = never, Default = Value> (
   option: Option<Value>,
   def: Default
 ) => unwrapOrElse(option, () => def)
@@ -43,7 +43,7 @@ export const unwrapOr = <Value, Default> (
  * @param def Function to be called when option does not contain a value
  * @returns Either contained value or returning value of `none`
  */
-export const unwrapOrElse = <Value, Default = Value> (
+export const unwrapOrElse = <Value = never, Default = Value> (
   option: Option<Value>,
   def: () => Default
 ) => match(option, { some: x => x, none: def })
