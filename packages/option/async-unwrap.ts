@@ -11,6 +11,19 @@ export const asyncUnwrap =
   async <Value> (option: AsyncOption<Value>) => unwrap(await option)
 
 /**
+ * Unwrap contained value of a `Some`,
+ * or throws an error
+ * @param option Option to unwrap
+ * @param message Error to throw when `option` does not contain a value
+ * @returns Contained value
+ */
+export const asyncUnwrapOrErr = <
+  Value = never,
+  Message = Error
+> (option: AsyncOption<Value>, message: Message) =>
+  asyncUnwrapOrElse(option, () => { throw message })
+
+/**
  * Return contained value of a `Some`
  * or default value
  * @param option Option to unwrap
