@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "iter-tools": "^6.2.4",
     "static-type-assert": "^3.0.1",
     "@tsfun/option": "file:../../packages/option",
     "@tsfun/pipe": "file:../../packages/pipe"
