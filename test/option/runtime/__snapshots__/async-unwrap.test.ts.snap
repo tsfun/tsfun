@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`with Option<Promise<X>> asyncUnwrap with a None throws provided error 1`] = `[TypeError: Cannot unwrap a None]`;
+
+exports[`with Option<X> asyncUnwrap with a None throws provided error 1`] = `[TypeError: Cannot unwrap a None]`;
+
+exports[`with Promise<Option<Promise<X>>> asyncUnwrap with a None throws provided error 1`] = `[TypeError: Cannot unwrap a None]`;
+
+exports[`with Promise<Option<X>> asyncUnwrap with a None throws provided error 1`] = `[TypeError: Cannot unwrap a None]`;
