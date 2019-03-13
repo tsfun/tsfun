@@ -7,5 +7,5 @@ import { Option } from './option'
  * @returns An array that may contain contained value
  */
 export const tuple =
-  <Value> (option: Option<Value>): [Value] | [] =>
+  <Value = never> (option: Option<Value>): [Value] | [] =>
     option.tag ? [option.value] : []
