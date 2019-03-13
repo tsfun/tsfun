@@ -8,7 +8,7 @@ import { unwrap, unwrapOrElse } from './unwrap'
  * @returns A `Promise` that may resolve contained value
  */
 export const asyncUnwrap =
-  async <Value> (option: AsyncOption<Value>) => unwrap(await option)
+  async <Value = never> (option: AsyncOption<Value>) => unwrap(await option)
 
 /**
  * Unwrap contained value of a `Some`,
@@ -30,7 +30,7 @@ export const asyncUnwrapOrErr = <
  * @param def Value to return when `option` does not contain a value
  * @returns Promise that resolves contained value or `def`
  */
-export const asyncUnwrapOr = <Value, Default = Value> (
+export const asyncUnwrapOr = <Value = never, Default = Value> (
   option: AsyncOption<Value>,
   def: Default
 ) => asyncUnwrapOrElse(option, () => def)
@@ -42,7 +42,7 @@ export const asyncUnwrapOr = <Value, Default = Value> (
  * @param def Function to be called when `option` does not contain a value
  * @returns Promise that resolves to either contained value or returning value of `none`
  */
-export const asyncUnwrapOrElse = async <Value, Default = Value> (
+export const asyncUnwrapOrElse = async <Value = never, Default = Value> (
   option: AsyncOption<Value>,
   def: () => Default | Promise<Default>
 ) => unwrapOrElse(await option, def)
