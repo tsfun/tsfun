@@ -6,7 +6,7 @@ import { DeepOption } from './utils/types'
  * @returns Flattened option
  */
 export const flatten =
-  <Value> (deepOption: DeepOption<Value>) =>
+  <Value = never> (deepOption: DeepOption<Value>) =>
     deepOption.tag ? deepOption.value : deepOption
 
 export default flatten
