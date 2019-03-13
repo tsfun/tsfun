@@ -30,7 +30,7 @@ export const asyncUnwrapOrErr = <
  * @param def Value to return when `option` does not contain a value
  * @returns Promise that resolves contained value or `def`
  */
-export const asyncUnwrapOr = async <Value, Default = Value> (
+export const asyncUnwrapOr = <Value, Default = Value> (
   option: AsyncOption<Value>,
   def: Default
 ) => asyncUnwrapOrElse(option, () => def)
