@@ -7,7 +7,7 @@ import { some } from './some'
  * @param deepOptionPromise Option to be flatten
  * @returns Promise that resolves flattened option
  */
-export async function asyncFlatten <Value> (
+export async function asyncFlatten <Value = never> (
   deepOptionPromise: AsyncDeepOption<Value>
 ): Promise<Option<Value>> {
   const deepOption = await deepOptionPromise
