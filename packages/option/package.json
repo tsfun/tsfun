@@ -15,7 +15,10 @@
   "keywords": [
     "pattern",
     "match",
-    "option"
+    "option",
+    "some",
+    "none",
+    "just"
   ],
   "dependencies": {
     "utility-types": "^3.4.1",
