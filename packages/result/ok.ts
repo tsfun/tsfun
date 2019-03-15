@@ -11,3 +11,5 @@ export interface Ok<Payload> extends Some<Payload> {}
  * @returns `Ok` of `payload`
  */
 export const ok: <Payload> (payload: Payload) => Ok<Payload> = some
+
+export default ok

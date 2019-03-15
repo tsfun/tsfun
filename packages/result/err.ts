@@ -13,3 +13,5 @@ export interface Err<Error> extends None {
  * @returns `Err` of `error`
  */
 export const err = <Error> (error: Error): Err<Error> => ({ tag: false, error })
+
+export default err
