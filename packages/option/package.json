@@ -21,7 +21,6 @@
     "just"
   ],
   "dependencies": {
-    "utility-types": "^3.4.1",
     "tslib": "^1.9.3",
     "@types/node": "^11.11.1"
   },
