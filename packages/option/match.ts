@@ -28,3 +28,5 @@ export const match = <
   option: Option<Value>,
   handle: MatchHandlers<Value, SomeReturn, NoneReturn>
 ) => option.tag ? handle.some(option.value) : handle.none()
+
+export default match
