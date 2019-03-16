@@ -27,7 +27,7 @@ export const expectSomeOr = <Payload = never, Error = never> (
 /**
  * If `option` is `some(x)`, return `ok(x)`,
  * otherwise return `err(error())`
- * @param option Option to match against
+ * @param option Result to match against
  * @param error Function to execute should `option` is a `None`
  * @returns `Result`
  */
