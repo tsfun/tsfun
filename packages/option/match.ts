@@ -16,7 +16,7 @@ interface MatchHandlers<Value, SomeReturn, NoneReturn> {
 }
 
 /**
- * Match an option against a function
+ * Match an option against a pair of functions
  * @param option Option to match against
  * @param handle Functions to handle each case
  */
