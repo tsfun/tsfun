@@ -21,7 +21,7 @@ interface MatchHandlers<Value, SomeReturn, NoneReturn> {
  * @param handle Functions to handle each case
  */
 export const match = <
-  Value,
+  Value = never,
   SomeReturn = Value,
   NoneReturn = SomeReturn
 > (
