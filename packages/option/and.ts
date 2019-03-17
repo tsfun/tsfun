@@ -1,5 +1,4 @@
 import { Option } from './option'
-import { none } from './none'
 
 /**
  * Return a `None` if `left` does not contain a value,
@@ -23,4 +22,4 @@ export const and = <Left = never, Right = Left> (
 export const andThen = <Left = never, Right = Left> (
   left: Option<Left>,
   right: (value: Left) => Option<Right>
-) => left.tag ? right(left.value) : none()
+) => left.tag ? right(left.value) : left
