@@ -17,7 +17,7 @@ export const or = <Value = never> (
  * otherwise call `right` and return the result
  * @param left Option to match against
  * @param right Function to call when `left` does not contain a value
- * @returns Either `left` or `right`
+ * @returns Either `left` or return value of `right`
  */
 export const orElse = <Value = never> (
   left: Option<Value>,
