@@ -7,7 +7,7 @@ import { Result } from './result'
  * @param result Result to convert
  * @returns Corresponding `Option`
  *
- * In reality, this function returns the same object it takes
+ * In reality, this function merely returns the same object it takes
  * since `Result` interface is compatible with `Option`
  */
 export const option = <Payload = never> (result: Result<Payload, any>): Option<Payload> => result
