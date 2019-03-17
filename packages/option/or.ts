@@ -7,9 +7,9 @@ import { Option } from './option'
  * @param right Option to return when `left` does not contain a value
  * @returns Either `left` or `right`
  */
-export const or = <Left = never, Right = Left> (
-  left: Option<Left>,
-  right: Option<Right>
+export const or = <Value = never> (
+  left: Option<Value>,
+  right: Option<Value>
 ) => left.tag ? left : right
 
 /**
@@ -19,7 +19,7 @@ export const or = <Left = never, Right = Left> (
  * @param right Function to call when `left` does not contain a value
  * @returns Either `left` or `right`
  */
-export const orElse = <Left = never, Right = Left> (
-  left: Option<Left>,
-  right: () => Option<Right>
+export const orElse = <Value = never> (
+  left: Option<Value>,
+  right: () => Option<Value>
 ) => left.tag ? left : right()
