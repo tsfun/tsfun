@@ -3,7 +3,7 @@ import { Result } from './result'
 
 /**
  * Convert `ok(x)` to an `some(x)`
- * or `err(_)` to `none()`
+ * and convert `err(_)` to `none()`
  * @param result Result to convert
  * @returns Corresponding `Option`
  *
