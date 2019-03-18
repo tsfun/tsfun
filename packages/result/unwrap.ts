@@ -21,8 +21,8 @@ export const unwrap = <
  */
 export const unwrapOr = <
   Payload = never,
-  Default = Payload,
-  Error = never
+  Error = never,
+  Default = Payload
 > (
   result: Result<Payload, Error>,
   def: Default
@@ -37,8 +37,8 @@ export const unwrapOr = <
  */
 export const unwrapOrElse = <
   Payload = never,
-  Default = Payload,
-  Error = never
+  Error = never,
+  Default = Payload
 > (
   result: Result<Payload, Error>,
   def: (error: Error) => Default
