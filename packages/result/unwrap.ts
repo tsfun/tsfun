@@ -8,9 +8,8 @@ import { match } from './match'
  * @returns Carried payload
  */
 export const unwrap = <
-  Payload = never,
-  Error = never
-> (result: Result<Payload, Error>) => unwrapOrElse(result, error => { throw error })
+  Payload = never
+> (result: Result<Payload, any>) => unwrapOrElse(result, error => { throw error })
 
 /**
  * Return `x` if `result` is `ok(x)`,
@@ -21,10 +20,9 @@ export const unwrap = <
  */
 export const unwrapOr = <
   Payload = never,
-  Error = never,
   Default = Payload
 > (
-  result: Result<Payload, Error>,
+  result: Result<Payload, any>,
   def: Default
 ) => unwrapOrElse(result, () => def)
 
