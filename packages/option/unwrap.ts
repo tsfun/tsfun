@@ -40,7 +40,7 @@ export const unwrapOr = <Value = never, Default = Value> (
  * Return contained value of a `Some`
  * or call a function
  * @param option Option to unwrap
- * @param def Function to be called when option does not contain a value
+ * @param def Function to be called when `option` does not contain a value
  * @returns Either contained value or returning value of `none`
  */
 export const unwrapOrElse = <Value = never, Default = Value> (
