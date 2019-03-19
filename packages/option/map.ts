@@ -11,3 +11,5 @@ export const map = <Value = never, Return = Value> (
   option: Option<Value>,
   fn: (value: Value) => Return
 ) => option.tag ? some(fn(option.value)) : option
+
+export default map

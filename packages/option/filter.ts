@@ -15,3 +15,5 @@ export const filter = <Value = never> (
   option: Option<Value>,
   predicate: (value: Value) => boolean
 ) => andThen(option, value => predicate(value) ? option : none())
+
+export default filter
