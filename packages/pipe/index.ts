@@ -43,6 +43,14 @@ class PipeNode<Args extends any[], Return> {
  *   You can also pass extra arguments to function that takes more than one argument,
  *   for example: `pass(x).to(f, y, z).get()` is equivalent to `f(x, y, z)`
  *
+ * @note
+ *   This is a temporary solution to replace yet-to-be-implemented pipeline operator.
+ *   This function will be deprecated when the proposal get to stage 3
+ *   and removed when it is implemented
+ *
+ *   Read more about pipeline operator in
+ *   [the tc39 proposal](https://github.com/tc39/proposal-pipeline-operator)
+ *
  * @example
  *   const increase = (x: number) => x + 1
  *   const double = (x: number) => x * 2
@@ -78,6 +86,14 @@ export const pass = <X> (x: X) => pipe(() => x)
  *
  *   You can also pass extra arguments to function that takes more than takes more than one arguments,
  *   for example: `pipe(f).to(g, a, b).get` is equivalent to `(...args) => g(f(...args), a, b)`
+ *
+ * @note
+ *   This is a temporary solution to replace yet-to-be-implemented pipeline operator.
+ *   This function will be deprecated when the proposal get to stage 3
+ *   and removed when it is implemented
+ *
+ *   Read more about pipeline operator in
+ *   [the tc39 proposal](https://github.com/tc39/proposal-pipeline-operator)
  *
  * @example
  *   const sum = (...args: number[]) => args.reduce((a, b) => a + b, 0)
