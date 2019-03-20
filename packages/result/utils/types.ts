@@ -7,3 +7,9 @@ export type AsyncResult<Payload, Error> =
     MaybePromise<Payload>,
     MaybePromise<Error>
   >>
+
+export type DeepPayloadResult<Payload, InnerError, OuterError> =
+  Result<Result<Payload, InnerError>, OuterError>
+
+export type DeepErrorResult<OuterPayload, Error, InnerPayload> =
+  Result<OuterPayload, Result<InnerPayload, Error>>
