@@ -2,7 +2,7 @@ import { DeepOption } from './utils/types'
 
 /**
  * Return contained option within `deepOption`
- * @param deepOption Option to be flatten
+ * @param deepOption Option to flatten
  * @returns Flattened option
  */
 export const flatten =
