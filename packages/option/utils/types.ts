@@ -10,9 +10,4 @@ export type AsyncOption<Value> = MaybePromise<Option<MaybePromise<Value>>>
 
 export type DeepOption<Value> = Option<Option<Value>>
 
-export type AsyncDeepOption<Value> =
-  MaybePromise<Option<
-    MaybePromise<Option<
-      MaybePromise<Value>
-    >>
-  >>
+export type AsyncDeepOption<Value> = MaybePromise<Option<AsyncOption<Value>>>
