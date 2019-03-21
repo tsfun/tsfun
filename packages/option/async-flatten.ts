@@ -4,7 +4,7 @@ import { some } from './some'
 
 /**
  * Flatten `deepOptionPromise`
- * @param deepOptionPromise Option to be flatten
+ * @param deepOptionPromise Option to flatten
  * @returns Promise that resolves flattened option
  */
 export async function asyncFlatten <Value = never> (
