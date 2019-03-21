@@ -18,3 +18,5 @@ export async function asyncFlatten <Value = never> (
 
   return some(await flatOption.value)
 }
+
+export default asyncFlatten
