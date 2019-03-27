@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "extra-jest": "^0.0.25",
     "static-type-assert": "^3.0.1",
     "@tsfun/result": "file:../../packages/result"
   }
