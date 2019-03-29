@@ -1,8 +1,10 @@
 {
   "private": true,
   "dependencies": {
+    "iter-tools": "^6.2.4",
     "extra-jest": "^0.0.25",
     "static-type-assert": "^3.0.1",
+    "@tsfun/pipe": "file:../../packages/pipe",
     "@tsfun/result": "file:../../packages/result"
   }
 }
