@@ -6,7 +6,7 @@ import {
 } from '@tsfun/option'
 
 describe('and', () => {
-  it('between none and none', () => {
+  it('between some and some', () => {
     expect(and(some('a'), some('b'))).toEqual(some('b'))
   })
 
@@ -24,7 +24,7 @@ describe('and', () => {
 })
 
 describe('andThen', () => {
-  it('between none and none', () => {
+  it('between some and some', () => {
     expect(andThen(some('x'), x => some({ x }))).toEqual(some({ x: 'x' }))
   })
 
