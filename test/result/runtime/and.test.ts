@@ -1,4 +1,5 @@
 import {
+  Result,
   and,
   andThen,
   ok,
@@ -24,19 +25,65 @@ describe('and', () => {
 })
 
 describe('andThen', () => {
-  it('between ok and ok', () => {
-    expect(andThen(ok('x'), x => ok({ x }))).toEqual(ok({ x: 'x' }))
+  const mkfn = (fn: (x: any) => Result<any, any>) => jest.fn((x: any) => fn({ x }))
+
+  describe('between ok and ok', () => {
+    const right = mkfn(ok)
+    const result = andThen(ok('x'), right)
+
+    it('returns expected value', () => {
+      expect(result).toEqual(ok({ x: 'x' }))
+    })
+
+    it('calls right exactly once', () => {
+      expect(right).toBeCalledTimes(1)
+    })
+
+    it('calls right with carried payload of left', () => {
+      expect(right).toBeCalledWith('x')
+    })
   })
 
-  it('between ok and err', () => {
-    expect(andThen(ok('x'), x => err({ x }))).toEqual(err({ x: 'x' }))
+  describe('between ok and err', () => {
+    const right = mkfn(err)
+    const result = andThen(ok('x'), right)
+
+    it('returns expected value', () => {
+      expect(result).toEqual(err({ x: 'x' }))
+    })
+
+    it('calls right exactly once', () => {
+      expect(right).toBeCalledTimes(1)
+    })
+
+    it('calls right with carried payload of left', () => {
+      expect(right).toBeCalledWith('x')
+    })
   })
 
-  it('between err and ok', () => {
-    expect(andThen(err('x'), x => ok({ x }))).toEqual(err('x'))
+  describe('between err and ok', () => {
+    const right = mkfn(ok)
+    const result = andThen(err('x'), right)
+
+    it('returns expected value', () => {
+      expect(result).toEqual(err('x'))
+    })
+
+    it('does not call right', () => {
+      expect(right).not.toBeCalled()
+    })
   })
 
-  it('between err and err', () => {
-    expect(andThen(err('a'), () => err('b'))).toEqual(err('a'))
+  describe('between err and err', () => {
+    const right = mkfn(err)
+    const result = andThen(err('x'), right)
+
+    it('returns expected value', () => {
+      expect(result).toEqual(err('x'))
+    })
+
+    it('does not call right', () => {
+      expect(right).not.toBeCalled()
+    })
   })
 })
