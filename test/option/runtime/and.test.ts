@@ -24,19 +24,66 @@ describe('and', () => {
 })
 
 describe('andThen', () => {
-  it('between some and some', () => {
-    expect(andThen(some('x'), x => some({ x }))).toEqual(some({ x: 'x' }))
+  const mkSomeFn = () => jest.fn((x: any) => some({ x }))
+  const mkNoneFn = () => jest.fn(none)
+
+  describe('between some and some', () => {
+    const right = mkSomeFn()
+    const result = andThen(some('x'), right)
+
+    it('returns expected value', () => {
+      expect(result).toEqual(some({ x: 'x' }))
+    })
+
+    it('calls right exactly once', () => {
+      expect(right).toBeCalledTimes(1)
+    })
+
+    it('calls right with contained value of left', () => {
+      expect(right).toBeCalledWith('x')
+    })
   })
 
-  it('between some and none', () => {
-    expect(andThen(some('x'), none)).toEqual(none())
+  describe('between some and none', () => {
+    const right = mkNoneFn()
+    const result = andThen(some('x'), right)
+
+    it('returns expected value', () => {
+      expect(result).toEqual(none())
+    })
+
+    it('calls right exactly once', () => {
+      expect(right).toBeCalledTimes(1)
+    })
+
+    it('calls right with contained value of left', () => {
+      expect(right).toBeCalledWith('x')
+    })
   })
 
-  it('between none and some', () => {
-    expect(andThen(none(), x => some({ x }))).toEqual(none())
+  describe('between none and some', () => {
+    const right = mkSomeFn()
+    const result = andThen(none(), right)
+
+    it('returns expected value', () => {
+      expect(result).toEqual(none())
+    })
+
+    it('does not call right', () => {
+      expect(right).not.toBeCalled()
+    })
   })
 
-  it('between none and none', () => {
-    expect(andThen(none(), none)).toEqual(none())
+  describe('between none and none', () => {
+    const right = mkNoneFn()
+    const result = andThen(none(), right)
+
+    it('returns expected value', () => {
+      expect(result).toEqual(none())
+    })
+
+    it('does not call right', () => {
+      expect(right).not.toBeCalled()
+    })
   })
 })
