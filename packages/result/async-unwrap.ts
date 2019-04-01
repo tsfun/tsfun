@@ -1,5 +1,5 @@
 import { AsyncResult, MaybePromise } from './utils/types'
-import { unwrap, unwrapOrElse } from './unwrap'
+import { unwrapOrElse } from './unwrap'
 
 /**
  * Return a promise that
@@ -9,7 +9,8 @@ import { unwrap, unwrapOrElse } from './unwrap'
  * @returns Promise that resolves carried payload
  */
 export const asyncUnwrap =
-  async <Payload = never> (result: AsyncResult<Payload, any>) => unwrap(await result)
+  async <Payload = never> (result: AsyncResult<Payload, any>) =>
+    unwrapOrElse(await result, async error => Promise.reject(await error))
 
 /**
  * Return a promise that
