@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expectSome works with None matches snapshot 1`] = `
+Object {
+  "error": [Error: Expecting Some but received None],
+  "tag": false,
+}
+`;
