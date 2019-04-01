@@ -26,8 +26,7 @@ const testCase = (
 
     describe('with a None', () => {
       it('throws provided error', async () => {
-        // tslint:disable-next-line:no-floating-promises
-        expect(asyncUnwrap(none())).rejects.toMatchSnapshot()
+        await expect(asyncUnwrap(none())).rejects.toMatchSnapshot()
       })
     })
   })
@@ -41,8 +40,7 @@ const testCase = (
 
     describe('with a None', () => {
       it('throws provided error', async () => {
-        // tslint:disable-next-line:no-floating-promises
-        expect(asyncUnwrapOrErr(none(), 'reason')).rejects.toBe('reason')
+        await expect(asyncUnwrapOrErr(none(), 'reason')).rejects.toBe('reason')
       })
     })
   })

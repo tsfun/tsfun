@@ -25,8 +25,7 @@ const testCase = (
 
     describe('with an Err', () => {
       it('throws carried error', async () => {
-        // tslint:disable-next-line:no-floating-promises
-        expect(asyncUnwrap(err('error'))).rejects.toBe('error')
+        await expect(asyncUnwrap(err('error'))).rejects.toBe('error')
       })
     })
   })
