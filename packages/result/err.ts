@@ -1,5 +1,7 @@
 import { Err } from '@tsfun/prv-option-result-common'
 
+export { Err }
+
 /**
  * Create an `Err`
  * @param error Error to carry
