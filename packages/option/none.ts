@@ -1,11 +1,6 @@
-import { Base } from './utils/types'
+import { None } from '@tsfun/prv-option-result-common'
 
-/**
- * Type of options that does not contain values
- */
-export interface None extends Base {
-  readonly tag: false
-}
+export { None }
 
 /**
  * Create a `None`

@@ -1,8 +1,4 @@
-import { Option } from '../option'
-
-export interface Base {
-  readonly tag: boolean
-}
+import { Option } from '@tsfun/prv-option-result-common'
 
 export type MaybePromise<Value> = Promise<Value> | Value
 

@@ -1,11 +1,4 @@
-import { None } from '@tsfun/option'
-
-/**
- * Type of result that carries error
- */
-export interface Err<Error> extends None {
-  readonly error: Error
-}
+import { Err } from '@tsfun/prv-option-result-common'
 
 /**
  * Create an `Err`

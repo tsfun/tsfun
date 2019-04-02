@@ -1,18 +1,16 @@
 dependencies:
-  '@tsfun/prv-option-result-common': 'link:../prv-option-result-common'
-  '@types/node': 11.11.1
+  '@types/node': 11.12.1
   tslib: 1.9.3
 lockfileVersion: 5
 packages:
-  /@types/node/11.11.1:
+  /@types/node/11.12.1:
     dev: false
     resolution:
-      integrity: sha512-2azXFP9n4aA2QNLkKm/F9pzKxgYj1SMawZ5Eh9iC21RH3XNcFsivLVU2NhpMgQm7YobSByvIol4c42ZFusXFHQ==
+      integrity: sha512-sKDlqv6COJrR7ar0+GqqhrXQDzQlMcqMnF2iEU6m9hLo8kxozoAGUazwPyELHlRVmjsbvlnGXjnzyptSXVmceA==
   /tslib/1.9.3:
     dev: false
     resolution:
       integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
 specifiers:
-  '@tsfun/prv-option-result-common': ^0.0.0
   '@types/node': ^11.11.1
   tslib: ^1.9.3

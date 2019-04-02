@@ -1,15 +1,12 @@
-import { Some, some } from '@tsfun/option'
+import { Ok, box } from '@tsfun/prv-option-result-common'
 
-/**
- * Type of result that carries payload
- */
-export interface Ok<Payload> extends Some<Payload> {}
+export { Ok }
 
 /**
  * Create an `Ok`
  * @param payload Payload to carry
  * @returns `Ok` of `payload`
  */
-export const ok: <Payload> (payload: Payload) => Ok<Payload> = some
+export const ok: <Payload> (payload: Payload) => Ok<Payload> = box
 
 export default ok

@@ -1,4 +1,4 @@
-import { Result } from '../result'
+import { Result } from '@tsfun/prv-option-result-common'
 
 export type MaybePromise<Value> = Promise<Value> | Value
 

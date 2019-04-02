@@ -1,7 +1,7 @@
 {
-  "name": "@tsfun/result",
+  "name": "@tsfun/prv-option-result-common",
   "version": "0.0.0",
-  "description": "Result in TypeScript",
+  "description": "Private common assets shared by @tsfun/option and @tsfun/result",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/tsfun/tsfun#readme",
@@ -12,16 +12,8 @@
   "bugs": {
     "url": "https://github.com/tsfun/tsfun/issues"
   },
-  "keywords": [
-    "pattern",
-    "match",
-    "result",
-    "ok",
-    "err"
-  ],
   "dependencies": {
     "tslib": "^1.9.3",
-    "@tsfun/prv-option-result-common": "^0.0.0",
     "@types/node": "^11.11.1"
   },
   "engines": {
