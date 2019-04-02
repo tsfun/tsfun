@@ -6,7 +6,7 @@ dependencies:
   '@types/minimatch': 3.0.3
   fs-extra: 7.0.1
   fs-tree-utils: 0.1.6
-  js-yaml: 3.12.2
+  js-yaml: 3.13.0
   minimatch: 3.0.4
   tslib: 1.9.3
 lockfileVersion: 5
@@ -99,14 +99,14 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
-  /js-yaml/3.12.2:
+  /js-yaml/3.13.0:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
     dev: false
     hasBin: true
     resolution:
-      integrity: sha512-QHn/Lh/7HhZ/Twc7vJYQTkjuCa0kaCcDcjK5Zlk2rvnUpy7DxMJ23+Jc2dcyvltwQVg1nygAVlB2oRDFHoRS5Q==
+      integrity: sha512-pZZoSxcCYco+DIKBTimr67J6Hy+EYGZDY/HCWC+iAEA9h1ByhMXAIVUXMcMFpOCxQ/xjXmPI2MkDL5HRm5eFrQ==
   /jsonfile/4.0.0:
     dev: false
     optionalDependencies:
@@ -157,6 +157,6 @@ specifiers:
   '@types/minimatch': ^3.0.3
   fs-extra: ^7.0.1
   fs-tree-utils: ^0.1.6
-  js-yaml: ^3.12.2
+  js-yaml: ^3.13.0
   minimatch: ^3.0.4
   tslib: ^1.9.3
