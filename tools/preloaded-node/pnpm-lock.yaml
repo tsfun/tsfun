@@ -5,7 +5,7 @@ dependencies:
   json5: 2.1.0
   ts-node: 8.0.3
   tslib: 1.9.3
-  typescript: 3.4.1
+  typescript: 3.3.3333
 lockfileVersion: 5
 packages:
   /@types/json5/0.0.30:
@@ -79,13 +79,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
-  /typescript/3.4.1:
+  /typescript/3.3.3333:
     dev: false
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-3NSMb2VzDQm8oBTLH6Nj55VVtUEpe/rgkIzMir0qVoLyjDZlnMBva0U6vDiV3IH+sl/Yu6oP5QwsAQtHPmDd2Q==
+      integrity: sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
   /yn/3.0.0:
     dev: false
     engines:
@@ -99,4 +99,4 @@ specifiers:
   json5: ^2.1.0
   ts-node: ^8.0.3
   tslib: ^1.9.3
-  typescript: ^3.4.1
+  typescript: 3.3.3333

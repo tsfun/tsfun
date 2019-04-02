@@ -6,7 +6,7 @@ devDependencies:
   toolcheck: 0.0.5
   tslint: 5.15.0
   tslint-config-standard: 8.0.1
-  typescript: 3.4.1
+  typescript: 3.3.3333
 lockfileVersion: 5
 packages:
   /@types/cosmiconfig/5.0.3:
@@ -1666,13 +1666,13 @@ packages:
       node: '>= 0.8.0'
     resolution:
       integrity: sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
-  /typescript/3.4.1:
+  /typescript/3.3.3333:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-3NSMb2VzDQm8oBTLH6Nj55VVtUEpe/rgkIzMir0qVoLyjDZlnMBva0U6vDiV3IH+sl/Yu6oP5QwsAQtHPmDd2Q==
+      integrity: sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
   /uniq/1.0.1:
     dev: true
     resolution:
@@ -1727,4 +1727,4 @@ specifiers:
   toolcheck: ^0.0.5
   tslint: ^5.15.0
   tslint-config-standard: ^8.0.1
-  typescript: ^3.4.1
+  typescript: 3.3.3333

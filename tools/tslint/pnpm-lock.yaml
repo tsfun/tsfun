@@ -3,7 +3,7 @@ dependencies:
   exec-inline: 0.0.2
   tslint: 5.15.0
   tslint-config-standard: 8.0.1
-  typescript: 3.4.1
+  typescript: 3.3.3333
 lockfileVersion: 5
 packages:
   /@types/node/10.12.30:
@@ -342,13 +342,13 @@ packages:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev'
     resolution:
       integrity: sha512-CvWEadl8VwlxOq6F3hfNbGrrRVSAjN2EPCEBgcbCUVDUxmwkV5254OGKsITNxDz8IGDQPAw7YJMtBHniHu2tbA==
-  /typescript/3.4.1:
+  /typescript/3.3.3333:
     dev: false
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-3NSMb2VzDQm8oBTLH6Nj55VVtUEpe/rgkIzMir0qVoLyjDZlnMBva0U6vDiV3IH+sl/Yu6oP5QwsAQtHPmDd2Q==
+      integrity: sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
   /wrappy/1.0.2:
     dev: false
     resolution:
@@ -358,4 +358,4 @@ specifiers:
   exec-inline: ^0.0.2
   tslint: ^5.15.0
   tslint-config-standard: ^8.0.1
-  typescript: ^3.4.1
+  typescript: 3.3.3333

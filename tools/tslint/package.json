@@ -7,7 +7,7 @@
   "dependencies": {
     "tslint": "^5.15.0",
     "tslint-config-standard": "^8.0.1",
-    "typescript": "^3.4.1",
+    "typescript": "3.3.3333",
     "exec-inline": "^0.0.2",
     "@tools/places": "file:../places"
   }

@@ -12,7 +12,7 @@
     "babel-jest": "^24.6.0",
     "yaml-jest": "^1.0.5",
     "ts-jest": "^24.0.1",
-    "typescript": "^3.4.1",
+    "typescript": "3.3.3333",
     "tslib": "^1.9.3",
     "parse-dependency-range": "^0.0.2",
     "convenient-typescript-utilities": "^0.0.3",

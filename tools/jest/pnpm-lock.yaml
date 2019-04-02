@@ -11,7 +11,7 @@ dependencies:
   semver: 6.0.0
   ts-jest: 24.0.1
   tslib: 1.9.3
-  typescript: 3.4.1
+  typescript: 3.3.3333
   yaml-jest: 1.0.5
 lockfileVersion: 5
 packages:
@@ -1954,6 +1954,7 @@ packages:
       browser-resolve: 1.11.3
       chalk: 2.4.2
       jest-pnp-resolver: 1.2.1_jest-resolve@24.6.0
+      jest-resolve: 24.6.0_jest-resolve@24.6.0
       realpath-native: 1.1.0
     dev: false
     engines:
@@ -3472,13 +3473,13 @@ packages:
       node: '>= 0.8.0'
     resolution:
       integrity: sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
-  /typescript/3.4.1:
+  /typescript/3.3.3333:
     dev: false
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-3NSMb2VzDQm8oBTLH6Nj55VVtUEpe/rgkIzMir0qVoLyjDZlnMBva0U6vDiV3IH+sl/Yu6oP5QwsAQtHPmDd2Q==
+      integrity: sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
   /uglify-js/3.4.9:
     dependencies:
       commander: 2.17.1
@@ -3706,5 +3707,5 @@ specifiers:
   semver: ^6.0.0
   ts-jest: ^24.0.1
   tslib: ^1.9.3
-  typescript: ^3.4.1
+  typescript: 3.3.3333
   yaml-jest: ^1.0.5
