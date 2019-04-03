@@ -1,16 +1,16 @@
 {
-  "name": "@tsfun/result",
+  "name": "@ts-fun/result",
   "version": "0.0.0",
   "description": "Result in TypeScript",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/tsfun/tsfun#readme",
+  "homepage": "https://github.com/ts-fun/ts-fun#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tsfun/tsfun.git"
+    "url": "git+https://github.com/ts-fun/ts-fun.git"
   },
   "bugs": {
-    "url": "https://github.com/tsfun/tsfun/issues"
+    "url": "https://github.com/ts-fun/ts-fun/issues"
   },
   "keywords": [
     "pattern",
@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "tslib": "^1.9.3",
-    "@tsfun/prv-option-result-common": "^0.0.0",
+    "@ts-fun/prv-option-result-common": "^0.0.0",
     "@types/node": "^11.13.0"
   },
   "engines": {

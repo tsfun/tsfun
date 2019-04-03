@@ -1,4 +1,4 @@
-import { match, ok, err } from '@tsfun/result'
+import { match, ok, err } from '@ts-fun/result'
 
 const fns = () => ({
   ok: jest.fn((x: string) => `Ok "${x}"`),

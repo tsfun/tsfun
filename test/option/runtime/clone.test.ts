@@ -1,4 +1,4 @@
-import { Option, clone, some, none } from '@tsfun/option'
+import { Option, clone, some, none } from '@ts-fun/option'
 
 const init = <X = never> (original: Option<X>) => ({ original, copy: clone(original) })
 

@@ -1,7 +1,7 @@
 dependencies:
-  '@tsfun/option': 'link:../../packages/option'
-  '@tsfun/pipe': 'link:../../packages/pipe'
-  '@tsfun/result': 'link:../../packages/result'
+  '@ts-fun/option': 'link:../../packages/option'
+  '@ts-fun/pipe': 'link:../../packages/pipe'
+  '@ts-fun/result': 'link:../../packages/result'
   extra-jest: 0.0.25
   iter-tools: 6.2.4
   static-type-assert: 3.0.1
@@ -250,9 +250,9 @@ packages:
     resolution:
       integrity: sha512-GyH068kJf7c4vhfqj4aCM5X+TeV8jG2iPFLimpGpnQ7dvKfogZOHfiYxMww/nGEfMm/bEmnVbeZGO1see1OVKg==
 specifiers:
-  '@tsfun/option': 'file:../../packages/option'
-  '@tsfun/pipe': 'file:../../packages/pipe'
-  '@tsfun/result': 'file:../../packages/result'
+  '@ts-fun/option': 'file:../../packages/option'
+  '@ts-fun/pipe': 'file:../../packages/pipe'
+  '@ts-fun/result': 'file:../../packages/result'
   extra-jest: ^0.0.25
   iter-tools: ^6.2.4
   static-type-assert: ^3.0.1

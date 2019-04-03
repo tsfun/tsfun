@@ -4,9 +4,9 @@ import {
   expectSomeOrElse,
   ok,
   err
-} from '@tsfun/result'
+} from '@ts-fun/result'
 
-import { some, none } from '@tsfun/option'
+import { some, none } from '@ts-fun/option'
 
 describe('expectSome', () => {
   it('works with Some', () => {

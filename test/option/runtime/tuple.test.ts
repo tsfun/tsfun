@@ -1,4 +1,4 @@
-import { tuple, some, none } from '@tsfun/option'
+import { tuple, some, none } from '@ts-fun/option'
 
 it('tuple(some(x)) should be [x]', () => {
   expect(tuple(some('x'))).toEqual(['x'])

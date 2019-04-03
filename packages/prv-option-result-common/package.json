@@ -1,16 +1,16 @@
 {
-  "name": "@tsfun/prv-option-result-common",
+  "name": "@ts-fun/prv-option-result-common",
   "version": "0.0.0",
-  "description": "Private common assets shared by @tsfun/option and @tsfun/result",
+  "description": "Private common assets shared by @ts-fun/option and @ts-fun/result",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/tsfun/tsfun#readme",
+  "homepage": "https://github.com/ts-fun/ts-fun#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tsfun/tsfun.git"
+    "url": "git+https://github.com/ts-fun/ts-fun.git"
   },
   "bugs": {
-    "url": "https://github.com/tsfun/tsfun/issues"
+    "url": "https://github.com/ts-fun/ts-fun/issues"
   },
   "dependencies": {
     "tslib": "^1.9.3",

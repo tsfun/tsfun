@@ -1,5 +1,5 @@
-import { Result, map, mapErr, mapOrElse, ok, err } from '@tsfun/result'
-import { pass, pipe } from '@tsfun/pipe'
+import { Result, map, mapErr, mapOrElse, ok, err } from '@ts-fun/result'
+import { pass, pipe } from '@ts-fun/pipe'
 
 describe('map', () => {
   describe('standalone', () => {
@@ -14,7 +14,7 @@ describe('map', () => {
     })
   })
 
-  describe('@tsfun/pipe', () => {
+  describe('@ts-fun/pipe', () => {
     describe('pass', () => {
       it('from Ok to Ok', () => {
         const result = pass(ok(3))
@@ -63,7 +63,7 @@ describe('mapErr', () => {
     })
   })
 
-  describe('@tsfun/pipe', () => {
+  describe('@ts-fun/pipe', () => {
     describe('pass', () => {
       it('from Ok to Ok', () => {
         const result = pass(ok(3))
@@ -113,7 +113,7 @@ describe('mapOrElse', () => {
     })
   })
 
-  describe('@tsfun/pipe', () => {
+  describe('@ts-fun/pipe', () => {
     describe('pass', () => {
       it('works with Ok', () => {
         const result = pass(ok('x'))

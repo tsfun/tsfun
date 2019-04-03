@@ -1,5 +1,5 @@
 dependencies:
-  '@tsfun/apply': 'link:../../packages/apply'
+  '@ts-fun/apply': 'link:../../packages/apply'
   static-type-assert: 3.0.1
 lockfileVersion: 5
 packages:
@@ -22,5 +22,5 @@ packages:
     resolution:
       integrity: sha512-zXFars5LUkI3zP492ls0VskH3TtdeHCqu0i7/duGt60i5IGPIpAHE/DWo5FqJ6EjQ15YKXrt+AETjv60Dat34Q==
 specifiers:
-  '@tsfun/apply': 'file:../../packages/apply'
+  '@ts-fun/apply': 'file:../../packages/apply'
   static-type-assert: ^3.0.1

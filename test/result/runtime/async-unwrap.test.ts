@@ -6,7 +6,7 @@ import {
   asyncUnwrapOrElse,
   ok,
   err
-} from '@tsfun/result'
+} from '@ts-fun/result'
 
 type MaybePromise<X> = X | Promise<X>
 type AsyncOk<X> = MaybePromise<Ok<MaybePromise<X>>>

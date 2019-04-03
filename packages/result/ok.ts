@@ -1,4 +1,4 @@
-import { Ok, box } from '@tsfun/prv-option-result-common'
+import { Ok, box } from '@ts-fun/prv-option-result-common'
 
 export { Ok }
 

@@ -2,6 +2,6 @@
   "private": true,
   "dependencies": {
     "static-type-assert": "^3.0.1",
-    "@tsfun/pipe": "file:../../packages/pipe"
+    "@ts-fun/pipe": "file:../../packages/pipe"
   }
 }

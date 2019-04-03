@@ -1,4 +1,4 @@
-import { Err } from '@tsfun/prv-option-result-common'
+import { Err } from '@ts-fun/prv-option-result-common'
 
 export { Err }
 

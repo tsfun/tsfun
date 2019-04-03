@@ -3,7 +3,7 @@ import {
   none,
   and,
   andThen
-} from '@tsfun/option'
+} from '@ts-fun/option'
 
 describe('and', () => {
   it('between some and some', () => {

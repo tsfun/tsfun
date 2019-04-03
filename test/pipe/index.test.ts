@@ -1,4 +1,4 @@
-import { pass, pipe } from '@tsfun/pipe'
+import { pass, pipe } from '@ts-fun/pipe'
 
 describe('without extra arguments', () => {
   const increase = (x: number) => x + 1

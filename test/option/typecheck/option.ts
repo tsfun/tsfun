@@ -1,5 +1,5 @@
 import assert from 'static-type-assert'
-import { Option, Some, None, option } from '@tsfun/option'
+import { Option, Some, None, option } from '@ts-fun/option'
 
 assert<Some<'x'>>(option('x' as 'x'))
 assert<Some<0>>(option(0 as 0))

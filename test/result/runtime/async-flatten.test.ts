@@ -1,13 +1,13 @@
 import { product } from 'iter-tools'
 
-import { pass } from '@tsfun/pipe'
+import { pass } from '@ts-fun/pipe'
 
 import {
   asyncFlatten,
   asyncFlattenError,
   ok,
   err
-} from '@tsfun/result'
+} from '@ts-fun/result'
 
 type MaybePromise<X> = X | Promise<X>
 type RetFn = <X> (x: MaybePromise<X>) => MaybePromise<X>

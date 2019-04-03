@@ -1,4 +1,4 @@
-import { flatten, some, none } from '@tsfun/option'
+import { flatten, some, none } from '@ts-fun/option'
 
 it('works with Some<Some<X>>', () => {
   expect(flatten(some(some('x')))).toEqual(some('x'))

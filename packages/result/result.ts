@@ -1,1 +1,1 @@
-export { Result } from '@tsfun/prv-option-result-common'
+export { Result } from '@ts-fun/prv-option-result-common'

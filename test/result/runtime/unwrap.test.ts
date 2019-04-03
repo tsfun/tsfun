@@ -7,7 +7,7 @@ import {
   unwrapOrElse,
   ok,
   err
-} from '@tsfun/result'
+} from '@ts-fun/result'
 
 describe('unwrap', () => {
   describe('with an Ok', () => {

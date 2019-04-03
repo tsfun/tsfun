@@ -1,4 +1,4 @@
-import { ok } from '@tsfun/result'
+import { ok } from '@ts-fun/result'
 
 it('works', () => {
   expect(ok('payload')).toEqual({ tag: true, value: 'payload' })

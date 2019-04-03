@@ -1,4 +1,4 @@
-import { Result } from '@tsfun/prv-option-result-common'
+import { Result } from '@ts-fun/prv-option-result-common'
 import { Option } from './option'
 
 /**

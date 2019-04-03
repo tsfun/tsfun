@@ -1,4 +1,4 @@
-import { Result, clone, ok, err } from '@tsfun/result'
+import { Result, clone, ok, err } from '@ts-fun/result'
 
 const init = <X = never, E = never> (original: Result<X, E>) => ({ original, copy: clone(original) })
 
