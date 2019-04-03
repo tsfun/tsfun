@@ -1,5 +1,5 @@
 {
-  "name": "ts-fun",
+  "name": "@ts-fun/all",
   "version": "0.0.0",
   "description": "Functional Programming in TypeScript without class methods",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
