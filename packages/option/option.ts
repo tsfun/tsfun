@@ -1,10 +1,8 @@
+import { Option } from '@tsfun/prv-option-result-common'
 import { Some, some } from './some'
 import { None, none } from './none'
 
-/**
- * Option type
- */
-export type Option<Value> = Some<Value> | None
+export { Option }
 
 /**
  * Turn `null` or `undefined` into a `None`
