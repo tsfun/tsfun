@@ -1,4 +1,5 @@
-import { Option, Result } from '@tsfun/prv-option-result-common'
+import { Result } from '@tsfun/prv-option-result-common'
+import { Option } from './option'
 
 /**
  * Convert `ok(x)` to an `some(x)`
