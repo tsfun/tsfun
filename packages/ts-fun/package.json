@@ -1,0 +1,32 @@
+{
+  "name": "ts-fun",
+  "version": "0.0.0",
+  "description": "Functional Programming in TypeScript without class methods",
+  "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ts-fun/ts-fun#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ts-fun/ts-fun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ts-fun/ts-fun/issues"
+  },
+  "keywords": [
+    "pattern",
+    "matching",
+    "pipeline",
+    "typescript"
+  ],
+  "dependencies": {
+    "tslib": "^1.9.3",
+    "@ts-fun/apply": "^0.0.0",
+    "@ts-fun/pipe": "^0.0.0",
+    "@ts-fun/option": "^0.0.0",
+    "@ts-fun/result": "^0.0.0",
+    "@types/node": "^11.13.0"
+  },
+  "engines": {
+    "node": ">= 8.9.0"
+  }
+}
