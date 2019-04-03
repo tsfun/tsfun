@@ -1,6 +1,7 @@
 export * from './option'
 export * from './some'
 export * from './none'
+export * from './expect-ok'
 export * from './and'
 export * from './or'
 export * from './flatten'

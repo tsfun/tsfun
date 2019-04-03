@@ -1,5 +1,4 @@
-import { Option } from '@tsfun/prv-option-result-common'
-import { Result } from './result'
+import { Option, Result } from '@tsfun/prv-option-result-common'
 
 /**
  * Convert `ok(x)` to an `some(x)`
@@ -10,6 +9,6 @@ import { Result } from './result'
  * In reality, this function merely returns the same object it takes
  * since `Result` interface is compatible with `Option`
  */
-export const option = <Payload = never> (result: Result<Payload, any>): Option<Payload> => result
+export const expectOk = <Payload = never> (result: Result<Payload, any>): Option<Payload> => result
 
-export default option
+export default expectOk

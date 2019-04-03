@@ -5,6 +5,7 @@
     "extra-jest": "^0.0.25",
     "static-type-assert": "^3.0.1",
     "@tsfun/option": "file:../../packages/option",
+    "@tsfun/result": "file:../../packages/result",
     "@tsfun/pipe": "file:../../packages/pipe"
   }
 }
