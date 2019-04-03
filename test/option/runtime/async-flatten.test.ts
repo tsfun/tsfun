@@ -6,7 +6,7 @@ import {
   asyncFlatten,
   some,
   none
-} from '@ts-fun/option'
+} from '@tsfun/option'
 
 type MaybePromise<X> = X | Promise<X>
 type AsyncSome<X> = MaybePromise<Some<MaybePromise<X>>>

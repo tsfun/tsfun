@@ -1,16 +1,16 @@
 {
-  "name": "@ts-fun/apply",
+  "name": "@tsfun/apply",
   "version": "0.0.0",
   "description": "Apply/unapply functions on/to array of arguments",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/ts-fun/ts-fun#readme",
+  "homepage": "https://github.com/tsfun/tsfun#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ts-fun/ts-fun.git"
+    "url": "git+https://github.com/tsfun/tsfun.git"
   },
   "bugs": {
-    "url": "https://github.com/ts-fun/ts-fun/issues"
+    "url": "https://github.com/tsfun/tsfun/issues"
   },
   "keywords": [
     "apply",

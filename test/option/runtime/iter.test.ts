@@ -1,4 +1,4 @@
-import { iter, some, none } from '@ts-fun/option'
+import { iter, some, none } from '@tsfun/option'
 
 describe('iter(some(x)) should return iterator that only yields x once', () => {
   it('.next()', () => {

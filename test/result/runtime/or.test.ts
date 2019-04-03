@@ -4,7 +4,7 @@ import {
   orElse,
   ok,
   err
-} from '@ts-fun/result'
+} from '@tsfun/result'
 
 describe('or', () => {
   it('between ok or ok', () => {

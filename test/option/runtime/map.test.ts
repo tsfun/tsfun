@@ -1,5 +1,5 @@
-import { Option, map, some, none } from '@ts-fun/option'
-import { pass, pipe } from '@ts-fun/pipe'
+import { Option, map, some, none } from '@tsfun/option'
+import { pass, pipe } from '@tsfun/pipe'
 
 describe('standalone', () => {
   const fn = <X> (x: X) => [x]
@@ -13,7 +13,7 @@ describe('standalone', () => {
   })
 })
 
-describe('@ts-fun/pipe', () => {
+describe('@tsfun/pipe', () => {
   describe('pass', () => {
     it('from Some to Some', () => {
       const result = pass(some(3))

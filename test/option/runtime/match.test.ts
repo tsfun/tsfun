@@ -1,4 +1,4 @@
-import { match, some, none } from '@ts-fun/option'
+import { match, some, none } from '@tsfun/option'
 
 const fns = () => ({
   some: jest.fn((x: string) => `Some "${x}"`),

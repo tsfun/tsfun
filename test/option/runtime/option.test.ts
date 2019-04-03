@@ -1,4 +1,4 @@
-import { option, some, none } from '@ts-fun/option'
+import { option, some, none } from '@tsfun/option'
 
 it('null and undefined', () => {
   expect({

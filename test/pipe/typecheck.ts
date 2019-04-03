@@ -1,5 +1,5 @@
 import assert from 'static-type-assert'
-import { pass, pipe } from '@ts-fun/pipe'
+import { pass, pipe } from '@tsfun/pipe'
 
 declare const x0: 0
 declare const f0t1: (x: 0) => 1

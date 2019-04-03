@@ -1,5 +1,5 @@
-import { ok, err } from '@ts-fun/result'
-import { expectOk, some, none } from '@ts-fun/option'
+import { ok, err } from '@tsfun/result'
+import { expectOk, some, none } from '@tsfun/option'
 
 it('from Ok to Some', () => {
   expect(expectOk(ok('x'))).toMatchObject(some('x'))

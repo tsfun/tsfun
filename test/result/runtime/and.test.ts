@@ -4,7 +4,7 @@ import {
   andThen,
   ok,
   err
-} from '@ts-fun/result'
+} from '@tsfun/result'
 
 describe('and', () => {
   it('between ok and ok', () => {

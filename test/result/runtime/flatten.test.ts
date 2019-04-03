@@ -1,4 +1,4 @@
-import { flatten, flattenError, ok, err } from '@ts-fun/result'
+import { flatten, flattenError, ok, err } from '@tsfun/result'
 
 describe('flatten', () => {
   it('works with Ok<Ok<X>>', () => {

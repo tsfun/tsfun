@@ -2,6 +2,6 @@
   "private": true,
   "dependencies": {
     "static-type-assert": "^3.0.1",
-    "@ts-fun/apply": "file:../../packages/apply"
+    "@tsfun/apply": "file:../../packages/apply"
   }
 }

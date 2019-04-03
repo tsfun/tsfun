@@ -1,8 +1,8 @@
 dependencies:
-  '@ts-fun/apply': 'link:../apply'
-  '@ts-fun/option': 'link:../option'
-  '@ts-fun/pipe': 'link:../pipe'
-  '@ts-fun/result': 'link:../result'
+  '@tsfun/apply': 'link:../apply'
+  '@tsfun/option': 'link:../option'
+  '@tsfun/pipe': 'link:../pipe'
+  '@tsfun/result': 'link:../result'
   '@types/node': 11.13.0
   tslib: 1.9.3
 lockfileVersion: 5
@@ -16,9 +16,9 @@ packages:
     resolution:
       integrity: sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
 specifiers:
-  '@ts-fun/apply': ^0.0.0
-  '@ts-fun/option': ^0.0.0
-  '@ts-fun/pipe': ^0.0.0
-  '@ts-fun/result': ^0.0.0
+  '@tsfun/apply': ^0.0.0
+  '@tsfun/option': ^0.0.0
+  '@tsfun/pipe': ^0.0.0
+  '@tsfun/result': ^0.0.0
   '@types/node': ^11.13.0
   tslib: ^1.9.3

@@ -1,4 +1,4 @@
-import { None } from '@ts-fun/prv-option-result-common'
+import { None } from '@tsfun/prv-option-result-common'
 
 export { None }
 

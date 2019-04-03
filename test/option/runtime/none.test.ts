@@ -1,4 +1,4 @@
-import { none } from '@ts-fun/option'
+import { none } from '@tsfun/option'
 
 it('works', () => {
   expect(none()).toEqual({ tag: false })

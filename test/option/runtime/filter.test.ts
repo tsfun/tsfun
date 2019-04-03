@@ -1,4 +1,4 @@
-import { filter, some, none } from '@ts-fun/option'
+import { filter, some, none } from '@tsfun/option'
 
 it('works with Some', () => {
   const isEven = (x: number) => x % 2 === 0

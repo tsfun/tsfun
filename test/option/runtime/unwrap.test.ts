@@ -8,7 +8,7 @@ import {
   unwrapOrElse,
   some,
   none
-} from '@ts-fun/option'
+} from '@tsfun/option'
 
 describe('unwrap', () => {
   describe('with a Some', () => {

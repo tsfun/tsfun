@@ -1,4 +1,4 @@
-import { flip, ok, err } from '@ts-fun/result'
+import { flip, ok, err } from '@tsfun/result'
 
 it('flips an ok into an err', () => {
   expect(flip(ok('x'))).toEqual(err('x'))
