@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/option",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Option in TypeScript",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "tslib": "^1.9.3",
-    "@tsfun/prv-option-result-common": "^0.0.0",
+    "@tsfun/prv-option-result-common": "^0.0.1",
     "@types/node": "^11.13.0"
   },
   "engines": {
