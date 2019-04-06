@@ -19,6 +19,6 @@ specifiers:
   '@tsfun/apply': ^0.0.0
   '@tsfun/option': ^0.0.1
   '@tsfun/pipe': ^0.0.0
-  '@tsfun/result': ^0.0.1
+  '@tsfun/result': ^0.0.2
   '@types/node': ^11.13.0
   tslib: ^1.9.3
