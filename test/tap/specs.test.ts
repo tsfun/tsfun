@@ -1,4 +1,4 @@
-import tap from '@tsfun/tap'
+import { tap } from '@tsfun/tap'
 
 const value = Symbol('value')
 

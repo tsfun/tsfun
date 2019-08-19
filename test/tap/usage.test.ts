@@ -1,5 +1,5 @@
 import { pass } from '@tsfun/pipe'
-import tap from '@tsfun/tap'
+import { tap } from '@tsfun/tap'
 
 describe('@tsfun/pipe → pass → logging', () => {
   const setup = () => {

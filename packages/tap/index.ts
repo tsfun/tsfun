@@ -23,5 +23,3 @@ export function tap<Value> (value: Value, ...fns: SideEffect<Value>[]): Value {
   fns.forEach(fn => fn(value))
   return value
 }
-
-export default tap
