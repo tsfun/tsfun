@@ -1,7 +1,7 @@
 dependencies:
   '@tsfun/pipe': 'link:../../packages/pipe'
   static-type-assert: 3.0.1
-lockfileVersion: 5
+lockfileVersion: 5.1
 packages:
   /static-type-assert/3.0.1:
     dependencies:
