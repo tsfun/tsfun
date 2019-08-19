@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@tsfun/pipe → pass → logging produces logs that matches snapshot 1`] = `
+Array [
+  Object {
+    "id": "begin",
+    "value": 2,
+  },
+  Object {
+    "id": "inc",
+    "value": 3,
+  },
+  Object {
+    "id": "double",
+    "value": 6,
+  },
+  Object {
+    "id": "square",
+    "value": 36,
+  },
+]
+`;
+
+exports[`@tsfun/pipe → pass → logging returns value that matches snapshot 1`] = `36`;

@@ -1,0 +1,7 @@
+dependencies:
+  '@tsfun/pipe': 'link:../../packages/pipe'
+  '@tsfun/tap': 'link:../../packages/tap'
+lockfileVersion: 5.1
+specifiers:
+  '@tsfun/pipe': 'file:../../packages/pipe'
+  '@tsfun/tap': 'file:../../packages/tap'
