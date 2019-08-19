@@ -18,9 +18,9 @@ packages:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
   '@tsfun/apply': ^0.0.0
-  '@tsfun/option': ^0.0.1
-  '@tsfun/pipe': ^0.0.0
-  '@tsfun/result': ^0.0.2
+  '@tsfun/option': ^0.0.2
+  '@tsfun/pipe': ^0.0.1
+  '@tsfun/result': ^0.0.3
   '@tsfun/tap': ^0.0.0
   '@types/node': ^12.7.2
   tslib: ^1.10.0
