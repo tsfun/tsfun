@@ -1,4 +1,8 @@
 export interface SideEffect<Value> {
+  /**
+   * Side effect function
+   * @param value Value from pipeline
+   */
   (value: Value): void
 }
 
@@ -25,6 +29,11 @@ export function tap<Value> (value: Value, ...fns: SideEffect<Value>[]): Value {
 }
 
 export interface Tapper<Value> {
+  /**
+   * Executes all side-effects and return `value`
+   * @param value Value from pipeline
+   * @returns `value`
+   */
   <Sub extends Value> (value: Sub): Sub
 }
 
