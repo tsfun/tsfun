@@ -2,6 +2,7 @@
   "private": true,
   "dependencies": {
     "@tsfun/pipe": "file:../../packages/pipe",
+    "@tsfun/result": "file:../../packages/result",
     "@tsfun/tap": "file:../../packages/tap"
   }
 }

@@ -1,7 +1,9 @@
 dependencies:
   '@tsfun/pipe': 'link:../../packages/pipe'
+  '@tsfun/result': 'link:../../packages/result'
   '@tsfun/tap': 'link:../../packages/tap'
 lockfileVersion: 5.1
 specifiers:
   '@tsfun/pipe': 'file:../../packages/pipe'
+  '@tsfun/result': 'file:../../packages/result'
   '@tsfun/tap': 'file:../../packages/tap'

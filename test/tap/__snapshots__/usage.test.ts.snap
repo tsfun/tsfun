@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@tsfun/pipe → pass → logging produces logs that matches snapshot 1`] = `
+exports[`tap: @tsfun/pipe → pass → logging produces logs that matches snapshot 1`] = `
 Array [
   Object {
     "id": "begin",
@@ -21,4 +21,44 @@ Array [
 ]
 `;
 
-exports[`@tsfun/pipe → pass → logging returns value that matches snapshot 1`] = `36`;
+exports[`tap: @tsfun/pipe → pass → logging returns value that matches snapshot 1`] = `36`;
+
+exports[`tapper: @tsfun/result → map + mapErr → logging err("err") produces logs that matches snapshot 1`] = `
+Array [
+  Object {
+    "id": "before",
+    "input.error": "err",
+  },
+  Object {
+    "id": "after",
+    "input.error": "ERR",
+  },
+]
+`;
+
+exports[`tapper: @tsfun/result → map + mapErr → logging err("err") returns value that matches snapshot 1`] = `
+Object {
+  "error": "ERR",
+  "tag": false,
+}
+`;
+
+exports[`tapper: @tsfun/result → map + mapErr → logging ok("ok") produces logs that matches snapshot 1`] = `
+Array [
+  Object {
+    "id": "before",
+    "input.value": "ok",
+  },
+  Object {
+    "id": "after",
+    "input.value": "OK",
+  },
+]
+`;
+
+exports[`tapper: @tsfun/result → map + mapErr → logging ok("ok") returns value that matches snapshot 1`] = `
+Object {
+  "tag": true,
+  "value": "OK",
+}
+`;
