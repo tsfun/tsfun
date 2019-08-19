@@ -24,6 +24,7 @@
     "@tsfun/pipe": "^0.0.0",
     "@tsfun/option": "^0.0.1",
     "@tsfun/result": "^0.0.2",
+    "@tsfun/tap": "^0.0.0",
     "@types/node": "^12.7.2"
   },
   "engines": {

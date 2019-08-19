@@ -1,4 +1,5 @@
 dependencies:
+  '@tsfun/tap': 'link:../tap'
   '@types/node': 12.7.2
   tslib: 1.10.0
 lockfileVersion: 5.1
@@ -12,5 +13,6 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
+  '@tsfun/tap': ^0.0.0
   '@types/node': ^12.7.2
   tslib: ^1.10.0

@@ -9,3 +9,6 @@ export { option }
 
 import * as result from '@tsfun/result'
 export { result }
+
+import * as tap from '@tsfun/tap'
+export { tap }

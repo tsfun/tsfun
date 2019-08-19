@@ -1,3 +1,5 @@
+export * from '@tsfun/tap'
+
 class PipeNode<Args extends any[], Return> {
   /**
    * Resulting function of the pipeline
