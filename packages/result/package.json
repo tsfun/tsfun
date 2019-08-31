@@ -19,6 +19,7 @@
     "ok",
     "err"
   ],
+  "sideEffects": false,
   "dependencies": {
     "tslib": "^1.10.0",
     "@tsfun/prv-option-result-common": "^0.0.1",

@@ -16,6 +16,7 @@
     "pipe",
     "pipeline"
   ],
+  "sideEffects": false,
   "dependencies": {
     "tslib": "^1.10.0",
     "@tsfun/tap": "^0.0.0",
