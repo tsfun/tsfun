@@ -14,7 +14,7 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
-  '@tsfun/prv-option-result-common': ^0.0.1
-  '@tsfun/tap': ^0.0.0
+  '@tsfun/prv-option-result-common': ^0.0.2
+  '@tsfun/tap': ^0.0.1
   '@types/node': ^12.7.2
   tslib: ^1.10.0
