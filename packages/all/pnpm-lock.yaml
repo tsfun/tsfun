@@ -1,5 +1,6 @@
 dependencies:
   '@tsfun/apply': 'link:../apply'
+  '@tsfun/object': 'link:../object'
   '@tsfun/option': 'link:../option'
   '@tsfun/pipe': 'link:../pipe'
   '@tsfun/result': 'link:../result'
@@ -18,6 +19,7 @@ packages:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
   '@tsfun/apply': ^0.0.1
+  '@tsfun/object': ^0.0.0
   '@tsfun/option': ^0.0.3
   '@tsfun/pipe': ^0.0.2
   '@tsfun/result': ^0.0.4

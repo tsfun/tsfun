@@ -10,5 +10,8 @@ export { option }
 import * as result from '@tsfun/result'
 export { result }
 
+import * as object from '@tsfun/object'
+export { object }
+
 import * as tap from '@tsfun/tap'
 export { tap }
