@@ -24,7 +24,7 @@
     "tslib": "^1.10.0",
     "@tsfun/prv-option-result-common": "^0.0.2",
     "@tsfun/tap": "^0.0.1",
-    "@types/node": "^12.7.2"
+    "@types/node": "^12.7.4"
   },
   "engines": {
     "node": ">= 8.9.0"
