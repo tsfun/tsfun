@@ -1,11 +1,4 @@
 dependencies:
-  '@tsfun/apply': 'link:../apply'
-  '@tsfun/curry': 'link:../curry'
-  '@tsfun/object': 'link:../object'
-  '@tsfun/option': 'link:../option'
-  '@tsfun/pipe': 'link:../pipe'
-  '@tsfun/result': 'link:../result'
-  '@tsfun/tap': 'link:../tap'
   '@types/node': 12.7.4
   tslib: 1.10.0
 lockfileVersion: 5.1
@@ -19,12 +12,5 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
-  '@tsfun/apply': ^0.0.1
-  '@tsfun/curry': ^0.0.0
-  '@tsfun/object': ^0.0.0
-  '@tsfun/option': ^0.0.3
-  '@tsfun/pipe': ^0.0.2
-  '@tsfun/result': ^0.0.4
-  '@tsfun/tap': ^0.0.1
   '@types/node': ^12.7.4
   tslib: ^1.10.0

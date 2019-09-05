@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "dependencies": {
+    "static-type-assert": "^3.0.1",
+    "@tsfun/pipe": "file:../../packages/pipe",
+    "@tsfun/curry": "file:../../packages/curry"
+  }
+}
