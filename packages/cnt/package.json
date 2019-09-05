@@ -1,0 +1,19 @@
+{
+  "name": "@tsfun/cnt",
+  "version": "0.0.0",
+  "description": "Turn a value into a function that returns the value",
+  "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/tsfun/tsfun#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsfun/tsfun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsfun/tsfun/issues"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0",
+    "@types/node": "^12.7.4"
+  }
+}

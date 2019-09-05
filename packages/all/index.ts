@@ -4,6 +4,9 @@ export { apply }
 import * as curry from '@tsfun/curry'
 export { curry }
 
+import * as cnt from '@tsfun/cnt'
+export { cnt }
+
 import * as pipe from '@tsfun/pipe'
 export { pipe }
 
