@@ -2,6 +2,7 @@ dependencies:
   '@tsfun/apply': 'link:../apply'
   '@tsfun/cnt': 'link:../cnt'
   '@tsfun/curry': 'link:../curry'
+  '@tsfun/id': 'link:../id'
   '@tsfun/object': 'link:../object'
   '@tsfun/option': 'link:../option'
   '@tsfun/pipe': 'link:../pipe'
@@ -23,6 +24,7 @@ specifiers:
   '@tsfun/apply': ^0.0.1
   '@tsfun/cnt': ^0.0.0
   '@tsfun/curry': ^0.0.0
+  '@tsfun/id': ^0.0.0
   '@tsfun/object': ^0.0.0
   '@tsfun/option': ^0.0.3
   '@tsfun/pipe': ^0.0.2

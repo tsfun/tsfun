@@ -23,6 +23,7 @@
     "tslib": "^1.10.0",
     "@tsfun/apply": "^0.0.1",
     "@tsfun/curry": "^0.0.0",
+    "@tsfun/id": "^0.0.0",
     "@tsfun/cnt": "^0.0.0",
     "@tsfun/pipe": "^0.0.2",
     "@tsfun/option": "^0.0.3",

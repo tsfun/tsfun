@@ -4,6 +4,9 @@ export { apply }
 import * as curry from '@tsfun/curry'
 export { curry }
 
+import * as id from '@tsfun/id'
+export { id }
+
 import * as cnt from '@tsfun/cnt'
 export { cnt }
 
