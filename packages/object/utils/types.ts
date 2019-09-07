@@ -25,6 +25,6 @@ export type AddProperty<
   Value
 > = {
   [SoleKey in Key]: ObjectExtends<Proto, {
-    [key in SoleKey]: Value
+    [_ in SoleKey]: Value
   }>
 }[Key]
