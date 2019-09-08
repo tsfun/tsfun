@@ -24,6 +24,7 @@
   "dependencies": {
     "tslib": "^1.10.0",
     "@tsfun/prv-option-result-common": "^0.0.2",
+    "@tsfun/prv-types": "^0.0.0",
     "@tsfun/tap": "^0.0.1",
     "@types/node": "^12.7.4"
   },

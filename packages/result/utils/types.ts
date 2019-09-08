@@ -1,6 +1,6 @@
 import { Result } from '@tsfun/prv-option-result-common'
-
-export type MaybePromise<Value> = PromiseLike<Value> | Value
+import { MaybePromise } from '@tsfun/prv-types'
+export { MaybePromise }
 
 export type AsyncResult<Payload, Error> =
   MaybePromise<Result<

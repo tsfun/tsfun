@@ -1,6 +1,6 @@
 import { Option } from '@tsfun/prv-option-result-common'
-
-export type MaybePromise<Value> = PromiseLike<Value> | Value
+import { MaybePromise } from '@tsfun/prv-types'
+export { MaybePromise }
 
 export type AsyncOption<Value> = MaybePromise<Option<MaybePromise<Value>>>
 
