@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/result",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Result in TypeScript",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
