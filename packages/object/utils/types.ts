@@ -28,3 +28,13 @@ export type AddProperty<
     [_ in SoleKey]: Value
   }>
 }[Key]
+
+/**
+ * Extract parameter types from `Fn` if it is a function
+ */
+export type MaybeParam<Fn> = Fn extends (...args: any[]) => any ? Parameters<Fn> : never
+
+/**
+ * Extract return type from `Fn` if it is a function
+ */
+export type MaybeReturn<Fn> = Fn extends (...args: any[]) => any ? ReturnType<Fn> : never
