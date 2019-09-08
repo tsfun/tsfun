@@ -1,1 +1,1 @@
-export type MaybePromise<Value> = PromiseLike<Value> | Value
+export type MaybePromise<Value> = Promise<Value> | Value
