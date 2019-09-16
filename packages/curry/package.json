@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/curry",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Curry/uncurry first argument of a function",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",

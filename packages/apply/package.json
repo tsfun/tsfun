@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/apply",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Apply/unapply functions on/to array of arguments",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",

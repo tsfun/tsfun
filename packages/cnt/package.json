@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/cnt",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Turn a value into a function that returns the value",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
