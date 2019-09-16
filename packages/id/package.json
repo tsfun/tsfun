@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/id",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Take a value and return the very same value",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
