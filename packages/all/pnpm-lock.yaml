@@ -22,7 +22,7 @@ packages:
 specifiers:
   '@tsfun/apply': ^0.0.3
   '@tsfun/curry': ^0.0.2
-  '@tsfun/misc': ^0.0.0
+  '@tsfun/misc': ^0.0.1
   '@tsfun/object': ^0.0.3
   '@tsfun/option': ^0.0.6
   '@tsfun/pipe': ^0.0.5
