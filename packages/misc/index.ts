@@ -1,2 +1,2 @@
-export * from './cnt'
+export * from './always'
 export * from './id'
