@@ -1,0 +1,27 @@
+dependencies:
+  '@types/node': 12.7.5
+  ts-pipe-compose: 0.1.10
+  tslib: 1.10.0
+lockfileVersion: 5.1
+packages:
+  /@types/node/12.7.5:
+    dev: false
+    resolution:
+      integrity: sha512-9fq4jZVhPNW8r+UYKnxF1e2HkDWOWKM5bC2/7c9wPV835I0aOrVbS/Hw/pWPk2uKrNXQqg9Z959Kz+IYDd5p3w==
+  /ts-pipe-compose/0.1.10:
+    dependencies:
+      '@types/node': 12.7.5
+      tslib: 1.10.0
+    dev: false
+    engines:
+      node: '>= 8.9.0'
+    resolution:
+      integrity: sha512-J4kAC1UJbA7enCr0k/BtWpK+jCCr0sYFIl20AA3JaXGMUZ6P4CxN/E8FE+LJXxy0HwaDLMpI2xSfW2ionsA+/Q==
+  /tslib/1.10.0:
+    dev: false
+    resolution:
+      integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+specifiers:
+  '@types/node': ^12.7.5
+  ts-pipe-compose: ^0.1.10
+  tslib: ^1.10.0

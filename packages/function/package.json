@@ -1,0 +1,20 @@
+{
+  "name": "@tsfun/function",
+  "version": "0.0.0",
+  "description": "Function utilities",
+  "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/tsfun/tsfun#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsfun/tsfun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsfun/tsfun/issues"
+  },
+  "dependencies": {
+    "ts-pipe-compose": "^0.1.10",
+    "tslib": "^1.10.0",
+    "@types/node": "^12.7.5"
+  }
+}
