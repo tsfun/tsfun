@@ -21,6 +21,6 @@ export const composeR = <X, Y, Z> (
 ) => compose(g, f)
 
 export {
-  compose as composeN,
-  pipeline as composeNR
+  compose as composeXs,
+  pipeline as composeXsRight
 } from 'ts-pipe-compose'

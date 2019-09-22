@@ -12,7 +12,7 @@ export const swapBinary =
  * @param fn Function to swap arguments
  * @returns Function that calls `fn`
  */
-export const swapBinaryN =
+export const swapBinaryXs =
   <X0, X1, Xs extends any[], Y>
     (fn: (x0: X0, x1: X1, ...xs: Xs) => Y) =>
       (x1: X1, x0: X0, ...xs: Xs) => fn(x0, x1, ...xs)
@@ -33,6 +33,6 @@ export const multiArity =
  * @param fn Function to apply
  * @returns Function that calls `fn` multiple times
  */
-export const multiArityR =
+export const multiArityRight =
   <X> (fn: (x0: X, x1: X) => X) =>
     (...xs: [X, X, ...X[]]) => xs.reduceRight((x0, x1) => fn(x0, x1))

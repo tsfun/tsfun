@@ -43,7 +43,7 @@ export const call3 = <X0, X1, X2, Y> (
  * @param args Arguments to pass to `fn`
  * @returns Result of function execution
  */
-export const callN = <Xs extends any[], Y> (
+export const callXs = <Xs extends any[], Y> (
   fn: (...args: Xs) => Y,
   ...args: Xs
 ) => fn(...args)
