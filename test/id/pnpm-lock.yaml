@@ -1,5 +1,0 @@
-dependencies:
-  '@tsfun/id': 'link:../../packages/id'
-lockfileVersion: 5.1
-specifiers:
-  '@tsfun/id': 'file:../../packages/id'

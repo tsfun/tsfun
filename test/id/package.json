@@ -1,6 +1,0 @@
-{
-  "private": true,
-  "dependencies": {
-    "@tsfun/id": "file:../../packages/id"
-  }
-}

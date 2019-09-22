@@ -1,0 +1,5 @@
+dependencies:
+  '@tsfun/misc': 'link:../../packages/misc'
+lockfileVersion: 5.1
+specifiers:
+  '@tsfun/misc': 'file:../../packages/misc'

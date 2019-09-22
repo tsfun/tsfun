@@ -1,5 +1,0 @@
-dependencies:
-  '@tsfun/cnt': 'link:../../packages/cnt'
-lockfileVersion: 5.1
-specifiers:
-  '@tsfun/cnt': 'file:../../packages/cnt'

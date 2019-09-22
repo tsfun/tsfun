@@ -1,8 +1,7 @@
 dependencies:
   '@tsfun/apply': 'link:../apply'
-  '@tsfun/cnt': 'link:../cnt'
   '@tsfun/curry': 'link:../curry'
-  '@tsfun/id': 'link:../id'
+  '@tsfun/misc': 'link:../misc'
   '@tsfun/object': 'link:../object'
   '@tsfun/option': 'link:../option'
   '@tsfun/pipe': 'link:../pipe'
@@ -22,9 +21,8 @@ packages:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
   '@tsfun/apply': ^0.0.3
-  '@tsfun/cnt': ^0.0.2
   '@tsfun/curry': ^0.0.2
-  '@tsfun/id': ^0.0.2
+  '@tsfun/misc': ^0.0.0
   '@tsfun/object': ^0.0.3
   '@tsfun/option': ^0.0.6
   '@tsfun/pipe': ^0.0.5

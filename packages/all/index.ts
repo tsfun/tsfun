@@ -4,12 +4,6 @@ export { apply }
 import * as curry from '@tsfun/curry'
 export { curry }
 
-import * as id from '@tsfun/id'
-export { id }
-
-import * as cnt from '@tsfun/cnt'
-export { cnt }
-
 import * as pipe from '@tsfun/pipe'
 export { pipe }
 
@@ -24,3 +18,6 @@ export { object }
 
 import * as tap from '@tsfun/tap'
 export { tap }
+
+import * as misc from '@tsfun/misc'
+export { misc }

@@ -23,13 +23,12 @@
     "tslib": "^1.10.0",
     "@tsfun/apply": "^0.0.3",
     "@tsfun/curry": "^0.0.2",
-    "@tsfun/id": "^0.0.2",
-    "@tsfun/cnt": "^0.0.2",
     "@tsfun/pipe": "^0.0.5",
     "@tsfun/option": "^0.0.6",
     "@tsfun/result": "^0.0.7",
     "@tsfun/object": "^0.0.3",
     "@tsfun/tap": "^0.0.3",
+    "@tsfun/misc": "^0.0.0",
     "@types/node": "^12.7.5"
   },
   "engines": {

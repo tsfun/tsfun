@@ -1,4 +1,4 @@
-import cnt from '@tsfun/cnt'
+import { cnt } from '@tsfun/misc'
 
 const value = Symbol('value')
 

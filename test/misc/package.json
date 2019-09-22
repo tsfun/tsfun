@@ -1,6 +1,6 @@
 {
   "private": true,
   "dependencies": {
-    "@tsfun/cnt": "file:../../packages/cnt"
+    "@tsfun/misc": "file:../../packages/misc"
   }
 }

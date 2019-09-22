@@ -1,7 +1,7 @@
 {
-  "name": "@tsfun/id",
-  "version": "0.0.2",
-  "description": "Take a value and return the very same value",
+  "name": "@tsfun/misc",
+  "version": "0.0.0",
+  "description": "Miscellaneous utilities",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/tsfun/tsfun#readme",
