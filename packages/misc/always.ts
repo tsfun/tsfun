@@ -4,5 +4,4 @@
  * @returns A function that takes no arguments and returns `value`
  */
 export const always = <X> (x: X) => () => x
-
 export default always
