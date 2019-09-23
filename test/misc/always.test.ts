@@ -1,4 +1,4 @@
-import { always } from '@tsfun/misc'
+import { always, nullary } from '@tsfun/misc'
 
 const value = Symbol('value')
 
@@ -8,4 +8,8 @@ it('returns a function', () => {
 
 it('resulting function returns given value', () => {
   expect(always(value)()).toBe(value)
+})
+
+it('nullary is an alias of always', () => {
+  expect(nullary).toBe(always)
 })
