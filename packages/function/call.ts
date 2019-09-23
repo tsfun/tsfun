@@ -1,10 +1,17 @@
 /**
+ * Call a nullary function
+ * @param fn Function to call
+ * @returns Result of function execution
+ */
+export const call0 = <Y> (fn: () => Y) => fn()
+
+/**
  * Call a unary function
  * @param fn Function to call
  * @param x Argument to pass to `fn`
  * @returns Result of function execution
  */
-export const call = <X, Y> (
+export const call1 = <X, Y> (
   fn: (x: X) => Y,
   x: X
 ) => fn(x)
@@ -47,3 +54,6 @@ export const callXs = <Xs extends any[], Y> (
   fn: (...args: Xs) => Y,
   ...args: Xs
 ) => fn(...args)
+
+export const exec = call0
+export const call = call1
