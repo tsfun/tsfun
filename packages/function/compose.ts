@@ -1,8 +1,8 @@
 /**
  * Compose two unary functions
- * @param f Function that takes `y` and returns `z`
- * @param g Function that takes `x` and returns `y`
- * @returns Function that takes `x` and returns `z = f(g(x))`
+ * @param f Outer unary function
+ * @param g Inner unary function
+ * @returns Composite unary function
  */
 export const compose = <X, Y, Z> (
   f: (y: Y) => Z,
@@ -11,9 +11,9 @@ export const compose = <X, Y, Z> (
 
 /**
  * Compose an n-ary function with an unary function
- * @param f Function that takes `y` and returns `z`
- * @param g Function that takes `...xs` and returns `y`
- * @returns Function that takes `...xs` and returns `z = f(g(...xs))`
+ * @param f Outer unary function
+ * @param g Inner n-ary function
+ * @returns Composite n-ary function
  */
 export const composeXs = <Xs extends any[], Y, Z> (
   f: (y: Y) => Z,
@@ -22,9 +22,9 @@ export const composeXs = <Xs extends any[], Y, Z> (
 
 /**
  * Compose two unary functions
- * @param f Function that takes `x` and returns `y`
- * @param g Function that takes `y` and returns `x`
- * @returns Function that takes `x` and returns `z = g(f(x))`
+ * @param f Inner unary function
+ * @param g Outer unary function
+ * @returns Composite n-ary function
  */
 export const composeRight = <X, Y, Z> (
   f: (x: X) => Y,
@@ -33,9 +33,9 @@ export const composeRight = <X, Y, Z> (
 
 /**
  * Compose an unary function with an n-ary function
- * @param f Function that takes `...xs` and returns `y`
- * @param g Function that takes `y` and returns `z`
- * @returns Function that takes `...xs` and returns `z = g(f(...xs))`
+ * @param f Inner n-ary function
+ * @param g Outer unary function
+ * @returns Composite n-ary function
  */
 export const composeXsRight = <Xs extends any[], Y, Z> (
   f: (...xs: Xs) => Y,
