@@ -1,5 +1,5 @@
 /**
- * Compose two function
+ * Compose two unary functions
  * @param f Function that takes `y` and returns `z`
  * @param g Function that takes `x` and returns `y`
  * @returns Function that takes `x` and returns `z = f(g(x))`
@@ -10,7 +10,7 @@ export const compose = <X, Y, Z> (
 ) => (x: X) => f(g(x))
 
 /**
- * Compose two function
+ * Compose an n-ary function with an unary function
  * @param f Function that takes `y` and returns `z`
  * @param g Function that takes `...xs` and returns `y`
  * @returns Function that takes `...xs` and returns `z = f(g(...xs))`
@@ -21,7 +21,7 @@ export const composeXs = <Xs extends any[], Y, Z> (
 ) => (...xs: Xs) => f(g(...xs))
 
 /**
- * Compose two function
+ * Compose two unary functions
  * @param f Function that takes `x` and returns `y`
  * @param g Function that takes `y` and returns `x`
  * @returns Function that takes `x` and returns `z = g(f(x))`
@@ -32,7 +32,7 @@ export const composeRight = <X, Y, Z> (
 ) => compose(g, f)
 
 /**
- * Compose two function
+ * Compose an unary function with an n-ary function
  * @param f Function that takes `...xs` and returns `y`
  * @param g Function that takes `y` and returns `z`
  * @returns Function that takes `...xs` and returns `z = g(f(...xs))`
