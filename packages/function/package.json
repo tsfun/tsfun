@@ -13,7 +13,7 @@
     "url": "https://github.com/tsfun/tsfun/issues"
   },
   "dependencies": {
-    "ts-pipe-compose": "^0.1.10",
+    "ts-pipe-compose": "^0.1.11",
     "tslib": "^1.10.0",
     "@types/node": "^12.7.5"
   }

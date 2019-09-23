@@ -43,6 +43,8 @@ export const composeXsRight = <Xs extends any[], Y, Z> (
 ) => composeXs(g, f)
 
 export {
+  composeUnary as composeFns,
+  pipelineUnary as composeFnsRight,
   compose as composeFnsXs,
   pipeline as composeFnsXsRight
 } from 'ts-pipe-compose'
