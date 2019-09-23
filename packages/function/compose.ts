@@ -15,7 +15,7 @@ export const compose = <X, Y, Z> (
  * @param g Function that takes `y` and returns `x`
  * @returns Function that takes `x` and returns `z = g(f(x))`
  */
-export const composeR = <X, Y, Z> (
+export const composeRight = <X, Y, Z> (
   f: (x: X) => Y,
   g: (y: Y) => Z
 ) => compose(g, f)
