@@ -55,5 +55,5 @@ export const callXs = <Xs extends any[], Y> (
   ...args: Xs
 ) => fn(...args)
 
-export const exec = call0
-export const call = call1
+export { call0 as exec }
+export { call1 as call }
