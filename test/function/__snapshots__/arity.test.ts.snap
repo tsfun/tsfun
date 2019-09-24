@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nAry when resulting function is called calls given function multiple times 1`] = `
+Array [
+  Array [
+    "a",
+    "b",
+  ],
+  Array [
+    "fn(a, b)",
+    "c",
+  ],
+  Array [
+    "fn(fn(a, b), c)",
+    "d",
+  ],
+  Array [
+    "fn(fn(fn(a, b), c), d)",
+    "e",
+  ],
+  Array [
+    "fn(fn(fn(fn(a, b), c), d), e)",
+    "f",
+  ],
+]
+`;
+
+exports[`nAryRight when resulting function is called calls given function multiple times 1`] = `
+Array [
+  Array [
+    "f",
+    "e",
+  ],
+  Array [
+    "fn(f, e)",
+    "d",
+  ],
+  Array [
+    "fn(fn(f, e), d)",
+    "c",
+  ],
+  Array [
+    "fn(fn(fn(f, e), d), c)",
+    "b",
+  ],
+  Array [
+    "fn(fn(fn(fn(f, e), d), c), b)",
+    "a",
+  ],
+]
+`;
