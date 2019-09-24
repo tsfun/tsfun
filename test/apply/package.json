@@ -1,7 +1,0 @@
-{
-  "private": true,
-  "dependencies": {
-    "static-type-assert": "^3.0.1",
-    "@tsfun/apply": "file:../../packages/apply"
-  }
-}

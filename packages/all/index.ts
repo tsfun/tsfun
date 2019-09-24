@@ -1,8 +1,5 @@
-import * as apply from '@tsfun/apply'
-export { apply }
-
-import * as curry from '@tsfun/curry'
-export { curry }
+import * as func from '@tsfun/function'
+export { func }
 
 import * as pipe from '@tsfun/pipe'
 export { pipe }

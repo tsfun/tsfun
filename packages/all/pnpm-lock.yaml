@@ -1,6 +1,5 @@
 dependencies:
-  '@tsfun/apply': 'link:../apply'
-  '@tsfun/curry': 'link:../curry'
+  '@tsfun/function': 'link:../function'
   '@tsfun/misc': 'link:../misc'
   '@tsfun/object': 'link:../object'
   '@tsfun/option': 'link:../option'
@@ -20,8 +19,7 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
-  '@tsfun/apply': ^0.0.3
-  '@tsfun/curry': ^0.0.2
+  '@tsfun/function': ^0.0.0
   '@tsfun/misc': ^0.0.1
   '@tsfun/object': ^0.0.3
   '@tsfun/option': ^0.0.6
