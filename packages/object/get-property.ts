@@ -1,3 +1,15 @@
+import { SingleDict } from './utils/types'
+
+/**
+ * Create a function that accesses a particular key from an object
+ * @param key Property key
+ * @returns Function that accesses `[key]` of an object
+ */
+export const propertyOf =
+  <Key extends string | number | symbol> (key: Key) =>
+    <Value> (object: SingleDict<Key, Value>): Value =>
+      object[key]
+
 /**
  * Access a property from an object
  * @param object Object to get property from

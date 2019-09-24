@@ -1,5 +1,27 @@
 import { pass } from '@tsfun/pipe'
-import { getProperty, propertyGetter } from '@tsfun/object'
+import { propertyOf, getProperty, propertyGetter } from '@tsfun/object'
+
+describe('propertyOf', () => {
+  it('string', () => {
+    const fn = propertyOf('key')
+    const object = { key: 'value' } as const
+    expect(fn(object)).toBe('value')
+  })
+
+  it('number', () => {
+    const fn = propertyOf(123)
+    const object = { 123: 456 } as const
+    expect(fn(object)).toBe(456)
+  })
+
+  it('symbol', () => {
+    const key = Symbol('key')
+    const value = Symbol('value')
+    const fn = propertyOf(key)
+    const object = { [key]: value } as const
+    expect(fn(object)).toBe(value)
+  })
+})
 
 describe('getProperty', () => {
   it('string', () => {

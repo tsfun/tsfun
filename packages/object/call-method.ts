@@ -1,6 +1,30 @@
 import { FunctionKeys } from 'utility-types'
-import { MaybeParam, MaybeReturn } from './utils/types'
+import { SingleDict, MaybeParam, MaybeReturn } from './utils/types'
 import { bindContext } from './utils/bind'
+
+/**
+ * Create a function that executes a particular method of an object
+ * @param name Method name
+ * @returns Function that executes method `[name]` of an object
+ */
+export function methodApplierOf<MethodName extends string | number | symbol> (name: MethodName) {
+  return <Args extends readonly any[], Return> (
+    object: SingleDict<MethodName, (...args: Args) => Return>,
+    args: Args
+  ) => applyMethod(object, name as any, args as any) as Return
+}
+
+/**
+ * Create a function that executes a particular method of an object
+ * @param name Method name
+ * @returns Function that executes method `[name]` of an object
+ */
+export function methodCallerOf<MethodName extends string | number | symbol> (name: MethodName) {
+  return <Args extends readonly any[], Return> (
+    object: SingleDict<MethodName, (...args: Args) => Return>,
+    ...args: Args
+  ) => applyMethod(object, name as any, args as any) as Return
+}
 
 /**
  * Execute a method

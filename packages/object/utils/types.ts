@@ -6,6 +6,13 @@ import { Assign } from 'utility-types'
 type NullObject<X> = X extends null ? {} : X
 
 /**
+ * Create a dict of one key-value pair
+ */
+export type SingleDict<Key extends string | number | symbol, Value> = {
+  readonly [_ in Key]: Value
+}
+
+/**
  * Return type of `objectExtends`
  */
 export type ObjectExtends<

@@ -1,5 +1,69 @@
 import { pass } from '@tsfun/pipe'
-import { applyMethod, callMethod, getMethod, methodGetter } from '@tsfun/object'
+
+import {
+  methodApplierOf,
+  methodCallerOf,
+  applyMethod,
+  callMethod,
+  getMethod,
+  methodGetter
+} from '@tsfun/object'
+
+describe('methodApplierOf', () => {
+  function setup () {
+    const value = Symbol('value')
+    const args = [...'args']
+    const name = Symbol('name')
+    const func = jest.fn((..._: any[]) => value)
+    const object = { [name]: func }
+    const method = methodApplierOf(name)
+    const result = method(object, args)
+    return { value, args, name, func, object, method, result }
+  }
+
+  it('calls method once', () => {
+    const { func } = setup()
+    expect(func).toBeCalledTimes(1)
+  })
+
+  it('calls method with this pointing to object', () => {
+    const { func, object } = setup()
+    expect(func.mock.instances[0]).toBe(object)
+  })
+
+  it('calls method with expected arguments', () => {
+    const { args, func } = setup()
+    expect(func).toBeCalledWith(...args)
+  })
+})
+
+describe('methodCallerOf', () => {
+  function setup () {
+    const value = Symbol('value')
+    const args = [...'args']
+    const name = Symbol('name')
+    const func = jest.fn((..._: any[]) => value)
+    const object = { [name]: func }
+    const method = methodCallerOf(name)
+    const result = method(object, ...args)
+    return { value, args, name, func, object, method, result }
+  }
+
+  it('calls method once', () => {
+    const { func } = setup()
+    expect(func).toBeCalledTimes(1)
+  })
+
+  it('calls method with this pointing to object', () => {
+    const { func, object } = setup()
+    expect(func.mock.instances[0]).toBe(object)
+  })
+
+  it('calls method with expected arguments', () => {
+    const { args, func } = setup()
+    expect(func).toBeCalledWith(...args)
+  })
+})
 
 describe('applyMethod', () => {
   function setup () {

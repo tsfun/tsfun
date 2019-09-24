@@ -1,6 +1,14 @@
 import assert from 'static-type-assert'
 import { pass } from '@tsfun/pipe'
-import { applyMethod, callMethod, getMethod, methodGetter } from '@tsfun/object'
+
+import {
+  methodApplierOf,
+  methodCallerOf,
+  applyMethod,
+  callMethod,
+  getMethod,
+  methodGetter
+} from '@tsfun/object'
 
 const symbolKey = Symbol('symbolKey')
 
@@ -20,6 +28,16 @@ const object = {
 } as const
 
 const ANY: any = null
+
+{
+  const applyBar = methodApplierOf('bar')
+  const applyBarResult = applyBar(object, [0, 1])
+  expect<readonly [0, 1]>(applyBarResult)
+
+  const callBar = methodCallerOf('bar')
+  const callBarResult = callBar(object, 0, 1)
+  expect<readonly [0, 1]>(callBarResult)
+}
 
 assert<123>(applyMethod(object, 'foo', []))
 assert<123>(applyMethod(object, 'foo', [] as const))

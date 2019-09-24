@@ -1,6 +1,6 @@
 import assert from 'static-type-assert'
 import { pass } from '@tsfun/pipe'
-import { getProperty, propertyGetter } from '@tsfun/object'
+import { propertyOf, getProperty, propertyGetter } from '@tsfun/object'
 
 const symbolKey = Symbol('symbolKey')
 const symbolVal = Symbol('symbolVal')
@@ -13,6 +13,13 @@ const object = {
   123: 456,
   [symbolKey]: symbolVal
 } as const
+
+const getA = propertyOf('a')
+const get123 = propertyOf(123)
+const getSymbol = propertyOf(symbolKey)
+assert<0>(getA(object))
+assert<456>(get123(object))
+assert<typeof symbolVal>(getSymbol(object))
 
 assert<0>(getProperty(object, 'a'))
 assert<1>(getProperty(object, 'b'))
