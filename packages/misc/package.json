@@ -12,6 +12,13 @@
   "bugs": {
     "url": "https://github.com/tsfun/tsfun/issues"
   },
+  "keywords": [
+    "miscellaneous",
+    "utilities",
+    "functional-programming",
+    "typescript"
+  ],
+  "sideEffects": false,
   "dependencies": {
     "tslib": "^1.10.0",
     "@types/node": "^12.7.5"

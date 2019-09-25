@@ -12,6 +12,17 @@
   "bugs": {
     "url": "https://github.com/tsfun/tsfun/issues"
   },
+  "keywords": [
+    "apply",
+    "arity",
+    "call",
+    "compose",
+    "curry",
+    "partial",
+    "pipe",
+    "typescript"
+  ],
+  "sideEffects": false,
   "dependencies": {
     "ts-pipe-compose": "^0.1.11",
     "tslib": "^1.10.0",
