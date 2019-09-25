@@ -1,4 +1,4 @@
-import { partial, partialTail, partialTailSpread } from '@tsfun/function'
+import { partial, partialTail, partialTailIter, partialTailSpread } from '@tsfun/function'
 
 describe('specs', () => {
   describe('partial', () => {
@@ -83,6 +83,50 @@ describe('specs', () => {
     })
   })
 
+  describe('partialTailIter', () => {
+    function * xs () {
+      yield * 'abcdef'
+    }
+
+    function setup () {
+      const x0 = 'x0' as const
+      const impl = (...xs: string[]) => xs
+      const cb = jest.fn(impl)
+      const fn = partialTailIter(cb, xs())
+      return { x0, impl, cb, fn } as const
+    }
+
+    function setupAndCall () {
+      const { x0, fn, ...rest } = setup()
+      const y = fn(x0)
+      return { ...rest, x0, fn, y } as const
+    }
+
+    describe('when resulting function is not called', () => {
+      it('does not call given function', () => {
+        const { cb } = setup()
+        expect(cb).not.toBeCalled()
+      })
+    })
+
+    describe('when resulting function is called once', () => {
+      it('calls given function once', () => {
+        const { cb } = setupAndCall()
+        expect(cb).toBeCalledTimes(1)
+      })
+
+      it('calls given function with enough arguments', () => {
+        const { x0, cb } = setupAndCall()
+        expect(cb).toBeCalledWith(x0, ...xs())
+      })
+
+      it('returns expected result', () => {
+        const { x0, impl, y } = setupAndCall()
+        expect(y).toEqual(impl(x0, ...xs()))
+      })
+    })
+  })
+
   describe('partialTailSpread', () => {
     function setup () {
       const x0 = 0
@@ -122,6 +166,10 @@ describe('specs', () => {
         expect(y).toEqual(impl(x0, ...xs))
       })
     })
+  })
+
+  it('partialTailIter is partialTail', () => {
+    expect(partialTailIter).toBe(partialTail)
   })
 })
 

@@ -23,6 +23,19 @@ export const partialTail = <X, Xs extends readonly any[], Y> (
 /**
  * Partially apply a function
  * @param fn Function to apply
+ * @param xs Iterable of all arguments except the first one
+ * @returns Function that provides the first argument to `fn`
+ */
+export const partialTailIter: (
+  <X0, X1, Y> (
+    fn: (x: X0, ...xs: X1[]) => Y,
+    xs: Iterable<X1>
+  ) => (x: X0) => Y
+) = partialTail as any
+
+/**
+ * Partially apply a function
+ * @param fn Function to apply
  * @param xs All arguments except the first one
  * @returns Function that provides the first argument to `fn`
  */
