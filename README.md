@@ -8,7 +8,7 @@ All packages are published to [@tsfun](https://www.npmjs.com/org/tsfun) organiza
 
 ## API References
 
-Go to [the GitHub page](https://tsfun.github.com/tsfun).
+Go to [the GitHub page](https://tsfun.github.io/tsfun).
 
 ## Development
 
