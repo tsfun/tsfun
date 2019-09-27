@@ -6,6 +6,15 @@ import places from '@tools/places'
 import { loadPackageList } from '@tools/utils'
 import { Child, homepage } from './homepage'
 
+async function propIfExists<Key extends string> (
+  key: Key,
+  basename: string,
+  folder = '.'
+): Promise<{ [_ in Key]: string } | null> {
+  if (!await pathExists(path.join(folder, basename))) return null
+  return { [key]: basename } as any
+}
+
 export async function main () {
   const failures = []
 
@@ -36,8 +45,8 @@ export async function main () {
 
     const outputDir = path.join(places.docs, item.name)
 
-    const readme = path.join(item.folder, 'README.md')
-    const readmeObject = await pathExists(readme) ? { readme } : null
+    const readmeObject = await propIfExists('readme', 'README.md', item.folder)
+    const entryPointObject = await propIfExists('entryPoint', 'index.ts', item.folder)
 
     const { name } = await item.readManifestOnce()
 
@@ -49,9 +58,11 @@ export async function main () {
       mode: 'file',
       excludeExternals: true,
       exclude: ['**/node_modules', '**/.git'],
+      entryPoint: 'index.ts',
       logger: 'none',
       name: `${name} — References`,
-      ...readmeObject
+      ...readmeObject,
+      ...entryPointObject
     })
 
     const project = app.convert(app.expandInputFiles([item.folder]))
