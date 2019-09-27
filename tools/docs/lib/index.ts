@@ -1,9 +1,12 @@
 import path from 'path'
 import process from 'process'
+import ramda from 'ramda'
 import { ensureFile, writeFile, pathExists } from 'fs-extra'
 import { Application } from 'typedoc'
 import places from '@tools/places'
 import { loadPackageList } from '@tools/utils'
+import * as config from './config'
+import combineGlobPatterns from './combine-glob-patterns'
 import { Child, homepage } from './homepage'
 
 async function propIfExists<Key extends string> (
@@ -16,12 +19,13 @@ async function propIfExists<Key extends string> (
 }
 
 export async function main () {
+  const isIgnored = combineGlobPatterns(config.ignoredPackages)
   const failures = []
 
   await ensureFile(path.join(places.docs, '.nojekyll'))
 
   const list = await loadPackageList()
-  const items = list.items()
+  const [ignored, items] = ramda.partition(item => isIgnored(item.name), list.items())
 
   {
     const childrenPromises = items.map(async (item): Promise<Child> => {
@@ -32,12 +36,17 @@ export async function main () {
     })
 
     const homepageHTML = homepage({
-      title: 'Documentation',
+      title: config.title,
       children: await Promise.all(childrenPromises)
     })
 
     console.info('docs> Home Page')
     await writeFile(path.join(places.docs, 'index.html'), homepageHTML)
+  }
+
+  for (const item of ignored) {
+    const { default: chalk } = await import('chalk')
+    console.info(`docs> ${chalk.strikethrough(item.name)} [SKIPPED]`)
   }
 
   for (const item of items) {
@@ -57,10 +66,12 @@ export async function main () {
       module: 'esnext',
       mode: 'file',
       excludeExternals: true,
+      excludeNotExported: true,
+      excludePrivate: true,
       exclude: ['**/node_modules', '**/.git'],
       entryPoint: 'index.ts',
       logger: 'none',
-      name: `${name} — References`,
+      name: `${name} — Reference`,
       ...readmeObject,
       ...entryPointObject
     })
