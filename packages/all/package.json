@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/all",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Functional Programming in TypeScript without class methods",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
@@ -22,13 +22,13 @@
   "dependencies": {
     "tslib": "^1.10.0",
     "@tsfun/function": "^0.0.1",
-    "@tsfun/pipe": "^0.0.5",
-    "@tsfun/option": "^0.0.7",
-    "@tsfun/result": "^0.0.8",
+    "@tsfun/pipe": "^0.0.6",
+    "@tsfun/option": "^0.0.8",
+    "@tsfun/result": "^0.0.9",
     "@tsfun/object": "^0.0.5",
-    "@tsfun/tap": "^0.0.4",
+    "@tsfun/tap": "^0.0.5",
     "@tsfun/misc": "^0.0.2",
-    "@types/node": "^12.7.5"
+    "@types/node": "^12.7.8"
   },
   "engines": {
     "node": ">= 8.9.0"

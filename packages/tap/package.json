@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/tap",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Insert a side-effect in between function pipeline",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
@@ -20,6 +20,6 @@
   "sideEffects": false,
   "dependencies": {
     "tslib": "^1.10.0",
-    "@types/node": "^12.7.5"
+    "@types/node": "^12.7.8"
   }
 }
