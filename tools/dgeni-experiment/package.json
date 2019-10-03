@@ -1,0 +1,12 @@
+{
+  "name": "@tools/dgeni-experiment",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "dgeni": "^0.4.12",
+    "dgeni-packages": "^0.28.1",
+    "canonical-path": "^1.0.0",
+    "@tools/preloaded-node": "file:../preloaded-node",
+    "@tools/places": "file:../places"
+  }
+}
