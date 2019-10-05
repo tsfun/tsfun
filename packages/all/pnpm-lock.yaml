@@ -19,12 +19,12 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
-  '@tsfun/function': ^0.0.2
-  '@tsfun/misc': ^0.0.3
-  '@tsfun/object': ^0.0.6
-  '@tsfun/option': ^0.0.9
-  '@tsfun/pipe': ^0.0.7
-  '@tsfun/result': ^0.0.10
-  '@tsfun/tap': ^0.0.6
+  '@tsfun/function': ^0.0.3
+  '@tsfun/misc': ^0.0.4
+  '@tsfun/object': ^0.0.7
+  '@tsfun/option': ^0.0.10
+  '@tsfun/pipe': ^0.0.8
+  '@tsfun/result': ^0.0.11
+  '@tsfun/tap': ^0.0.7
   '@types/node': ^12.7.11
   tslib: ^1.10.0

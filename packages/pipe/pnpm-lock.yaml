@@ -13,6 +13,6 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
-  '@tsfun/tap': ^0.0.6
+  '@tsfun/tap': ^0.0.7
   '@types/node': ^12.7.11
   tslib: ^1.10.0

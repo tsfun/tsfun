@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/prv-types",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Utility types used by @tsfun packages",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
