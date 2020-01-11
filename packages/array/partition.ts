@@ -37,5 +37,3 @@ export const partitionPredicate: {
     predicate: (item: Type) => item is Subtype
   ): [Subtype[], Type[]]
 } = partition as any
-
-export default partition
