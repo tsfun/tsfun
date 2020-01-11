@@ -28,7 +28,7 @@
     "@tsfun/object": "^0.0.7",
     "@tsfun/tap": "^0.0.7",
     "@tsfun/misc": "^0.0.4",
-    "@types/node": "^12.7.11"
+    "@types/node": "^13.1.6"
   },
   "engines": {
     "node": ">= 8.9.0"

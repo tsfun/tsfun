@@ -19,7 +19,7 @@ const testCase = (
   innerNone: () => AsyncNone
 ) => () => {
   it('works with Some<Some<X>>', async () => {
-    expect(await asyncFlatten(outerSome(innerSome('x')))).toEqual(some('x'))
+    expect(await asyncFlatten<string>(outerSome(innerSome('x')))).toEqual(some('x'))
   })
 
   it('works with Some<None>', async () => {
