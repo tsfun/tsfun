@@ -1,0 +1,25 @@
+{
+  "name": "@tsfun/array",
+  "version": "0.0.0",
+  "description": "Utilities related to arrays",
+  "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://tsfun.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsfun/tsfun.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsfun/tsfun/issues"
+  },
+  "keywords": [
+    "array",
+    "functional-programming",
+    "typescript"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.10.0",
+    "@types/node": "^13.1.6"
+  }
+}
