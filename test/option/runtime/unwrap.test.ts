@@ -1,5 +1,4 @@
-import * as xjest from 'extra-jest'
-const { expectFunction } = xjest.expectFunction
+import { fnError } from '@tools/test-utils'
 
 import {
   unwrap,
@@ -19,7 +18,7 @@ describe('unwrap', () => {
 
   describe('with a None', () => {
     it('throws provided error', () => {
-      expectFunction(() => unwrap(none())).throws.toMatchSnapshot()
+      expect(fnError(() => unwrap(none()))).toMatchSnapshot()
     })
   })
 })
@@ -33,7 +32,7 @@ describe('unwrapOrErr', () => {
 
   describe('with a None', () => {
     it('throws provided error', () => {
-      expectFunction(() => unwrapOrErr(none(), 'error')).throws.toBe('error')
+      expect(fnError(() => unwrapOrErr(none(), 'error'))).toBe('error')
     })
   })
 })
