@@ -21,12 +21,12 @@ packages:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
   '@tsfun/array': ^0.0.0
-  '@tsfun/function': ^0.0.3
-  '@tsfun/misc': ^0.0.4
-  '@tsfun/object': ^0.0.7
-  '@tsfun/option': ^0.0.10
-  '@tsfun/pipe': ^0.0.8
-  '@tsfun/result': ^0.0.11
-  '@tsfun/tap': ^0.0.7
+  '@tsfun/function': ^0.0.4
+  '@tsfun/misc': ^0.0.5
+  '@tsfun/object': ^0.0.8
+  '@tsfun/option': ^0.0.11
+  '@tsfun/pipe': ^0.0.9
+  '@tsfun/result': ^0.0.12
+  '@tsfun/tap': ^0.0.8
   '@types/node': ^13.1.6
   tslib: ^1.10.0

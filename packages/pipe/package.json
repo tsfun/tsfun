@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/pipe",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Dot-chained pipeline",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
@@ -19,7 +19,7 @@
   "sideEffects": false,
   "dependencies": {
     "tslib": "^1.10.0",
-    "@tsfun/tap": "^0.0.7",
+    "@tsfun/tap": "^0.0.8",
     "@types/node": "^13.1.6"
   },
   "engines": {
