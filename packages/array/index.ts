@@ -1,4 +1,5 @@
 export * from './first'
 export * from './last'
 export * from './partition'
+export * from './range'
 export * from './zip'
