@@ -13,6 +13,9 @@ export { Result }
 import * as Object from '@tsfun/object'
 export { Object }
 
+import * as Array from '@tsfun/array'
+export { Array }
+
 import * as Tap from '@tsfun/tap'
 export { Tap }
 

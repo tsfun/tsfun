@@ -1,4 +1,5 @@
 dependencies:
+  '@tsfun/array': 'link:../array'
   '@tsfun/function': 'link:../function'
   '@tsfun/misc': 'link:../misc'
   '@tsfun/object': 'link:../object'
@@ -19,6 +20,7 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
+  '@tsfun/array': ^0.0.0
   '@tsfun/function': ^0.0.3
   '@tsfun/misc': ^0.0.4
   '@tsfun/object': ^0.0.7

@@ -26,6 +26,7 @@
     "@tsfun/option": "^0.0.10",
     "@tsfun/result": "^0.0.11",
     "@tsfun/object": "^0.0.7",
+    "@tsfun/array": "^0.0.0",
     "@tsfun/tap": "^0.0.7",
     "@tsfun/misc": "^0.0.4",
     "@types/node": "^13.1.6"
