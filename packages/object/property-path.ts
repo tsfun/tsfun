@@ -4,7 +4,7 @@ const isObject = (object: any): object is object => typeof object === 'object' &
 
 export function getPropertyPath (object: any, path: readonly Key[]): any {
   if (!path.length) return object
-  if (!isObject(object)) return undefined
+  if (!isObject(object)) return object
 
   const [key, ...rest] = path
 
@@ -24,7 +24,8 @@ export function setPropertyPath (object: any, path: readonly Key[], value: any):
 }
 
 export function deletePropertyPath (object: any, path: readonly Key[]): any {
-  if (!path.length || !isObject(object)) return undefined
+  if (!path.length) return undefined
+  if (!isObject(object)) return object
 
   const [key, ...nextPath] = path
   const { [key]: nextTarget, ...cloned } = object as any
