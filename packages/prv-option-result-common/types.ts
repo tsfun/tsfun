@@ -3,7 +3,7 @@ export interface Box<Value> {
   readonly value: Value
 }
 
-export interface NonNox {
+export interface NonBox {
   readonly tag: false
 }
 
@@ -20,7 +20,7 @@ export interface Some<Value> extends Box<Value> {}
 /**
  * Type of options that do not contain value
  */
-export interface None extends NonNox {}
+export interface None extends NonBox {}
 
 /**
  * Result type
@@ -35,6 +35,6 @@ export interface Ok<Payload> extends Box<Payload> {}
 /**
  * Type of result that carry error
  */
-export interface Err<Error> extends NonNox {
+export interface Err<Error> extends NonBox {
   readonly error: Error
 }
