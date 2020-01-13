@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/prv-option-result-common",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Private common assets shared by @tsfun/option and @tsfun/result",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
