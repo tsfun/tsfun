@@ -1,88 +1,92 @@
 dependencies:
-  string-template-format: 0.2.5
+  string-template-format: 0.2.7
 lockfileVersion: 5.1
 packages:
-  /@tsfun/function/0.0.2:
+  /@tsfun/function/0.0.4:
     dependencies:
-      '@types/node': 12.12.24
+      '@types/node': 13.1.7
       ts-pipe-compose: 0.1.11
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-0avzjGJhnFMsNFgOZQx9JFqa4iIQjUEXsFE/z7YLGgL7CLQqtBcp4feg9DqhaFxVjF9Tw7Cdjhfgu//4L8Cx4A==
+      integrity: sha512-MiMTplZdtzQcjN6/gr5btKvWPsf/UJ9B1Etggqd9YXzTN8fq+uVt/eXdZOyfnipFWNA0NKaF5+p5l2CpuZVPWg==
   /@types/node/12.12.24:
     dev: false
     resolution:
       integrity: sha512-1Ciqv9pqwVtW6FsIUKSZNB82E5Cu1I2bBTj1xuIHXLe/1zYLl3956Nbhg2MzSYHVfl9/rmanjbQIb7LibfCnug==
-  /just-json-type/0.1.1:
+  /@types/node/13.1.7:
+    dev: false
+    resolution:
+      integrity: sha512-HU0q9GXazqiKwviVxg9SI/+t/nAsGkvLDkIdxz+ObejG2nX6Si00TeLqHMoS+a/1tjH7a8YpKVQwtgHuMQsldg==
+  /just-json-type/0.1.3:
     dependencies:
-      '@types/node': 12.12.24
+      '@types/node': 13.1.7
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-GeYdjPyXd8ziaYOFOqSSgIvGAyJaPWwtzYiKxDbZGNZDLhf5KIYJjdUPQAGmNygwrzIDXoUgiGxbaINHKFh+gQ==
-  /string-template-format-base/0.1.1:
+      integrity: sha512-l8LhbNHsdrh46vt3iNuwl/I0QnNAYtWsX5xvb4GkMMDfItanwcYXALhBRqGQHGb7k/Pb4qlYc7ICbUBhYjW+lQ==
+  /string-template-format-base/0.1.3:
     dependencies:
-      '@types/node': 12.12.24
+      '@types/node': 13.1.7
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-XURxIRG3t9X8afee3MFIwMyUEqp1EBd8hQIPnTq0IUHqlId7smZfhpZyt5cuIwBmIY8aZYKZWJyNWdlYNobCmg==
-  /string-template-format-compose/0.1.1:
+      integrity: sha512-qERO1R4bP2xYlHvHH1PjPGzFciYehbT3uksMCimd0WF54Ou55JGr+IBtaP4hj79T+uGTbu1mnqJgZK0s02lFKQ==
+  /string-template-format-compose/0.1.3:
     dependencies:
-      '@tsfun/function': 0.0.2
-      '@types/node': 12.12.24
-      string-template-format-base: 0.1.1
+      '@tsfun/function': 0.0.4
+      '@types/node': 13.1.7
+      string-template-format-base: 0.1.3
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-AzzxcIIKG9v03x27E8gQnOhwarsGyG/BucE4rIbjF/eGEoP+nuJdvLtl//A+Sg8XLjgq2zQ2ubd6Dn5cEs6NFQ==
-  /string-template-format-inspect/0.1.2:
+      integrity: sha512-c1KaHrMCdCNZFVnaPuKFoKChe9Iqnt8Qut25DzICo2xicRCPQbiC7Yy04z/H7HPJfOglB3jeWX9Ovmd++/UVCQ==
+  /string-template-format-inspect/0.1.4:
     dependencies:
-      '@types/node': 12.12.24
-      string-template-format-base: 0.1.1
+      '@types/node': 13.1.7
+      string-template-format-base: 0.1.3
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-1i/FqZVsmwUJNRihQzkrsyLD2coZd7OJLLmOPusap6WvLQgF5MA9W9vOQ5BdRwn8MTcpZp3cCt91axxs0b+V7A==
-  /string-template-format-json/0.1.1:
+      integrity: sha512-i4tz6pO4Rt+WSfoOtOaI1s5ORjUddXGadipmaBLKr9XIlr/UcYa1kYmJOUTKn2K9u/iCmNRFV+xS87YRdvsKhw==
+  /string-template-format-json/0.1.3:
     dependencies:
-      '@types/node': 12.12.24
-      just-json-type: 0.1.1
-      string-template-format-base: 0.1.1
+      '@types/node': 13.1.7
+      just-json-type: 0.1.3
+      string-template-format-base: 0.1.3
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-f4qmg+qiMSh06BuspEBQAnallxuXi+XGzsts03qtyOHhppdEHVDsL3wYWGIyDHf4mIrF1tWZg1oRYiMBpqJ2jQ==
-  /string-template-format-tostring/0.1.1:
+      integrity: sha512-ShUDnSz9RgBqpXZ3Ms46cESTVQVO0WGBocvL7GWtwjU93DxYHgi4JkwO2alhGbsr/490NxrKcwrB8BXvbHKK9Q==
+  /string-template-format-tostring/0.1.3:
     dependencies:
-      '@types/node': 12.12.24
-      string-template-format-base: 0.1.1
+      '@types/node': 13.1.7
+      string-template-format-base: 0.1.3
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-d5sPk1xOlAnee6w4xHpVBfiGcU4Ncb/gc2YXeFJ1jMocg8Q0iUnzTMUWPJzrn58a3EI/GIjhjmYCM/RJIUtrUQ==
-  /string-template-format-uri/0.1.1:
+      integrity: sha512-9t2Js3LTtplxIJOuWwRnfb8pjDFG6J4VB/ojLSpr3zhY5a0x6Cd+6c9b+IutjC2uYBY/TzVimpkNCiQStaizpA==
+  /string-template-format-uri/0.1.3:
     dependencies:
-      '@types/node': 12.12.24
-      string-template-format-base: 0.1.1
+      '@types/node': 13.1.7
+      string-template-format-base: 0.1.3
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-MmSTq7lN0wuvZ3pS1zPOsdRGRUmQbwtSnplv2e/GrYfYUH43Hx5I3cs4+sGKqE4iRmTA2ajwZRSbcaCJPpUYTQ==
-  /string-template-format/0.2.5:
+      integrity: sha512-NAqMvulo3w+MDQ1/N0ZEQy52o95Rw48D4mns7lI1QsOl05XciueAFs3xa41dkwdiboJzrWn/6HiXixoJTD1+Vg==
+  /string-template-format/0.2.7:
     dependencies:
-      '@types/node': 12.12.24
-      string-template-format-base: 0.1.1
-      string-template-format-compose: 0.1.1
-      string-template-format-inspect: 0.1.2
-      string-template-format-json: 0.1.1
-      string-template-format-tostring: 0.1.1
-      string-template-format-uri: 0.1.1
+      '@types/node': 13.1.7
+      string-template-format-base: 0.1.3
+      string-template-format-compose: 0.1.3
+      string-template-format-inspect: 0.1.4
+      string-template-format-json: 0.1.3
+      string-template-format-tostring: 0.1.3
+      string-template-format-uri: 0.1.3
       tslib: 1.10.0
     dev: false
     resolution:
-      integrity: sha512-3VUhj+hg0jg1ETx9FhLtqEf06ay4ySiupM9ndYxSx7YyoNVwnALfFUfZnzo11RaeRVqYLC3dQCZzlpILgCo2NA==
+      integrity: sha512-c4/Ljtq3oFGlAI7A5tyrPk+5AumOz0eq5xVqK0jiE0TC0OCj5EFWpitZopZvzji3jdvmgnhtdErm3Hyc47lnnA==
   /ts-pipe-compose/0.1.11:
     dependencies:
       '@types/node': 12.12.24
@@ -97,4 +101,4 @@ packages:
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
-  string-template-format: ^0.2.5
+  string-template-format: ^0.2.7
