@@ -1,5 +1,6 @@
 export * from './add-property'
 export * from './object-extends'
+export * from './deep-merge'
 export * from './get-property'
 export * from './property-path'
 export * from './call-method'

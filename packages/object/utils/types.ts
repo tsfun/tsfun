@@ -13,6 +13,18 @@ export type SingleDict<Key extends string | number | symbol, Value> = {
 }
 
 /**
+ * Turn a type into a set of properties
+ */
+export type Properties<Type> = {
+  [key in keyof Type]: Type[key]
+}
+
+/**
+ * Merge two types
+ */
+export type SimpleDeepMerge<A, B> = Properties<A> & Properties<B>
+
+/**
  * Return type of `objectExtends`
  */
 export type ObjectExtends<

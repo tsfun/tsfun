@@ -1,6 +1,7 @@
 dependencies:
   '@tsfun/object': 'link:../../packages/object'
   '@tsfun/pipe': 'link:../../packages/pipe'
+  '@tsfun/result': 'link:../../packages/result'
   static-type-assert: 3.0.1
 lockfileVersion: 5.1
 packages:
@@ -25,4 +26,5 @@ packages:
 specifiers:
   '@tsfun/object': 'file:../../packages/object'
   '@tsfun/pipe': 'file:../../packages/pipe'
+  '@tsfun/result': 'file:../../packages/result'
   static-type-assert: ^3.0.1

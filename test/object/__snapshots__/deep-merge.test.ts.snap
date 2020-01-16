@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`deepMergeWithoutCollision with collision with default error handler throws an error that matches snapshot 1`] = `
+Object {
+  "error": [TypeError: Property collision],
+  "tag": false,
+}
+`;
