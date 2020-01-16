@@ -1,5 +1,8 @@
 import { SimpleDeepMerge } from './utils/types'
 
+const isObject = (value: any): value is object =>
+  value && typeof value === 'object' && !Array.isArray(value)
+
 /**
  * Merge two objects of the same interface
  *
@@ -10,14 +13,7 @@ import { SimpleDeepMerge } from './utils/types'
  * @returns Result of the merge
  */
 export function deepMergeOverwrite<Value> (a: Value, b: Value): Value {
-  if (
-    typeof a !== 'object' ||
-    Array.isArray(a) ||
-    !a ||
-    typeof b !== 'object' ||
-    !b ||
-    Array.isArray(b)
-  ) return b
+  if (!isObject(a) || !isObject(b)) return b
 
   const result: any = {}
 
