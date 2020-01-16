@@ -1,5 +1,418 @@
+import { pass } from '@tsfun/pipe'
 import { err, tryExec } from '@tsfun/result'
-import { deepMergeWithoutCollision } from '@tsfun/object'
+import { deepMergeOverwrite, deepMergeWithoutCollision, deletePropertyPath, setPropertyPath } from '@tsfun/object'
+
+describe('deepMergeOverwrite', () => {
+  describe('no shallow collision', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: symbol
+        readonly a1?: symbol
+        readonly a2?: symbol
+        readonly b0?: symbol
+        readonly b1?: symbol
+        readonly b2?: symbol
+      }
+
+      const A: AB = Object.freeze({
+        a0: Symbol('a0'),
+        a1: Symbol('a1'),
+        a2: Symbol('a2')
+      })
+
+      const B: AB = Object.freeze({
+        b0: Symbol('b0'),
+        b1: Symbol('b1'),
+        b2: Symbol('b2')
+      })
+
+      const AB = deepMergeOverwrite(A, B)
+      return { A, B, AB }
+    }
+
+    it('creates an object that has all properties of A', () => {
+      const { A, AB } = setup()
+      expect(AB).toMatchObject(A)
+    })
+
+    it('creates an object that has all properties of B', () => {
+      const { B, AB } = setup()
+      expect(AB).toMatchObject(B)
+    })
+
+    it('equivalents to { ...B, ...A }', () => {
+      const { A, B, AB } = setup()
+      expect(AB).toEqual({ ...B, ...A })
+    })
+
+    it('equivalents to { ...A, ...B }', () => {
+      const { A, B, AB } = setup()
+      expect(AB).toEqual({ ...A, ...B })
+    })
+  })
+
+  describe('some shallow collisions', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: symbol
+        readonly a1?: symbol
+        readonly a2?: symbol
+        readonly b0?: symbol
+        readonly b1?: symbol
+        readonly b2?: symbol
+        readonly ab: string
+        readonly ba: string
+      }
+
+      const A: AB = Object.freeze({
+        a0: Symbol('a0'),
+        a1: Symbol('a1'),
+        a2: Symbol('a2'),
+        ab: 'from A',
+        ba: 'from A'
+      })
+
+      const B: AB = Object.freeze({
+        b0: Symbol('b0'),
+        b1: Symbol('b1'),
+        b2: Symbol('b2'),
+        ab: 'from B',
+        ba: 'from B'
+      })
+
+      const AB = deepMergeOverwrite(A, B)
+      return { A, B, AB }
+    }
+
+    it('creates an object that has all properties of A except shared properties', () => {
+      const { A, AB } = setup()
+      const { ab, ba, ...newA } = A
+      expect(AB).toMatchObject(newA)
+    })
+
+    it('creates an object that has all properties of B', () => {
+      const { B, AB } = setup()
+      expect(AB).toMatchObject(B)
+    })
+
+    it('equivalents to { ...A, ...B }', () => {
+      const { A, B, AB } = setup()
+      expect(AB).toEqual({ ...A, ...B })
+    })
+  })
+
+  describe('no deep collision', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: symbol
+        readonly a1?: symbol
+        readonly a2?: symbol
+        readonly b0?: symbol
+        readonly b1?: symbol
+        readonly b2?: symbol
+        readonly ab: {
+          readonly a0?: string
+          readonly a1?: number
+          readonly b0?: string
+          readonly b1?: number
+        }
+        readonly ba: {
+          readonly a0?: number
+          readonly a1?: string
+          readonly b0?: number
+          readonly b1?: string
+        }
+      }
+
+      const A: AB = Object.freeze({
+        a0: Symbol('a0'),
+        a1: Symbol('a1'),
+        a2: Symbol('a2'),
+        ab: {
+          a0: 'ab.a0',
+          a1: 123
+        },
+        ba: {
+          a0: 456,
+          a1: 'ba.a1'
+        }
+      })
+
+      const B: AB = Object.freeze({
+        b0: Symbol('b0'),
+        b1: Symbol('b1'),
+        b2: Symbol('b2'),
+        ab: {
+          b0: 'ab.b0',
+          b1: 321
+        },
+        ba: {
+          b0: 654,
+          b1: 'ba.b1'
+        }
+      })
+
+      const AB = deepMergeOverwrite(A, B)
+      return { A, B, AB }
+    }
+
+    it('creates an object that has all properties of A', () => {
+      const { A, AB } = setup()
+      expect(AB).toMatchObject(A)
+    })
+
+    it('creates an object that has all properties of B', () => {
+      const { B, AB } = setup()
+      expect(AB).toMatchObject(B)
+    })
+
+    it('returns expected object', () => {
+      const { A, B, AB } = setup()
+      const expected = pass({ ...A, ...B })
+        .to(setPropertyPath, ['ab', 'a0'], A.ab.a0)
+        .to(setPropertyPath, ['ab', 'a1'], A.ab.a1)
+        .to(setPropertyPath, ['ba', 'a0'], A.ba.a0)
+        .to(setPropertyPath, ['ba', 'a1'], A.ba.a1)
+        .get()
+      expect(AB).toEqual(expected)
+    })
+  })
+
+  describe('some deep collisions', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: symbol
+        readonly a1?: symbol
+        readonly a2?: symbol
+        readonly b0?: symbol
+        readonly b1?: symbol
+        readonly b2?: symbol
+        readonly ab: {
+          readonly a0?: string
+          readonly a1?: number
+          readonly b0?: string
+          readonly b1?: number
+          readonly ab: string
+          readonly ba: number
+        }
+        readonly ba: {
+          readonly a0?: number
+          readonly a1?: string
+          readonly b0?: number
+          readonly b1?: string
+          readonly ab: number
+          readonly ba: string
+        }
+      }
+
+      const A: AB = Object.freeze({
+        a0: Symbol('a0'),
+        a1: Symbol('a1'),
+        a2: Symbol('a2'),
+        ab: {
+          a0: 'ab.a0',
+          a1: 123,
+          ab: 'from A',
+          ba: 135
+        },
+        ba: {
+          a0: 456,
+          a1: 'ba.a1',
+          ab: 246,
+          ba: 'from A'
+        }
+      })
+
+      const B: AB = Object.freeze({
+        b0: Symbol('b0'),
+        b1: Symbol('b1'),
+        b2: Symbol('b2'),
+        ab: {
+          b0: 'ab.b0',
+          b1: 321,
+          ab: 'from B',
+          ba: 531
+        },
+        ba: {
+          b0: 654,
+          b1: 'ba.b1',
+          ab: 642,
+          ba: 'from B'
+        }
+      })
+
+      const AB = deepMergeOverwrite(A, B)
+      return { A, B, AB }
+    }
+
+    it('creates an object that has all properties of A except shared properties', () => {
+      const { A, AB } = setup()
+      const newA = pass(A)
+        .to(deletePropertyPath, ['ab', 'ab'])
+        .to(deletePropertyPath, ['ab', 'ba'])
+        .to(deletePropertyPath, ['ba', 'ab'])
+        .to(deletePropertyPath, ['ba', 'ba'])
+        .get()
+      expect(AB).toMatchObject(newA)
+    })
+
+    it('creates an object that has all properties of B', () => {
+      const { B, AB } = setup()
+      expect(AB).toMatchObject(B)
+    })
+
+    it('returns expected object', () => {
+      const { A, B, AB } = setup()
+      const expected = pass({ ...A, ...B })
+        .to(setPropertyPath, ['ab', 'a0'], A.ab.a0)
+        .to(setPropertyPath, ['ab', 'a1'], A.ab.a1)
+        .to(setPropertyPath, ['ba', 'a0'], A.ba.a0)
+        .to(setPropertyPath, ['ba', 'a1'], A.ba.a1)
+        .get()
+      expect(AB).toEqual(expected)
+    })
+  })
+
+  describe('null is not considered an object', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: symbol
+        readonly a1?: symbol
+        readonly a2?: symbol
+        readonly b0?: symbol
+        readonly b1?: symbol
+        readonly b2?: symbol
+        readonly ab: null | {
+          readonly a0?: string
+          readonly a1?: number
+          readonly b0?: string
+          readonly b1?: number
+        }
+        readonly ba: null | {
+          readonly a0?: number
+          readonly a1?: string
+          readonly b0?: number
+          readonly b1?: string
+        }
+      }
+
+      const A: AB = Object.freeze({
+        a0: Symbol('a0'),
+        a1: Symbol('a1'),
+        a2: Symbol('a2'),
+        ab: null,
+        ba: {
+          a0: 456,
+          a1: 'ba.a1'
+        }
+      })
+
+      const B: AB = Object.freeze({
+        b0: Symbol('b0'),
+        b1: Symbol('b1'),
+        b2: Symbol('b2'),
+        ab: {
+          b0: 'ab.b0',
+          b1: 321
+        },
+        ba: null
+      })
+
+      const AB = deepMergeOverwrite(A, B)
+      return { A, B, AB }
+    }
+
+    it('creates an object that has all properties of A except shared properties', () => {
+      const { A, AB } = setup()
+      const newA = pass(A)
+        .to(deletePropertyPath, ['ab'])
+        .to(deletePropertyPath, ['ba', 'a0'])
+        .to(deletePropertyPath, ['ba', 'a1'])
+        .get()
+      expect(AB).toMatchObject(newA)
+    })
+
+    it('creates an object that has all properties of B', () => {
+      const { B, AB } = setup()
+      expect(AB).toMatchObject(B)
+    })
+
+    it('returns expected object', () => {
+      const { A, B, AB } = setup()
+      expect(AB).toEqual({ ...A, ...B })
+    })
+  })
+
+  describe('arrays are not considered objects', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: symbol
+        readonly a1?: symbol
+        readonly a2?: symbol
+        readonly b0?: symbol
+        readonly b1?: symbol
+        readonly b2?: symbol
+        readonly ab: readonly string[] | {
+          readonly a0?: string
+          readonly a1?: number
+          readonly b0?: string
+          readonly b1?: number
+        }
+        readonly ba: readonly string[] | {
+          readonly a0?: number
+          readonly a1?: string
+          readonly b0?: number
+          readonly b1?: string
+        }
+      }
+
+      const A: AB = Object.freeze({
+        a0: Symbol('a0'),
+        a1: Symbol('a1'),
+        a2: Symbol('a2'),
+        ab: ['A', 'a', 'b'],
+        ba: {
+          a0: 456,
+          a1: 'ba.a1'
+        }
+      })
+
+      const B: AB = Object.freeze({
+        b0: Symbol('b0'),
+        b1: Symbol('b1'),
+        b2: Symbol('b2'),
+        ab: {
+          b0: 'ab.b0',
+          b1: 321
+        },
+        ba: ['B', 'b', 'a']
+      })
+
+      const AB = deepMergeOverwrite(A, B)
+      return { A, B, AB }
+    }
+
+    it('creates an object that has all properties of A except shared properties', () => {
+      const { A, AB } = setup()
+      const newA = pass(A)
+        .to(deletePropertyPath, ['ab'])
+        .to(deletePropertyPath, ['ba', 'a0'])
+        .to(deletePropertyPath, ['ba', 'a1'])
+        .get()
+      expect(AB).toMatchObject(newA)
+    })
+
+    it('creates an object that has all properties of B', () => {
+      const { B, AB } = setup()
+      expect(AB).toMatchObject(B)
+    })
+
+    it('returns expected object', () => {
+      const { A, B, AB } = setup()
+      expect(AB).toEqual({ ...A, ...B })
+    })
+  })
+})
 
 describe('deepMergeWithoutCollision', () => {
   describe('without collision', () => {
