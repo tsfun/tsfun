@@ -1,5 +1,43 @@
 import { SimpleDeepMerge } from './utils/types'
 
+/**
+ * Merge two objects of the same interface
+ *
+ * `b` is prioritized for overlapping non-object properties
+ *
+ * @param a Object or value to merge
+ * @param b Object or value to merge
+ * @returns Result of the merge
+ */
+export function deepMergeOverwrite<Value> (a: Value, b: Value): Value {
+  if (
+    typeof a !== 'object' ||
+    Array.isArray(a) ||
+    !a ||
+    typeof b !== 'object' ||
+    !b ||
+    Array.isArray(b)
+  ) return b
+
+  const result: any = {}
+
+  for (const [key, aValue] of Object.entries(a)) {
+    if (key in b) {
+      const bValue = (b as any)[key]
+      result[key] = deepMergeOverwrite(aValue, bValue)
+    } else {
+      result[key] = aValue
+    }
+  }
+
+  for (const [key, bValue] of Object.entries(b)) {
+    if (key in a) continue
+    result[key] = bValue
+  }
+
+  return result
+}
+
 const DMWOC_DEF_ERR_HDLR: deepMergeWithoutCollision.ErrorProcessor = param => {
   throw Object.assign(new TypeError(`Property collision`), param)
 }
