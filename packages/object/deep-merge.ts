@@ -64,7 +64,6 @@ export function deepMergeWithoutCollision<
       if (typeof aValue === 'object' && typeof bValue === 'object') {
         result[key] = deepMergeWithoutCollision(aValue, bValue, onerror)
       } else {
-        console.log(onerror)
         throw onerror({
           type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
           objects: [a, b],
