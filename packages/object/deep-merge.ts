@@ -57,7 +57,7 @@ export function deepMergeWithoutCollision<
   for (const [key, aValue] of Object.entries(a)) {
     if (key in b) {
       const bValue = (b as any)[key]
-      if (typeof aValue === 'object' && typeof bValue === 'object') {
+      if (isObject(aValue) && isObject(bValue)) {
         result[key] = deepMergeWithoutCollision(aValue, bValue, onerror)
       } else {
         throw onerror({

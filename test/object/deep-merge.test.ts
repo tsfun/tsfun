@@ -16,7 +16,8 @@ describe('deepMergeWithoutCollision', () => {
               a: 'dcba'
             }
           }
-        }
+        },
+        f: null
       }
 
       const B = {
@@ -30,7 +31,8 @@ describe('deepMergeWithoutCollision', () => {
               b: 'dcbb'
             }
           }
-        }
+        },
+        e: [0, 1, { a: null }]
       }
 
       const AB = deepMergeWithoutCollision(A, B)
@@ -55,6 +57,16 @@ describe('deepMergeWithoutCollision', () => {
     it('does not modify B into AB', () => {
       const { B, AB } = setup()
       expect(B).not.toMatchObject(AB)
+    })
+
+    it('preserves null', () => {
+      const { AB } = setup()
+      expect(AB.f).toBe(null)
+    })
+
+    it('preserves array', () => {
+      const { AB } = setup()
+      expect(AB.e).toEqual(expect.any(Array))
     })
   })
 
@@ -173,6 +185,166 @@ describe('deepMergeWithoutCollision', () => {
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
           values: [expect.anything(), expect.anything()]
+        })
+      })
+    })
+
+    describe('with null in a', () => {
+      function setup () {
+        const A = {
+          a: null
+        }
+
+        const B = {
+          a: {
+            b: 123
+          }
+        }
+
+        const fAB = () => deepMergeWithoutCollision(A, B)
+        const rAB = tryExec(fAB)
+        return { A, B, fAB, rAB }
+      }
+
+      it('throws a TypeError', () => {
+        const { rAB } = setup()
+        expect(rAB).toEqual(err(expect.any(TypeError)))
+      })
+
+      it('throws an error that matches snapshot', () => {
+        const { rAB } = setup()
+        expect(rAB).toMatchSnapshot()
+      })
+
+      it('throws an object with expected properties', () => {
+        const { rAB } = setup()
+        expect({
+          ...(rAB as any).error
+        }).toEqual({
+          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          objects: [expect.any(Object), expect.any(Object)],
+          key: expect.any(String),
+          values: [null, expect.anything()]
+        })
+      })
+    })
+
+    describe('with null in b', () => {
+      function setup () {
+        const A = {
+          a: {
+            b: 123
+          }
+        }
+
+        const B = {
+          a: null
+        }
+
+        const fAB = () => deepMergeWithoutCollision(A, B)
+        const rAB = tryExec(fAB)
+        return { A, B, fAB, rAB }
+      }
+
+      it('throws a TypeError', () => {
+        const { rAB } = setup()
+        expect(rAB).toEqual(err(expect.any(TypeError)))
+      })
+
+      it('throws an error that matches snapshot', () => {
+        const { rAB } = setup()
+        expect(rAB).toMatchSnapshot()
+      })
+
+      it('throws an object with expected properties', () => {
+        const { rAB } = setup()
+        expect({
+          ...(rAB as any).error
+        }).toEqual({
+          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          objects: [expect.any(Object), expect.any(Object)],
+          key: expect.any(String),
+          values: [expect.anything(), null]
+        })
+      })
+    })
+
+    describe('with array in a', () => {
+      function setup () {
+        const A = {
+          a: [0, 1, 2]
+        }
+
+        const B = {
+          a: {
+            b: 123
+          }
+        }
+
+        const fAB = () => deepMergeWithoutCollision(A, B)
+        const rAB = tryExec(fAB)
+        return { A, B, fAB, rAB }
+      }
+
+      it('throws a TypeError', () => {
+        const { rAB } = setup()
+        expect(rAB).toEqual(err(expect.any(TypeError)))
+      })
+
+      it('throws an error that matches snapshot', () => {
+        const { rAB } = setup()
+        expect(rAB).toMatchSnapshot()
+      })
+
+      it('throws an object with expected properties', () => {
+        const { rAB } = setup()
+        expect({
+          ...(rAB as any).error
+        }).toEqual({
+          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          objects: [expect.any(Object), expect.any(Object)],
+          key: expect.any(String),
+          values: [expect.any(Array), expect.anything()]
+        })
+      })
+    })
+
+    describe('with array in b', () => {
+      function setup () {
+        const A = {
+          a: {
+            b: 123
+          }
+        }
+
+        const B = {
+          a: [0, 1, 2]
+        }
+
+        const fAB = () => deepMergeWithoutCollision(A, B)
+        const rAB = tryExec(fAB)
+        return { A, B, fAB, rAB }
+      }
+
+      it('throws a TypeError', () => {
+        const { rAB } = setup()
+        expect(rAB).toEqual(err(expect.any(TypeError)))
+      })
+
+      it('throws an error that matches snapshot', () => {
+        const { rAB } = setup()
+        expect(rAB).toMatchSnapshot()
+      })
+
+      it('throws an object with expected properties', () => {
+        const { rAB } = setup()
+        expect({
+          ...(rAB as any).error
+        }).toEqual({
+          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          objects: [expect.any(Object), expect.any(Object)],
+          key: expect.any(String),
+          values: [expect.anything(), expect.any(Array)]
         })
       })
     })

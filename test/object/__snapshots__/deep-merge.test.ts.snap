@@ -1,6 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`deepMergeWithoutCollision with collision with array in a throws an error that matches snapshot 1`] = `
+Object {
+  "error": [TypeError: Property collision],
+  "tag": false,
+}
+`;
+
+exports[`deepMergeWithoutCollision with collision with array in b throws an error that matches snapshot 1`] = `
+Object {
+  "error": [TypeError: Property collision],
+  "tag": false,
+}
+`;
+
 exports[`deepMergeWithoutCollision with collision with default error handler throws an error that matches snapshot 1`] = `
+Object {
+  "error": [TypeError: Property collision],
+  "tag": false,
+}
+`;
+
+exports[`deepMergeWithoutCollision with collision with null in a throws an error that matches snapshot 1`] = `
+Object {
+  "error": [TypeError: Property collision],
+  "tag": false,
+}
+`;
+
+exports[`deepMergeWithoutCollision with collision with null in b throws an error that matches snapshot 1`] = `
 Object {
   "error": [TypeError: Property collision],
   "tag": false,
