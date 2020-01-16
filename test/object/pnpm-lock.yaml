@@ -1,4 +1,5 @@
 dependencies:
+  '@tools/test-utils': 'link:../../tools/test-utils'
   '@tsfun/object': 'link:../../packages/object'
   '@tsfun/pipe': 'link:../../packages/pipe'
   '@tsfun/result': 'link:../../packages/result'
@@ -24,6 +25,7 @@ packages:
     resolution:
       integrity: sha512-zXFars5LUkI3zP492ls0VskH3TtdeHCqu0i7/duGt60i5IGPIpAHE/DWo5FqJ6EjQ15YKXrt+AETjv60Dat34Q==
 specifiers:
+  '@tools/test-utils': 'file:../../tools/test-utils'
   '@tsfun/object': 'file:../../packages/object'
   '@tsfun/pipe': 'file:../../packages/pipe'
   '@tsfun/result': 'file:../../packages/result'

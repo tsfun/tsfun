@@ -4,6 +4,7 @@
     "static-type-assert": "^3.0.1",
     "@tsfun/pipe": "file:../../packages/pipe",
     "@tsfun/result": "file:../../packages/result",
-    "@tsfun/object": "file:../../packages/object"
+    "@tsfun/object": "file:../../packages/object",
+    "@tools/test-utils": "file:../../tools/test-utils"
   }
 }

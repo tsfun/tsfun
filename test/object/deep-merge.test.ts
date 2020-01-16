@@ -1,6 +1,7 @@
 import { pass } from '@tsfun/pipe'
 import { err, tryExec } from '@tsfun/result'
 import { deepMergeOverwrite, deepMergeWithoutCollision, deletePropertyPath, setPropertyPath } from '@tsfun/object'
+import { deepFreeze } from '@tools/test-utils'
 
 describe('deepMergeOverwrite', () => {
   describe('no shallow collision', () => {
@@ -14,13 +15,13 @@ describe('deepMergeOverwrite', () => {
         readonly b2?: symbol
       }
 
-      const A: AB = Object.freeze({
+      const A: AB = deepFreeze({
         a0: Symbol('a0'),
         a1: Symbol('a1'),
         a2: Symbol('a2')
       })
 
-      const B: AB = Object.freeze({
+      const B: AB = deepFreeze({
         b0: Symbol('b0'),
         b1: Symbol('b1'),
         b2: Symbol('b2')
@@ -64,7 +65,7 @@ describe('deepMergeOverwrite', () => {
         readonly ba: string
       }
 
-      const A: AB = Object.freeze({
+      const A: AB = deepFreeze({
         a0: Symbol('a0'),
         a1: Symbol('a1'),
         a2: Symbol('a2'),
@@ -72,7 +73,7 @@ describe('deepMergeOverwrite', () => {
         ba: 'from A'
       })
 
-      const B: AB = Object.freeze({
+      const B: AB = deepFreeze({
         b0: Symbol('b0'),
         b1: Symbol('b1'),
         b2: Symbol('b2'),
@@ -124,7 +125,7 @@ describe('deepMergeOverwrite', () => {
         }
       }
 
-      const A: AB = Object.freeze({
+      const A: AB = deepFreeze({
         a0: Symbol('a0'),
         a1: Symbol('a1'),
         a2: Symbol('a2'),
@@ -138,7 +139,7 @@ describe('deepMergeOverwrite', () => {
         }
       })
 
-      const B: AB = Object.freeze({
+      const B: AB = deepFreeze({
         b0: Symbol('b0'),
         b1: Symbol('b1'),
         b2: Symbol('b2'),
@@ -205,7 +206,7 @@ describe('deepMergeOverwrite', () => {
         }
       }
 
-      const A: AB = Object.freeze({
+      const A: AB = deepFreeze({
         a0: Symbol('a0'),
         a1: Symbol('a1'),
         a2: Symbol('a2'),
@@ -223,7 +224,7 @@ describe('deepMergeOverwrite', () => {
         }
       })
 
-      const B: AB = Object.freeze({
+      const B: AB = deepFreeze({
         b0: Symbol('b0'),
         b1: Symbol('b1'),
         b2: Symbol('b2'),
@@ -296,7 +297,7 @@ describe('deepMergeOverwrite', () => {
         }
       }
 
-      const A: AB = Object.freeze({
+      const A: AB = deepFreeze({
         a0: Symbol('a0'),
         a1: Symbol('a1'),
         a2: Symbol('a2'),
@@ -307,7 +308,7 @@ describe('deepMergeOverwrite', () => {
         }
       })
 
-      const B: AB = Object.freeze({
+      const B: AB = deepFreeze({
         b0: Symbol('b0'),
         b1: Symbol('b1'),
         b2: Symbol('b2'),
@@ -366,7 +367,7 @@ describe('deepMergeOverwrite', () => {
         }
       }
 
-      const A: AB = Object.freeze({
+      const A: AB = deepFreeze({
         a0: Symbol('a0'),
         a1: Symbol('a1'),
         a2: Symbol('a2'),
@@ -377,7 +378,7 @@ describe('deepMergeOverwrite', () => {
         }
       })
 
-      const B: AB = Object.freeze({
+      const B: AB = deepFreeze({
         b0: Symbol('b0'),
         b1: Symbol('b1'),
         b2: Symbol('b2'),
@@ -417,7 +418,7 @@ describe('deepMergeOverwrite', () => {
 describe('deepMergeWithoutCollision', () => {
   describe('without collision', () => {
     function setup () {
-      const A = Object.freeze({
+      const A = deepFreeze({
         a: 0,
         b: 'b',
         c: {
@@ -433,7 +434,7 @@ describe('deepMergeWithoutCollision', () => {
         f: null
       })
 
-      const B = Object.freeze({
+      const B = deepFreeze({
         c: {
           b: 'a'
         },
