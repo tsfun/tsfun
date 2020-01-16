@@ -417,7 +417,7 @@ describe('deepMergeOverwrite', () => {
 describe('deepMergeWithoutCollision', () => {
   describe('without collision', () => {
     function setup () {
-      const A = {
+      const A = Object.freeze({
         a: 0,
         b: 'b',
         c: {
@@ -431,9 +431,9 @@ describe('deepMergeWithoutCollision', () => {
           }
         },
         f: null
-      }
+      })
 
-      const B = {
+      const B = Object.freeze({
         c: {
           b: 'a'
         },
@@ -446,7 +446,7 @@ describe('deepMergeWithoutCollision', () => {
           }
         },
         e: [0, 1, { a: null }]
-      }
+      })
 
       const AB = deepMergeWithoutCollision(A, B)
       return { A, B, AB }
