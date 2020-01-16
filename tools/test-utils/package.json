@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "string-template-format": "^0.2.7"
+    "string-template-format-inspect": "^0.1.4"
   }
 }

@@ -1,30 +1,11 @@
 dependencies:
-  string-template-format: 0.2.7
+  string-template-format-inspect: 0.1.4
 lockfileVersion: 5.1
 packages:
-  /@tsfun/function/0.0.4:
-    dependencies:
-      '@types/node': 13.1.7
-      ts-pipe-compose: 0.1.11
-      tslib: 1.10.0
-    dev: false
-    resolution:
-      integrity: sha512-MiMTplZdtzQcjN6/gr5btKvWPsf/UJ9B1Etggqd9YXzTN8fq+uVt/eXdZOyfnipFWNA0NKaF5+p5l2CpuZVPWg==
-  /@types/node/12.12.24:
-    dev: false
-    resolution:
-      integrity: sha512-1Ciqv9pqwVtW6FsIUKSZNB82E5Cu1I2bBTj1xuIHXLe/1zYLl3956Nbhg2MzSYHVfl9/rmanjbQIb7LibfCnug==
   /@types/node/13.1.7:
     dev: false
     resolution:
       integrity: sha512-HU0q9GXazqiKwviVxg9SI/+t/nAsGkvLDkIdxz+ObejG2nX6Si00TeLqHMoS+a/1tjH7a8YpKVQwtgHuMQsldg==
-  /just-json-type/0.1.3:
-    dependencies:
-      '@types/node': 13.1.7
-      tslib: 1.10.0
-    dev: false
-    resolution:
-      integrity: sha512-l8LhbNHsdrh46vt3iNuwl/I0QnNAYtWsX5xvb4GkMMDfItanwcYXALhBRqGQHGb7k/Pb4qlYc7ICbUBhYjW+lQ==
   /string-template-format-base/0.1.3:
     dependencies:
       '@types/node': 13.1.7
@@ -32,15 +13,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-qERO1R4bP2xYlHvHH1PjPGzFciYehbT3uksMCimd0WF54Ou55JGr+IBtaP4hj79T+uGTbu1mnqJgZK0s02lFKQ==
-  /string-template-format-compose/0.1.3:
-    dependencies:
-      '@tsfun/function': 0.0.4
-      '@types/node': 13.1.7
-      string-template-format-base: 0.1.3
-      tslib: 1.10.0
-    dev: false
-    resolution:
-      integrity: sha512-c1KaHrMCdCNZFVnaPuKFoKChe9Iqnt8Qut25DzICo2xicRCPQbiC7Yy04z/H7HPJfOglB3jeWX9Ovmd++/UVCQ==
   /string-template-format-inspect/0.1.4:
     dependencies:
       '@types/node': 13.1.7
@@ -49,56 +21,9 @@ packages:
     dev: false
     resolution:
       integrity: sha512-i4tz6pO4Rt+WSfoOtOaI1s5ORjUddXGadipmaBLKr9XIlr/UcYa1kYmJOUTKn2K9u/iCmNRFV+xS87YRdvsKhw==
-  /string-template-format-json/0.1.3:
-    dependencies:
-      '@types/node': 13.1.7
-      just-json-type: 0.1.3
-      string-template-format-base: 0.1.3
-      tslib: 1.10.0
-    dev: false
-    resolution:
-      integrity: sha512-ShUDnSz9RgBqpXZ3Ms46cESTVQVO0WGBocvL7GWtwjU93DxYHgi4JkwO2alhGbsr/490NxrKcwrB8BXvbHKK9Q==
-  /string-template-format-tostring/0.1.3:
-    dependencies:
-      '@types/node': 13.1.7
-      string-template-format-base: 0.1.3
-      tslib: 1.10.0
-    dev: false
-    resolution:
-      integrity: sha512-9t2Js3LTtplxIJOuWwRnfb8pjDFG6J4VB/ojLSpr3zhY5a0x6Cd+6c9b+IutjC2uYBY/TzVimpkNCiQStaizpA==
-  /string-template-format-uri/0.1.3:
-    dependencies:
-      '@types/node': 13.1.7
-      string-template-format-base: 0.1.3
-      tslib: 1.10.0
-    dev: false
-    resolution:
-      integrity: sha512-NAqMvulo3w+MDQ1/N0ZEQy52o95Rw48D4mns7lI1QsOl05XciueAFs3xa41dkwdiboJzrWn/6HiXixoJTD1+Vg==
-  /string-template-format/0.2.7:
-    dependencies:
-      '@types/node': 13.1.7
-      string-template-format-base: 0.1.3
-      string-template-format-compose: 0.1.3
-      string-template-format-inspect: 0.1.4
-      string-template-format-json: 0.1.3
-      string-template-format-tostring: 0.1.3
-      string-template-format-uri: 0.1.3
-      tslib: 1.10.0
-    dev: false
-    resolution:
-      integrity: sha512-c4/Ljtq3oFGlAI7A5tyrPk+5AumOz0eq5xVqK0jiE0TC0OCj5EFWpitZopZvzji3jdvmgnhtdErm3Hyc47lnnA==
-  /ts-pipe-compose/0.1.11:
-    dependencies:
-      '@types/node': 12.12.24
-      tslib: 1.10.0
-    dev: false
-    engines:
-      node: '>= 8.9.0'
-    resolution:
-      integrity: sha512-8cP8BumReKwqeYdzV/rMSqYqL2ZN/5yL1CBiMKYp0qri489g3VJ11vOPRTiUoTfqrSQIUWhHVIeZiPrYCD/6Ug==
   /tslib/1.10.0:
     dev: false
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 specifiers:
-  string-template-format: ^0.2.7
+  string-template-format-inspect: ^0.1.4
