@@ -452,6 +452,11 @@ describe('deepMergeWithoutCollision', () => {
       return { A, B, AB }
     }
 
+    it('equivalents to deepMergeOverwrite(A, B)', () => {
+      const { A, B, AB } = setup()
+      expect(AB).toEqual(deepMergeOverwrite<any>(A, B))
+    })
+
     it('returns an object that has all properties of A', () => {
       const { A, AB } = setup()
       expect(AB).toMatchObject(A)
