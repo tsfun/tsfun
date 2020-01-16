@@ -506,7 +506,7 @@ specifiers:
   '@tools/places': 'file:../places'
   '@tools/preloaded-node': 'file:../preloaded-node'
   '@tools/utils': 'file:../utils'
-  '@tsfun/array': ^0.0.0
+  '@tsfun/array': 'file:../../packages/array'
   '@types/fs-extra': ^8.0.1
   '@types/minimatch': ^3.0.3
   '@types/pretty': ^2.0.0
