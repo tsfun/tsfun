@@ -25,7 +25,7 @@
     "@tsfun/pipe": "^0.0.10",
     "@tsfun/option": "^0.0.14",
     "@tsfun/result": "^0.0.15",
-    "@tsfun/object": "^0.0.10",
+    "@tsfun/object": "^0.0.11",
     "@tsfun/array": "^0.0.1",
     "@tsfun/tap": "^0.0.9",
     "@tsfun/misc": "^0.0.6",
