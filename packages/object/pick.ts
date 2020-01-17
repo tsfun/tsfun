@@ -11,7 +11,7 @@ export function pick<
   const result: any = {}
 
   for (const key of keys) {
-    if (key in object) result[key] = object[key]
+    result[key] = object[key]
   }
 
   return result
