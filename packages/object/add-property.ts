@@ -4,6 +4,7 @@ export { AddProperty }
 /**
  * Create an object with `proto` as prototype
  * and `[key]: value` as the only own properties
+ * @note If you need own properties, use `setProperty` instead
  * @param proto Prototype to extends upon
  * @param key Property key
  * @param value Property value
