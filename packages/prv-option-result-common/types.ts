@@ -5,6 +5,7 @@ export interface Box<Value> {
 
 export interface NonBox {
   readonly tag: false
+  readonly value?: undefined
 }
 
 /**
@@ -30,7 +31,9 @@ export type Result<Payload, Error> = Ok<Payload> | Err<Error>
 /**
  * Type of results that carry payload
  */
-export interface Ok<Payload> extends Box<Payload> {}
+export interface Ok<Payload> extends Box<Payload> {
+  readonly error?: undefined
+}
 
 /**
  * Type of result that carry error
