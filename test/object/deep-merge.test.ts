@@ -1,6 +1,6 @@
 import { pass } from '@tsfun/pipe'
 import { err, tryExec } from '@tsfun/result'
-import { deepMergeOverwrite, deepMergeWithoutCollision, deletePropertyPath, setPropertyPath } from '@tsfun/object'
+import { deepMergeOverwrite, deepMergeWithoutCollision, omitOne, deletePropertyPath, setPropertyPath } from '@tsfun/object'
 import { deepFreeze } from '@tools/test-utils'
 
 describe('deepMergeOverwrite', () => {
@@ -326,7 +326,7 @@ describe('deepMergeOverwrite', () => {
     it('creates an object that has all properties of A except shared properties', () => {
       const { A, AB } = setup()
       const newA = pass(A)
-        .to(deletePropertyPath, ['ab'])
+        .to(omitOne, 'ab' as const)
         .to(deletePropertyPath, ['ba', 'a0'])
         .to(deletePropertyPath, ['ba', 'a1'])
         .get()
@@ -396,7 +396,7 @@ describe('deepMergeOverwrite', () => {
     it('creates an object that has all properties of A except shared properties', () => {
       const { A, AB } = setup()
       const newA = pass(A)
-        .to(deletePropertyPath, ['ab'])
+        .to(omitOne, 'ab' as const)
         .to(deletePropertyPath, ['ba', 'a0'])
         .to(deletePropertyPath, ['ba', 'a1'])
         .get()
