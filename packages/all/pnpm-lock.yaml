@@ -24,9 +24,9 @@ specifiers:
   '@tsfun/function': ^0.0.5
   '@tsfun/misc': ^0.0.6
   '@tsfun/object': ^0.0.10
-  '@tsfun/option': ^0.0.13
+  '@tsfun/option': ^0.0.14
   '@tsfun/pipe': ^0.0.10
-  '@tsfun/result': ^0.0.14
+  '@tsfun/result': ^0.0.15
   '@tsfun/tap': ^0.0.9
   '@types/node': ^13.1.7
   tslib: ^1.10.0
