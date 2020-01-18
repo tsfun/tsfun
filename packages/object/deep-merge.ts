@@ -80,20 +80,52 @@ export function deepMergeWithoutCollision<
   return result
 }
 
+/**
+ * Process and transform errors of `deepMergeWithoutCollision`
+ */
 export interface ErrorProcessor {
+  /**
+   * @param param Error information
+   * @returns An error object
+   */
   (param: ErrorProcessorParam): unknown
 }
 
+/**
+ * Param to pass to `ErrorProcessor` should `deepMergeWithoutCollision` fails
+ */
 export type ErrorProcessorParam =
   PropertyCollision
 
+/**
+ * Code of errors that `deepMergeWithoutCollision may cause
+ */
 export const enum ErrorType {
+  /**
+   * Indicates that two merging objects possess properties of same name
+   */
   PropertyCollision = 1
 }
 
+/**
+ * Param to pass to `ErrorProcess` should two merging objects possess properties of same name
+ */
 export interface PropertyCollision {
+  /**
+   * Type of error
+   * @discriminator
+   */
   type: ErrorType.PropertyCollision
+  /**
+   * Two merging object
+   */
   objects: [object, object]
+  /**
+   * Name of conflicting properties
+   */
   key: string | symbol
+  /**
+   * Values of conflicting properties
+   */
   values: [unknown, unknown]
 }
