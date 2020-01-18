@@ -63,6 +63,8 @@ export enum PropertyPreference {
   Right = 1
 }
 
+const PREFER_RIGHT = () => PropertyPreference.Right
+
 /**
  * Merge two objects of the same interface
  *
@@ -73,25 +75,7 @@ export enum PropertyPreference {
  * @returns Result of the merge
  */
 export function deepMergeOverwrite<Value> (a: Value, b: Value): Value {
-  if (!isObject(a) || !isObject(b)) return b
-
-  const result: any = {}
-
-  for (const [key, aValue] of Object.entries(a)) {
-    if (key in b) {
-      const bValue = (b as any)[key]
-      result[key] = deepMergeOverwrite(aValue, bValue)
-    } else {
-      result[key] = aValue
-    }
-  }
-
-  for (const [key, bValue] of Object.entries(b)) {
-    if (key in a) continue
-    result[key] = bValue
-  }
-
-  return result
+  return deepMergeWithPreference(a, b, PREFER_RIGHT)
 }
 
 const DMWOC_DEF_ERR_HDLR: ErrorProcessor = param => {
