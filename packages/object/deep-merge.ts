@@ -5,6 +5,66 @@ const isObject = (value: any): value is object =>
 
 /**
  * Merge two objects of the same interface
+ * @param left Object or value to merge
+ * @param right Object or value to merge
+ * @param resolveConflict Function that resolves property conflict
+ * @returns Result of the merge
+ */
+export function deepMergeWithPreference<Value> (
+  left: Value,
+  right: Value,
+  resolveConflict: PropertyConflictResolver
+): Value {
+  if (!isObject(left) || !isObject(right)) {
+    return resolveConflict([left, right]) ? right : left
+  }
+
+  const result: any = {}
+
+  for (const [key, leftValue] of Object.entries(left)) {
+    if (key in right) {
+      const rightValue = (right as any)[key]
+      result[key] = deepMergeWithPreference(leftValue, rightValue, resolveConflict)
+    } else {
+      result[key] = leftValue
+    }
+  }
+
+  for (const [key, bValue] of Object.entries(right)) {
+    if (key in left) continue
+    result[key] = bValue
+  }
+
+  return result
+}
+
+/**
+ * Decides which property should make it to the merged object
+ */
+export interface PropertyConflictResolver {
+  /**
+   * @param values Pair of conflicting properties
+   * @returns Property choice
+   */
+  (values: [unknown, unknown]): PropertyPreference
+}
+
+/**
+ * Choice to be made
+ */
+export enum PropertyPreference {
+  /**
+   * Choose the left value (`values[0]`)
+   */
+  Left = 0,
+  /**
+   * Choose the right value (`values[1]`)
+   */
+  Right = 1
+}
+
+/**
+ * Merge two objects of the same interface
  *
  * `b` is prioritized for overlapping non-object properties
  *
