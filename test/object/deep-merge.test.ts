@@ -1,7 +1,15 @@
 import { pass } from '@tsfun/pipe'
 import { err, tryExec } from '@tsfun/result'
-import { deepMergeOverwrite, deepMergeWithoutCollision, omitOne, deletePropertyPath, setPropertyPath } from '@tsfun/object'
 import { deepFreeze } from '@tools/test-utils'
+
+import {
+  deepMergeOverwrite,
+  deepMergeWithoutCollision,
+  omitOne,
+  deletePropertyPath,
+  setPropertyPath,
+  ErrorType
+} from '@tsfun/object'
 
 describe('deepMergeOverwrite', () => {
   describe('no shallow collision', () => {
@@ -541,7 +549,7 @@ describe('deepMergeWithoutCollision', () => {
         expect({
           ...(rAB as any).error
         }).toEqual({
-          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
           values: [expect.anything(), expect.anything()]
@@ -600,7 +608,7 @@ describe('deepMergeWithoutCollision', () => {
       it('calls error handler with expected arguments', () => {
         const { onerror } = setup()
         expect(onerror).toBeCalledWith({
-          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
           values: [expect.anything(), expect.anything()]
@@ -640,7 +648,7 @@ describe('deepMergeWithoutCollision', () => {
         expect({
           ...(rAB as any).error
         }).toEqual({
-          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
           values: [null, expect.anything()]
@@ -680,7 +688,7 @@ describe('deepMergeWithoutCollision', () => {
         expect({
           ...(rAB as any).error
         }).toEqual({
-          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
           values: [expect.anything(), null]
@@ -720,7 +728,7 @@ describe('deepMergeWithoutCollision', () => {
         expect({
           ...(rAB as any).error
         }).toEqual({
-          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
           values: [expect.any(Array), expect.anything()]
@@ -760,7 +768,7 @@ describe('deepMergeWithoutCollision', () => {
         expect({
           ...(rAB as any).error
         }).toEqual({
-          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
           values: [expect.anything(), expect.any(Array)]

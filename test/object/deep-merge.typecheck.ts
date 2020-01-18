@@ -1,5 +1,5 @@
 import assert from 'static-type-assert'
-import { deepMergeWithoutCollision } from '@tsfun/object'
+import { deepMergeWithoutCollision, ErrorType } from '@tsfun/object'
 
 const A = {
   a: 0 as const,
@@ -38,7 +38,7 @@ assert<'dcbb'>(AB.d.c.b.b)
 
 const AB2 = deepMergeWithoutCollision(A, B, error => {
   assert<{
-    type: deepMergeWithoutCollision.ErrorType.PropertyCollision
+    type: ErrorType.PropertyCollision
     objects: [object, object]
     key: symbol | string
     values: [unknown, unknown]

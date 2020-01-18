@@ -34,7 +34,7 @@ export function deepMergeOverwrite<Value> (a: Value, b: Value): Value {
   return result
 }
 
-const DMWOC_DEF_ERR_HDLR: deepMergeWithoutCollision.ErrorProcessor = param => {
+const DMWOC_DEF_ERR_HDLR: ErrorProcessor = param => {
   throw Object.assign(new TypeError(`Property collision`), param)
 }
 
@@ -61,7 +61,7 @@ export function deepMergeWithoutCollision<
         result[key] = deepMergeWithoutCollision(aValue, bValue, onerror)
       } else {
         throw onerror({
-          type: deepMergeWithoutCollision.ErrorType.PropertyCollision,
+          type: ErrorType.PropertyCollision,
           objects: [a, b],
           key,
           values: [aValue, bValue]
@@ -80,23 +80,20 @@ export function deepMergeWithoutCollision<
   return result
 }
 
-/* istanbul ignore next */
-export namespace deepMergeWithoutCollision {
-  export interface ErrorProcessor {
-    (param: ErrorProcessorParam): unknown
-  }
+export interface ErrorProcessor {
+  (param: ErrorProcessorParam): unknown
+}
 
-  export type ErrorProcessorParam =
-    PropertyCollision
+export type ErrorProcessorParam =
+  PropertyCollision
 
-  export const enum ErrorType {
-    PropertyCollision = 1
-  }
+export const enum ErrorType {
+  PropertyCollision = 1
+}
 
-  export interface PropertyCollision {
-    type: ErrorType.PropertyCollision
-    objects: [object, object]
-    key: string | symbol
-    values: [unknown, unknown]
-  }
+export interface PropertyCollision {
+  type: ErrorType.PropertyCollision
+  objects: [object, object]
+  key: string | symbol
+  values: [unknown, unknown]
 }
