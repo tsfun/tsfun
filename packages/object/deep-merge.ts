@@ -167,7 +167,7 @@ export interface PropertyCollision {
   /**
    * Name of conflicting properties
    */
-  key: string | symbol
+  key: string
   /**
    * Values of conflicting properties
    */

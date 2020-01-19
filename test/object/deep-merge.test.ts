@@ -3,13 +3,268 @@ import { err, tryExec } from '@tsfun/result'
 import { deepFreeze } from '@tools/test-utils'
 
 import {
+  deepMergeWithPreference,
   deepMergeOverwrite,
   deepMergeWithoutCollision,
   omitOne,
   deletePropertyPath,
   setPropertyPath,
+  PropertyPreference,
   ErrorType
 } from '@tsfun/object'
+
+describe('deepMergeWithPreference', () => {
+  describe('no collision', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: {
+          readonly a1?: {
+            readonly a2?: string
+            readonly b2?: string
+          }
+          readonly b1?: {
+            readonly a2?: string
+            readonly b2?: string
+          }
+        }
+        readonly b0?: {
+          readonly a1?: {
+            readonly a2?: string
+            readonly b2?: string
+          }
+          readonly b1?: {
+            readonly a2?: string
+            readonly b2?: string
+          }
+        }
+      }
+
+      const A: AB = {
+        a0: {
+          a1: {
+            a2: 'a0.a1.a2'
+          },
+          b1: {
+            a2: 'a0.b1.a2'
+          }
+        },
+        b0: {
+          a1: {
+            a2: 'b0.a1.a2'
+          },
+          b1: {
+            a2: 'b0.b1.a2'
+          }
+        }
+      }
+
+      const B: AB = {
+        a0: {
+          a1: {
+            b2: 'a0.a1.b2'
+          },
+          b1: {
+            b2: 'a0.b1.b2'
+          }
+        },
+        b0: {
+          a1: {
+            b2: 'b0.a1.b2'
+          },
+          b1: {
+            b2: 'b0.b1.b2'
+          }
+        }
+      }
+
+      const resolveConflict = jest.fn(() => {
+        throw new Error('This function is supposed to not be called')
+      })
+      const AB = deepMergeWithPreference(A, B, resolveConflict)
+      return { A, B, resolveConflict, AB }
+    }
+
+    it('does not call resolveConflict', () => {
+      expect(setup().resolveConflict).not.toBeCalled()
+    })
+
+    it('creates an object that has all properties of A', () => {
+      const { A, AB } = setup()
+      expect(AB).toMatchObject(A)
+    })
+
+    it('creates an object that has all properties of B', () => {
+      const { B, AB } = setup()
+      expect(AB).toMatchObject(B)
+    })
+
+    it('creates an object that matches snapshot', () => {
+      expect(setup().AB).toMatchSnapshot()
+    })
+  })
+
+  describe('with collision but prefer truthy values', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: {
+          readonly a1?: {
+            readonly a2?: string | null | false | 0
+            readonly b2?: string | null | false | 0
+          }
+          readonly b1?: {
+            readonly a2?: string | null | false | 0
+            readonly b2?: string | null | false | 0
+          }
+        }
+        readonly b0?: {
+          readonly a1?: {
+            readonly a2?: string | null | false | 0
+            readonly b2?: string | null | false | 0
+          }
+          readonly b1?: {
+            readonly a2?: string | null | false | 0
+            readonly b2?: string | null | false | 0
+          }
+        }
+      }
+
+      const A: AB = {
+        a0: {
+          a1: {
+            a2: 'a0.a1.a2',
+            b2: undefined
+          },
+          b1: {
+            a2: 'a0.b1.a2',
+            b2: null
+          }
+        },
+        b0: {
+          a1: {
+            a2: 'b0.a1.a2',
+            b2: false
+          },
+          b1: {
+            a2: 'b0.b1.a2',
+            b2: 0
+          }
+        }
+      }
+
+      const B: AB = {
+        a0: {
+          a1: undefined,
+          b1: undefined
+        },
+        b0: {
+          a1: {
+            b2: 'b0.a1.b2'
+          },
+          b1: {
+            b2: 'b0.b1.b2'
+          }
+        }
+      }
+
+      const resolveConflict = jest.fn(([left, right]: [any, any]) => {
+        if (left && !right) return PropertyPreference.Left
+        if (right && !left) return PropertyPreference.Right
+        throw new RangeError(`Cannot decide preference between ${left} and ${right}`)
+      })
+      const AB = deepMergeWithPreference(A, B, resolveConflict)
+      return { A, B, resolveConflict, AB }
+    }
+
+    it('calls resolveConflict', () => {
+      expect(setup().resolveConflict.mock.calls).toMatchSnapshot()
+    })
+
+    it('creates an object that matches snapshot', () => {
+      expect(setup().AB).toMatchSnapshot()
+    })
+  })
+
+  describe('with collision but prefer falsy values', () => {
+    function setup () {
+      interface AB {
+        readonly a0?: {
+          readonly a1?: {
+            readonly a2?: string | null | false | 0
+            readonly b2?: string | null | false | 0
+          }
+          readonly b1?: {
+            readonly a2?: string | null | false | 0
+            readonly b2?: string | null | false | 0
+          }
+        }
+        readonly b0?: {
+          readonly a1?: {
+            readonly a2?: string | null | false | 0
+            readonly b2?: string | null | false | 0
+          }
+          readonly b1?: {
+            readonly a2?: string | null | false | 0
+            readonly b2?: string | null | false | 0
+          }
+        }
+      }
+
+      const A: AB = {
+        a0: {
+          a1: {
+            a2: 'a0.a1.a2',
+            b2: undefined
+          },
+          b1: {
+            a2: 'a0.b1.a2',
+            b2: null
+          }
+        },
+        b0: {
+          a1: {
+            a2: 'b0.a1.a2',
+            b2: false
+          },
+          b1: {
+            a2: 'b0.b1.a2',
+            b2: 0
+          }
+        }
+      }
+
+      const B: AB = {
+        a0: {
+          a1: undefined,
+          b1: undefined
+        },
+        b0: {
+          a1: {
+            b2: 'b0.a1.b2'
+          },
+          b1: {
+            b2: 'b0.b1.b2'
+          }
+        }
+      }
+
+      const resolveConflict = jest.fn(([left, right]: [any, any]) => {
+        if (left && !right) return PropertyPreference.Right
+        if (right && !left) return PropertyPreference.Left
+        throw new RangeError(`Cannot decide preference between ${left} and ${right}`)
+      })
+      const AB = deepMergeWithPreference(A, B, resolveConflict)
+      return { A, B, resolveConflict, AB }
+    }
+
+    it('calls resolveConflict', () => {
+      expect(setup().resolveConflict.mock.calls).toMatchSnapshot()
+    })
+
+    it('creates an object that matches snapshot', () => {
+      expect(setup().AB).toMatchSnapshot()
+    })
+  })
+})
 
 describe('deepMergeOverwrite', () => {
   describe('no shallow collision', () => {

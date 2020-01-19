@@ -1,5 +1,144 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`deepMergeWithPreference no collision creates an object that matches snapshot 1`] = `
+Object {
+  "a0": Object {
+    "a1": Object {
+      "a2": "a0.a1.a2",
+      "b2": "a0.a1.b2",
+    },
+    "b1": Object {
+      "a2": "a0.b1.a2",
+      "b2": "a0.b1.b2",
+    },
+  },
+  "b0": Object {
+    "a1": Object {
+      "a2": "b0.a1.a2",
+      "b2": "b0.a1.b2",
+    },
+    "b1": Object {
+      "a2": "b0.b1.a2",
+      "b2": "b0.b1.b2",
+    },
+  },
+}
+`;
+
+exports[`deepMergeWithPreference with collision but prefer falsy values calls resolveConflict 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "a2": "a0.a1.a2",
+        "b2": undefined,
+      },
+      undefined,
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "a2": "a0.b1.a2",
+        "b2": null,
+      },
+      undefined,
+    ],
+  ],
+  Array [
+    Array [
+      false,
+      "b0.a1.b2",
+    ],
+  ],
+  Array [
+    Array [
+      0,
+      "b0.b1.b2",
+    ],
+  ],
+]
+`;
+
+exports[`deepMergeWithPreference with collision but prefer falsy values creates an object that matches snapshot 1`] = `
+Object {
+  "a0": Object {
+    "a1": undefined,
+    "b1": undefined,
+  },
+  "b0": Object {
+    "a1": Object {
+      "a2": "b0.a1.a2",
+      "b2": false,
+    },
+    "b1": Object {
+      "a2": "b0.b1.a2",
+      "b2": 0,
+    },
+  },
+}
+`;
+
+exports[`deepMergeWithPreference with collision but prefer truthy values calls resolveConflict 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "a2": "a0.a1.a2",
+        "b2": undefined,
+      },
+      undefined,
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "a2": "a0.b1.a2",
+        "b2": null,
+      },
+      undefined,
+    ],
+  ],
+  Array [
+    Array [
+      false,
+      "b0.a1.b2",
+    ],
+  ],
+  Array [
+    Array [
+      0,
+      "b0.b1.b2",
+    ],
+  ],
+]
+`;
+
+exports[`deepMergeWithPreference with collision but prefer truthy values creates an object that matches snapshot 1`] = `
+Object {
+  "a0": Object {
+    "a1": Object {
+      "a2": "a0.a1.a2",
+      "b2": undefined,
+    },
+    "b1": Object {
+      "a2": "a0.b1.a2",
+      "b2": null,
+    },
+  },
+  "b0": Object {
+    "a1": Object {
+      "a2": "b0.a1.a2",
+      "b2": "b0.a1.b2",
+    },
+    "b1": Object {
+      "a2": "b0.b1.a2",
+      "b2": "b0.b1.b2",
+    },
+  },
+}
+`;
+
 exports[`deepMergeWithoutCollision with collision with array in a throws an error that matches snapshot 1`] = `
 Object {
   "error": [TypeError: Property collision],
