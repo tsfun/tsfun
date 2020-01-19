@@ -179,6 +179,21 @@ describe('deepMergeWithPreference', () => {
       expect(setup().resolveConflict.mock.calls).toMatchSnapshot()
     })
 
+    it('falsy values from A is overwritten', () => {
+      const { AB } = setup()
+      expect({
+        'a0.a1': AB.a0!.a1,
+        'a0.b1': AB.a0!.b1,
+        'b0.a1.b2': AB.b0!.a1!.b2,
+        'b0.b1.b2': AB.b0!.b1!.b2
+      }).toEqual({
+        'a0.a1': expect.any(Object),
+        'a0.b1': expect.any(Object),
+        'b0.a1.b2': expect.any(String),
+        'b0.b1.b2': expect.any(String)
+      })
+    })
+
     it('creates an object that matches snapshot', () => {
       expect(setup().AB).toMatchSnapshot()
     })
@@ -258,6 +273,21 @@ describe('deepMergeWithPreference', () => {
 
     it('calls resolveConflict', () => {
       expect(setup().resolveConflict.mock.calls).toMatchSnapshot()
+    })
+
+    it('truthy values from A is overwritten', () => {
+      const { AB } = setup()
+      expect({
+        'a0.a1': AB.a0!.a1,
+        'a0.b1': AB.a0!.b1,
+        'b0.a1.b2': AB.b0!.a1!.b2,
+        'b0.b1.b2': AB.b0!.b1!.b2
+      }).toEqual({
+        'a0.a1': undefined,
+        'a0.b1': undefined,
+        'b0.a1.b2': false,
+        'b0.b1.b2': 0
+      })
     })
 
     it('creates an object that matches snapshot', () => {
