@@ -52,7 +52,7 @@ export interface PropertyConflictResolver {
 /**
  * Choice to be made
  */
-export enum PropertyPreference {
+export const enum PropertyPreference {
   /**
    * Choose the left value (`values[0]`)
    */
