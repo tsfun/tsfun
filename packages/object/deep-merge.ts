@@ -68,14 +68,14 @@ const PREFER_RIGHT = () => PropertyPreference.Right
 /**
  * Merge two objects of the same interface
  *
- * `b` is prioritized for overlapping non-object properties
+ * `left` is prioritized for overlapping non-object properties
  *
- * @param a Object or value to merge
- * @param b Object or value to merge
+ * @param left Object or value to merge
+ * @param right Object or value to merge
  * @returns Result of the merge
  */
-export function deepMergeOverwrite<Value> (a: Value, b: Value): Value {
-  return deepMergeWithPreference(a, b, PREFER_RIGHT)
+export function deepMergeOverwrite<Value> (left: Value, right: Value): Value {
+  return deepMergeWithPreference(left, right, PREFER_RIGHT)
 }
 
 const DMWOC_DEF_ERR_HDLR: ErrorProcessor = param => {
@@ -87,37 +87,37 @@ const DMWOC_DEF_ERR_HDLR: ErrorProcessor = param => {
  *
  * The two objects are expected to not have overlapping non-object properties
  *
- * @param a Object to merge
- * @param b Object to merge
+ * @param left Object to merge
+ * @param right Object to merge
  * @param onerror Function to handle should error occurs
  * @returns A merged object of `a` and `b`
  */
 export function deepMergeWithoutCollision<
-  A extends object,
-  B extends object
-> (a: A, b: B, onerror = DMWOC_DEF_ERR_HDLR): SimpleDeepMerge<A, B> {
+  Left extends object,
+  Right extends object
+> (left: Left, right: Right, onerror = DMWOC_DEF_ERR_HDLR): SimpleDeepMerge<Left, Right> {
   const result: any = {}
 
-  for (const [key, aValue] of Object.entries(a)) {
-    if (key in b) {
-      const bValue = (b as any)[key]
-      if (isObject(aValue) && isObject(bValue)) {
-        result[key] = deepMergeWithoutCollision(aValue, bValue, onerror)
+  for (const [key, leftValue] of Object.entries(left)) {
+    if (key in right) {
+      const rightValue = (right as any)[key]
+      if (isObject(leftValue) && isObject(rightValue)) {
+        result[key] = deepMergeWithoutCollision(leftValue, rightValue, onerror)
       } else {
         throw onerror({
           type: ErrorType.PropertyCollision,
-          objects: [a, b],
+          objects: [left, right],
           key,
-          values: [aValue, bValue]
+          values: [leftValue, rightValue]
         })
       }
     } else {
-      result[key] = aValue
+      result[key] = leftValue
     }
   }
 
-  for (const [key, bValue] of Object.entries(b)) {
-    if (key in a) continue
+  for (const [key, bValue] of Object.entries(right)) {
+    if (key in left) continue
     result[key] = bValue
   }
 
