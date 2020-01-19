@@ -136,7 +136,7 @@ export interface ErrorProcessor {
 }
 
 /**
- * Param to pass to `ErrorProcessor` should `deepMergeWithoutCollision` fails
+ * Param to pass to {@link ErrorProcessor} should {@link deepMergeWithoutCollision} fails
  */
 export type ErrorProcessorParam =
   PropertyCollision
@@ -152,7 +152,7 @@ export const enum ErrorType {
 }
 
 /**
- * Param to pass to `ErrorProcess` should two merging objects possess properties of same name
+ * Param to pass to {@link ErrorProcessor} should two merging objects possess properties of same name
  */
 export interface PropertyCollision {
   /**
