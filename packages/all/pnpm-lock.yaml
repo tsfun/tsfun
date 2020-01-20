@@ -23,7 +23,7 @@ specifiers:
   '@tsfun/array': ^0.0.1
   '@tsfun/function': ^0.0.5
   '@tsfun/misc': ^0.0.6
-  '@tsfun/object': ^0.0.13
+  '@tsfun/object': ^0.0.14
   '@tsfun/option': ^0.0.14
   '@tsfun/pipe': ^0.0.10
   '@tsfun/result': ^0.0.15
