@@ -38,31 +38,6 @@ export function deepMergeWithPreference<Value> (
   return result
 }
 
-/**
- * Decides which property should make it to the merged object
- */
-export interface PropertyConflictResolver {
-  /**
-   * @param values Pair of conflicting properties
-   * @returns Property choice
-   */
-  (values: [unknown, unknown]): PropertyPreference
-}
-
-/**
- * Choice to be made
- */
-export const enum PropertyPreference {
-  /**
-   * Choose the left value (`values[0]`)
-   */
-  Left = 0,
-  /**
-   * Choose the right value (`values[1]`)
-   */
-  Right = 1
-}
-
 const PREFER_RIGHT = () => PropertyPreference.Right
 
 /**
@@ -122,6 +97,31 @@ export function deepMergeWithoutCollision<
   }
 
   return result
+}
+
+/**
+ * Decides which property should make it to the merged object
+ */
+export interface PropertyConflictResolver {
+  /**
+   * @param values Pair of conflicting properties
+   * @returns Property choice
+   */
+  (values: [unknown, unknown]): PropertyPreference
+}
+
+/**
+ * Choice to be made
+ */
+export const enum PropertyPreference {
+  /**
+   * Choose the left value (`values[0]`)
+   */
+  Left = 0,
+  /**
+   * Choose the right value (`values[1]`)
+   */
+  Right = 1
 }
 
 /**
