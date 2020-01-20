@@ -1,5 +1,5 @@
-import { DeepPartialNonArray as DeepPartial, SimpleDeepMerge } from './utils/types'
-export { DeepPartial }
+import { DeepPartialNonArray as DeepPartial, SimpleDeepMerge as DeepMergeWithoutCollision } from './utils/types'
+export { DeepPartial, DeepMergeWithoutCollision }
 
 const isObject = (value: any): value is object =>
   value && typeof value === 'object' && !Array.isArray(value)
@@ -86,7 +86,7 @@ export function deepMergePartial<Object> (
 export function deepMergeWithoutCollision<
   Left extends object,
   Right extends object
-> (left: Left, right: Right, onerror = DMWOC_DEF_ERR_HDLR): SimpleDeepMerge<Left, Right> {
+> (left: Left, right: Right, onerror = DMWOC_DEF_ERR_HDLR): DeepMergeWithoutCollision<Left, Right> {
   const result: any = {}
 
   for (const [key, leftValue] of Object.entries(left)) {
