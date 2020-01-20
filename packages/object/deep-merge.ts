@@ -1,4 +1,5 @@
-import { SimpleDeepMerge } from './utils/types'
+import { DeepPartialNonArray as DeepPartial, SimpleDeepMerge } from './utils/types'
+export { DeepPartial }
 
 const isObject = (value: any): value is object =>
   value && typeof value === 'object' && !Array.isArray(value)
@@ -52,6 +53,25 @@ export function deepMergeOverwrite<Value> (left: Value, right: Value): Value {
 }
 
 const PREFER_RIGHT = () => PropertyPreference.Right
+
+/**
+ * Merge an object and a partial object of the same interface
+ * @param left Object to merge
+ * @param right Partial object to merge
+ * @param resolveConflict Function that resolves property conflict
+ * @returns Result of the merge
+ */
+export function deepMergePartial<Object> (
+  left: Object,
+  right: DeepPartial<Object>,
+  resolveConflict: PropertyConflictResolver
+): Object {
+  return deepMergeWithPreference(
+    left,
+    right as Object,
+    values => values[1] === undefined ? PropertyPreference.Left : resolveConflict(values)
+  )
+}
 
 /**
  * Merge two objects

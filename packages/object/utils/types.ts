@@ -25,6 +25,16 @@ export type Properties<Type> = {
 export type SimpleDeepMerge<A, B> = Properties<A> & Properties<B>
 
 /**
+ * Make all properties in a dict optional
+ */
+export type DeepPartialNonArray<Object> =
+  Object extends any[] ? Object | undefined :
+  Object extends object ? {
+    [Key in keyof Object]?: DeepPartialNonArray<Object[Key]>
+  } :
+  Object | undefined
+
+/**
  * Return type of `objectExtends`
  */
 export type ObjectExtends<
