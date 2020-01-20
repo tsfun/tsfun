@@ -10,12 +10,30 @@ const nonPartial = {
     }
   },
   f: {
-    g: 3
+    g: 3,
+    h: [0, 1, 2],
+    i: [{ j: 4 }]
   }
 } as const
 
 type NonPartialObject = typeof nonPartial
 type PartialObject = DeepPartial<NonPartialObject>
+assert.compare<PartialObject, {
+  readonly a?: 0,
+  readonly b?: {
+    readonly c?: 1,
+    readonly d?: {
+      readonly e?: 2
+    }
+  },
+  readonly f?: {
+    readonly g?: 3,
+    readonly h?: readonly [0, 1, 2], // spec: does not make array elements partial
+    readonly i?: readonly [{
+      readonly j: 4 // spec: does not make objects inside array partial
+    }]
+  }
+}>('equal')
 assert<PartialObject>(nonPartial)
 assert<PartialObject>({})
 assert<PartialObject>({
@@ -30,6 +48,28 @@ assert<PartialObject>({
     d: undefined
   },
   f: undefined
+})
+assert<PartialObject>({
+  a: 0,
+  b: {
+    c: 1,
+    d: undefined
+  },
+  f: {
+    g: 3,
+    h: undefined
+  }
+})
+assert<PartialObject>({
+  a: 0,
+  b: {
+    c: 1,
+    d: undefined
+  },
+  f: {
+    g: 3,
+    h: [0, 1, 2]
+  }
 })
 assert<NonPartialObject>(deepMergePartial(nonPartial, {}, () => undefined!))
 assert<NonPartialObject>(deepMergePartial(nonPartial, nonPartial, () => undefined!))
