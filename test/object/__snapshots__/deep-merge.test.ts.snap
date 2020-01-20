@@ -1,5 +1,175 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`deepMergePartial collide with non-undefined from right and have a conflict resolver that prefers right calls resolveConflict 1`] = `
+Array [
+  Array [
+    Array [
+      "left aa",
+      "right aa",
+    ],
+  ],
+  Array [
+    Array [
+      Array [
+        "left",
+        "b",
+        "a",
+      ],
+      Array [
+        "right",
+        "a",
+        "b",
+      ],
+    ],
+  ],
+  Array [
+    Array [
+      Array [
+        "left",
+        "b",
+        "b",
+      ],
+      Array [
+        "right",
+        "b",
+        "b",
+      ],
+    ],
+  ],
+  Array [
+    Array [
+      Array [
+        "left c0",
+        Object {
+          "a": "left c1a",
+        },
+        Object {
+          "b": "left c1b",
+        },
+      ],
+      Array [
+        "right c0",
+        Object {
+          "a": "right c1a",
+        },
+        Object {
+          "b": "right c1b",
+        },
+      ],
+    ],
+  ],
+]
+`;
+
+exports[`deepMergePartial collide with non-undefined from right and have a conflict resolver that prefers right creates object that matches snapshot 1`] = `
+Object {
+  "a": Object {
+    "a": "right aa",
+    "b": "right ab",
+  },
+  "b": Object {
+    "a": Array [
+      "right",
+      "a",
+      "b",
+    ],
+    "b": Array [
+      "right",
+      "b",
+      "b",
+    ],
+  },
+  "c": Array [
+    "right c0",
+    Object {
+      "a": "right c1a",
+    },
+    Object {
+      "b": "right c1b",
+    },
+  ],
+  "d": Array [
+    "right d0",
+    Object {
+      "a": "right d1a",
+    },
+    Object {
+      "b": "right d1b",
+    },
+  ],
+}
+`;
+
+exports[`deepMergePartial collide with undefined from right creates object that matches snapshot 1`] = `
+Object {
+  "a": Object {
+    "a": "aa",
+    "b": "ab",
+  },
+  "b": Object {
+    "a": Array [
+      "b",
+      "a",
+    ],
+    "b": Array [
+      "b",
+      "b",
+    ],
+  },
+  "c": Array [
+    "c0",
+    Object {
+      "a": "c1a",
+    },
+    Object {
+      "b": "c1b",
+    },
+  ],
+  "d": Array [
+    "d0",
+    Object {
+      "a": "d1a",
+    },
+    Object {
+      "b": "d1b",
+    },
+  ],
+}
+`;
+
+exports[`deepMergePartial no collision creates object that matches snapshot 1`] = `
+Object {
+  "a": Object {
+    "a": "aa",
+    "b": "ab",
+  },
+  "b": Object {
+    "a": Array [
+      "b",
+      "a",
+    ],
+  },
+  "c": Array [
+    "c0",
+    Object {
+      "a": "c1a",
+    },
+    Object {
+      "b": "c1b",
+    },
+  ],
+  "d": Array [
+    "d0",
+    Object {
+      "a": "d1a",
+    },
+    Object {
+      "b": "d1b",
+    },
+  ],
+}
+`;
+
 exports[`deepMergeWithPreference no collision creates an object that matches snapshot 1`] = `
 Object {
   "a0": Object {

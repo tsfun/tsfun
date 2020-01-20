@@ -5,11 +5,13 @@ import { deepFreeze } from '@tools/test-utils'
 import {
   deepMergeWithPreference,
   deepMergeOverwrite,
+  deepMergePartial,
   deepMergeWithoutCollision,
   omitOne,
   deletePropertyPath,
   setPropertyPath,
   PropertyPreference,
+  DeepPartial,
   ErrorType
 } from '@tsfun/object'
 
@@ -704,6 +706,168 @@ describe('deepMergeOverwrite', () => {
     it('returns expected object', () => {
       const { A, B, AB } = setup()
       expect(AB).toEqual({ ...A, ...B })
+    })
+  })
+})
+
+describe('deepMergePartial', () => {
+  interface Left {
+    readonly a: {
+      readonly a: string
+      readonly b?: string
+    }
+    readonly b?: {
+      readonly a: readonly string[]
+      readonly b?: readonly string[]
+    }
+    readonly c: readonly [
+      string,
+      { readonly a: string },
+      { readonly b?: string }
+    ]
+    readonly d?: readonly [
+      string,
+      { readonly a: string },
+      { readonly b?: string }
+    ]
+  }
+
+  type Right = DeepPartial<Left>
+
+  describe('no collision', () => {
+    function setup () {
+      const left: Left = {
+        a: {
+          a: 'aa'
+        },
+        c: ['c0', { a: 'c1a' }, { b: 'c1b' }]
+      }
+
+      const right: Right = {
+        a: {
+          b: 'ab'
+        },
+        b: {
+          a: ['b', 'a']
+        },
+        d: ['d0', { a: 'd1a' }, { b: 'd1b' }]
+      }
+
+      const resolveConflict = jest.fn(() => {
+        throw new Error('This function is supposed to not be called')
+      })
+      const result = deepMergePartial(left, right, resolveConflict)
+      return { left, right, resolveConflict, result }
+    }
+
+    it('creates an object that has all properties of left', () => {
+      const { left, result } = setup()
+      expect(result).toMatchObject(left)
+    })
+
+    it('creates an object that has all properties of right', () => {
+      const { right, result } = setup()
+      expect(result).toMatchObject(right)
+    })
+
+    it('creates object that matches snapshot', () => {
+      expect(setup().result).toMatchSnapshot()
+    })
+
+    it('does not call resolveConflict', () => {
+      expect(setup().resolveConflict).not.toBeCalled()
+    })
+  })
+
+  describe('collide with undefined from right', () => {
+    function setup () {
+      const left: Left = {
+        a: {
+          a: 'aa'
+        },
+        b: {
+          a: ['b', 'a'],
+          b: ['b', 'b']
+        },
+        c: ['c0', { a: 'c1a' }, { b: 'c1b' }]
+      }
+
+      const right: Right = {
+        a: {
+          a: undefined,
+          b: 'ab'
+        },
+        b: {
+          a: undefined,
+          b: undefined
+        },
+        c: undefined,
+        d: ['d0', { a: 'd1a' }, { b: 'd1b' }]
+      }
+
+      const resolveConflict = jest.fn(() => {
+        throw new Error('This function is supposed to not be called')
+      })
+      const result = deepMergePartial(left, right, resolveConflict)
+      return { left, right, resolveConflict, result }
+    }
+
+    it('creates an object that has all properties of left', () => {
+      const { left, result } = setup()
+      expect(result).toMatchObject(left)
+    })
+
+    it('creates object that matches snapshot', () => {
+      expect(setup().result).toMatchSnapshot()
+    })
+
+    it('does not call resolveConflict', () => {
+      expect(setup().resolveConflict).not.toBeCalled()
+    })
+  })
+
+  describe('collide with non-undefined from right and have a conflict resolver that prefers right', () => {
+    function setup () {
+      const left: Left = {
+        a: {
+          a: 'left aa'
+        },
+        b: {
+          a: ['left', 'b', 'a'],
+          b: ['left', 'b', 'b']
+        },
+        c: ['left c0', { a: 'left c1a' }, { b: 'left c1b' }]
+      }
+
+      const right: Right = {
+        a: {
+          a: 'right aa',
+          b: 'right ab'
+        },
+        b: {
+          a: ['right', 'a', 'b'],
+          b: ['right', 'b', 'b']
+        },
+        c: ['right c0', { a: 'right c1a' }, { b: 'right c1b' }],
+        d: ['right d0', { a: 'right d1a' }, { b: 'right d1b' }]
+      }
+
+      const resolveConflict = jest.fn(() => PropertyPreference.Right)
+      const result = deepMergePartial(left, right, resolveConflict)
+      return { left, right, resolveConflict, result }
+    }
+
+    it('creates an object that has all properties of right', () => {
+      const { right, result } = setup()
+      expect(result).toMatchObject(right)
+    })
+
+    it('creates object that matches snapshot', () => {
+      expect(setup().result).toMatchSnapshot()
+    })
+
+    it('calls resolveConflict', () => {
+      expect(setup().resolveConflict.mock.calls).toMatchSnapshot()
     })
   })
 })
