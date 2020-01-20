@@ -38,8 +38,6 @@ export function deepMergeWithPreference<Value> (
   return result
 }
 
-const PREFER_RIGHT = () => PropertyPreference.Right
-
 /**
  * Merge two objects of the same interface
  *
@@ -53,9 +51,7 @@ export function deepMergeOverwrite<Value> (left: Value, right: Value): Value {
   return deepMergeWithPreference(left, right, PREFER_RIGHT)
 }
 
-const DMWOC_DEF_ERR_HDLR: ErrorProcessor = param => {
-  throw Object.assign(new TypeError(`Property collision`), param)
-}
+const PREFER_RIGHT = () => PropertyPreference.Right
 
 /**
  * Merge two objects
@@ -97,6 +93,10 @@ export function deepMergeWithoutCollision<
   }
 
   return result
+}
+
+const DMWOC_DEF_ERR_HDLR: ErrorProcessor = param => {
+  throw Object.assign(new TypeError(`Property collision`), param)
 }
 
 /**
