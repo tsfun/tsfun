@@ -1,5 +1,46 @@
 import assert from 'static-type-assert'
-import { deepMergeWithoutCollision, ErrorType } from '@tsfun/object'
+import { deepMergePartial, deepMergeWithoutCollision, DeepPartial, ErrorType } from '@tsfun/object'
+
+const nonPartial = {
+  a: 0,
+  b: {
+    c: 1,
+    d: {
+      e: 2
+    }
+  },
+  f: {
+    g: 3
+  }
+} as const
+
+type NonPartialObject = typeof nonPartial
+type PartialObject = DeepPartial<NonPartialObject>
+assert<PartialObject>(nonPartial)
+assert<PartialObject>({})
+assert<PartialObject>({
+  a: undefined,
+  b: undefined,
+  f: undefined
+})
+assert<PartialObject>({
+  a: 0,
+  b: {
+    c: 1,
+    d: undefined
+  },
+  f: undefined
+})
+assert<NonPartialObject>(deepMergePartial(nonPartial, {}, () => undefined!))
+assert<NonPartialObject>(deepMergePartial(nonPartial, nonPartial, () => undefined!))
+assert<NonPartialObject>(deepMergePartial(nonPartial, {
+  a: 0,
+  b: {
+    c: 1,
+    d: undefined
+  },
+  f: undefined
+}, () => undefined!))
 
 const A = {
   a: 0 as const,
