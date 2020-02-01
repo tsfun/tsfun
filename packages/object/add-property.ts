@@ -1,3 +1,4 @@
+import { mutObj } from './utils/mut-obj'
 import { AddProperty } from './utils/types'
 export { AddProperty }
 
@@ -19,7 +20,7 @@ export function addProperty<
   value: Value
 ): AddProperty<Proto, Key, Value> {
   const object = Object.create(proto)
-  object[key] = value
+  mutObj(object, key, value)
   return object
 }
 
