@@ -1,3 +1,4 @@
+import { mutObj } from './utils/mut-obj'
 import { DeepPartialNonArray as DeepPartial, SimpleDeepMerge as DeepMergeWithoutCollision } from './utils/types'
 export { DeepPartial, DeepMergeWithoutCollision }
 
@@ -24,16 +25,16 @@ export function deepMergeWithPreference<Value> (
 
   for (const [key, leftValue] of Object.entries(left)) {
     if (key in right) {
-      const rightValue = (right as any)[key]
-      result[key] = deepMergeWithPreference(leftValue, rightValue, resolveConflict)
+      const rightValue: any = (right as any)[key]
+      mutObj(result, key, deepMergeWithPreference(leftValue, rightValue, resolveConflict))
     } else {
-      result[key] = leftValue
+      mutObj(result, key, leftValue)
     }
   }
 
   for (const [key, bValue] of Object.entries(right)) {
     if (key in left) continue
-    result[key] = bValue
+    mutObj(result, key, bValue)
   }
 
   return result
