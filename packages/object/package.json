@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/object",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Utilities related to objects",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
