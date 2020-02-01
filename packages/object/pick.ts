@@ -1,3 +1,5 @@
+import { mutObj } from './utils/mut-obj'
+
 /**
  * Pick properties from an object into a new object
  * @param object Object to pick properties from
@@ -11,7 +13,7 @@ export function pick<
   const result: any = {}
 
   for (const key of keys) {
-    result[key] = object[key]
+    mutObj(result, key, object[key])
   }
 
   return result
