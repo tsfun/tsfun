@@ -17,9 +17,9 @@ export function objectExtends<
 ): ObjectExtends<Proto, Properties> {
   const object = Object.create(proto)
   if (!properties) return object
-  for (const [key, value] of Object.entries(properties as any)) {
-    mutObj(object, key, value)
-  }
+  const makeProp = (key: string | symbol) => mutObj(object, key, (properties as any)[key])
+  Object.getOwnPropertyNames(properties).forEach(makeProp)
+  Object.getOwnPropertySymbols(properties).forEach(makeProp)
   return object
 }
 
