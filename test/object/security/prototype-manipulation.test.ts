@@ -23,9 +23,9 @@ describe('addProperty', () => {
     return { object, value, result }
   }
 
-  it('does not change prototype', () => {
-    const { result } = setup()
-    expect(Object.getPrototypeOf(result)).toBe(Object.prototype)
+  it('does not change prototype to "__proto__"', () => {
+    const { object, result } = setup()
+    expect(Object.getPrototypeOf(result)).toBe(object)
   })
 
   it('makes own property "__proto__"', () => {
@@ -47,9 +47,9 @@ describe('objectExtends', () => {
     return { original, extension, result }
   }
 
-  it('does not change prototype', () => {
-    const { result } = setup()
-    expect(Object.getPrototypeOf(result)).toBe(Object.prototype)
+  it('does not change prototype to "__proto__"', () => {
+    const { original, result } = setup()
+    expect(Object.getPrototypeOf(result)).toBe(original)
   })
 
   it('makes own property "__proto__"', () => {
