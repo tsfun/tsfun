@@ -32,9 +32,9 @@ export function deepMergeWithPreference<Value> (
     }
   }
 
-  for (const [key, bValue] of Object.entries(right)) {
+  for (const [key, rightValue] of Object.entries(right)) {
     if (key in left) continue
-    mutObj(result, key, bValue)
+    mutObj(result, key, rightValue)
   }
 
   return result
@@ -108,9 +108,9 @@ export function deepMergeWithoutCollision<
     }
   }
 
-  for (const [key, bValue] of Object.entries(right)) {
+  for (const [key, rightValue] of Object.entries(right)) {
     if (key in left) continue
-    result[key] = bValue
+    result[key] = rightValue
   }
 
   return result
