@@ -1,3 +1,5 @@
+import { mutObj } from './utils/mut-obj'
+
 type Key = string | symbol | number
 
 const isObject = (object: any): object is object => typeof object === 'object' && object
@@ -19,8 +21,10 @@ export function setPropertyPath (object: any, path: readonly Key[], value: any):
 
   const [key, ...nextPath] = path
   const { [key]: nextTarget, ...cloned } = object as any
-  cloned[key] = setPropertyPath(nextTarget, nextPath, value)
-  return cloned
+  return {
+    ...cloned,
+    [key]: setPropertyPath(nextTarget, nextPath, value)
+  }
 }
 
 export function deletePropertyPath (object: any, path: readonly Key[]): any {
