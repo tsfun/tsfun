@@ -383,17 +383,11 @@ describe('deepMergeWithoutCollision', () => {
     expect(Object.getPrototypeOf(result)).toBe(Object.prototype)
   })
 
-  it('has own property "__proto__"', () => {
-    const { result } = setup()
-    expect(Object.getOwnPropertyDescriptor(result, '__proto__')!.value).toBe(null)
-  })
-
   it('returns expected result', () => {
     const { result } = setup()
     expect(result).toEqual(JSON.parse(`{
       "a": 0,
-      "b": 1,
-      "__proto__": null
+      "b": 1
     }`))
   })
 })

@@ -92,9 +92,9 @@ export function deepMergeWithoutCollision<
 
   for (const [key, leftValue] of Object.entries(left)) {
     if (key in right) {
-      const rightValue = (right as any)[key]
+      const rightValue: any = (right as any)[key]
       if (isObject(leftValue) && isObject(rightValue)) {
-        result[key] = deepMergeWithoutCollision(leftValue, rightValue, onerror)
+        mutObj(result, key, deepMergeWithoutCollision(leftValue, rightValue, onerror))
       } else {
         throw onerror({
           type: ErrorType.PropertyCollision,
@@ -104,13 +104,13 @@ export function deepMergeWithoutCollision<
         })
       }
     } else {
-      result[key] = leftValue
+      mutObj(result, key, leftValue)
     }
   }
 
   for (const [key, rightValue] of Object.entries(right)) {
     if (key in left) continue
-    result[key] = rightValue
+    mutObj(result, key, rightValue)
   }
 
   return result
