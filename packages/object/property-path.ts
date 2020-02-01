@@ -1,5 +1,3 @@
-import { mutObj } from './utils/mut-obj'
-
 type Key = string | symbol | number
 
 const isObject = (object: any): object is object => typeof object === 'object' && object
