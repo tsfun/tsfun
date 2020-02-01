@@ -1,3 +1,4 @@
+import { mutObj } from './utils/mut-obj'
 import { ObjectExtends } from './utils/types'
 export { ObjectExtends }
 
@@ -14,10 +15,12 @@ export function objectExtends<
   proto: Proto,
   properties: Properties
 ): ObjectExtends<Proto, Properties> {
-  return Object.assign(
-    Object.create(proto),
-    properties
-  )
+  const object = Object.create(proto)
+  if (!properties) return object
+  for (const [key, value] of Object.entries(properties as any)) {
+    mutObj(object, key, value)
+  }
+  return object
 }
 
 export default objectExtends
