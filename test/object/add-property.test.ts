@@ -101,6 +101,32 @@ describe('with an object as proto', () => {
   })
 })
 
+describe('with key being a property setter', () => {
+  function setup () {
+    const key = Symbol('key')
+    const value = Symbol('value')
+    const set = jest.fn()
+    const proto: any = Object.defineProperty({}, key, { set })
+    const result = addProperty(proto, key, value)
+    return { key, value, set, proto, result }
+  }
+
+  it('returns an object that has prototype of proto', () => {
+    const { proto, result } = setup()
+    expect(Object.getPrototypeOf(result)).toBe(proto)
+  })
+
+  it('invokes property setter of key once', () => {
+    const { set } = setup()
+    expect(set).toBeCalledTimes(1)
+  })
+
+  it('invokes property setter of key with value', () => {
+    const { value, set } = setup()
+    expect(set).toBeCalledWith(value)
+  })
+})
+
 describe('works with @tsfun/pipe', () => {
   const symbol = Symbol('symbol')
 

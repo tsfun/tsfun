@@ -1,6 +1,5 @@
 import {
   PropertyPreference,
-  addProperty,
   objectExtends,
   setProperty,
   setPropertyPath,
@@ -14,25 +13,6 @@ import {
   deepMergeOverwrite,
   deepMergeWithoutCollision
 } from '@tsfun/object'
-
-describe('addProperty', () => {
-  function setup () {
-    const object = { a: 0 }
-    const value = { not: 'prototype' }
-    const result = addProperty(object, '__proto__', value)
-    return { object, value, result }
-  }
-
-  it('does not change prototype to "__proto__"', () => {
-    const { object, result } = setup()
-    expect(Object.getPrototypeOf(result)).toBe(object)
-  })
-
-  it('makes own property "__proto__"', () => {
-    const { value, result } = setup()
-    expect(Object.getOwnPropertyDescriptor(result, '__proto__')?.value).toBe(value)
-  })
-})
 
 describe('objectExtends', () => {
   function setup () {

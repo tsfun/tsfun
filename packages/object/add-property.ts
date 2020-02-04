@@ -1,4 +1,3 @@
-import { mutObj } from './utils/mut-obj'
 import { AddProperty } from './utils/types'
 export { AddProperty }
 
@@ -6,6 +5,7 @@ export { AddProperty }
  * Create an object with `proto` as prototype
  * and `[key]: value` as the only own properties
  * @note If you need own properties, use `setProperty` instead
+ * @note If `key` is a property setter in `proto` (such as `__proto__`), the setter will be invoked
  * @param proto Prototype to extends upon
  * @param key Property key
  * @param value Property value
@@ -20,7 +20,7 @@ export function addProperty<
   value: Value
 ): AddProperty<Proto, Key, Value> {
   const object = Object.create(proto)
-  mutObj(object, key, value)
+  object[key] = value
   return object
 }
 
