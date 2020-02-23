@@ -21,6 +21,9 @@
     "just"
   ],
   "sideEffects": false,
+  "main": "index.js",
+  "module": "index.mjs",
+  "browser": "index.mjs",
   "dependencies": {
     "tslib": "^1.10.0",
     "@tsfun/prv-option-result-common": "^0.0.10",

@@ -23,6 +23,9 @@
     "typescript"
   ],
   "sideEffects": false,
+  "main": "index.js",
+  "module": "index.mjs",
+  "browser": "index.mjs",
   "dependencies": {
     "ts-pipe-compose": "^0.1.11",
     "tslib": "^1.10.0",

@@ -18,6 +18,9 @@
     "typescript"
   ],
   "sideEffects": false,
+  "main": "index.js",
+  "module": "index.mjs",
+  "browser": "index.mjs",
   "dependencies": {
     "tslib": "^1.10.0",
     "@types/node": "^13.7.4"

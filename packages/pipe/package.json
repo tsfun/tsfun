@@ -17,6 +17,9 @@
     "pipeline"
   ],
   "sideEffects": false,
+  "main": "index.js",
+  "module": "index.mjs",
+  "browser": "index.mjs",
   "dependencies": {
     "tslib": "^1.10.0",
     "@tsfun/tap": "^0.0.9",
