@@ -8,17 +8,17 @@ dependencies:
   '@tsfun/result': 'link:../result'
   '@tsfun/tap': 'link:../tap'
   '@types/node': 13.7.4
-  tslib: 1.10.0
+  tslib: 1.11.0
 lockfileVersion: 5.1
 packages:
   /@types/node/13.7.4:
     dev: false
     resolution:
       integrity: sha512-oVeL12C6gQS/GAExndigSaLxTrKpQPxewx9bOcwfvJiJge4rr7wNaph4J+ns5hrmIV2as5qxqN8YKthn9qh0jw==
-  /tslib/1.10.0:
+  /tslib/1.11.0:
     dev: false
     resolution:
-      integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+      integrity: sha512-BmndXUtiTn/VDDrJzQE7Mm22Ix3PxgLltW9bSNLoeCY31gnG2OPx0QqJnuc9oMIKioYrz487i6K9o4Pdn0j+Kg==
 specifiers:
   '@tsfun/array': ^0.0.2
   '@tsfun/function': ^0.0.6
@@ -29,4 +29,4 @@ specifiers:
   '@tsfun/result': ^0.0.16
   '@tsfun/tap': ^0.0.10
   '@types/node': ^13.7.4
-  tslib: ^1.10.0
+  tslib: ^1.11.0

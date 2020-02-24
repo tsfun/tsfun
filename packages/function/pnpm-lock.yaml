@@ -1,7 +1,7 @@
 dependencies:
   '@types/node': 13.7.4
   ts-pipe-compose: 0.1.11
-  tslib: 1.10.0
+  tslib: 1.11.0
 lockfileVersion: 5.1
 packages:
   /@types/node/12.7.11:
@@ -25,7 +25,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+  /tslib/1.11.0:
+    dev: false
+    resolution:
+      integrity: sha512-BmndXUtiTn/VDDrJzQE7Mm22Ix3PxgLltW9bSNLoeCY31gnG2OPx0QqJnuc9oMIKioYrz487i6K9o4Pdn0j+Kg==
 specifiers:
   '@types/node': ^13.7.4
   ts-pipe-compose: ^0.1.11
-  tslib: ^1.10.0
+  tslib: ^1.11.0
