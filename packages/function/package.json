@@ -29,6 +29,6 @@
   "dependencies": {
     "ts-pipe-compose": "^0.1.11",
     "tslib": "^1.11.0",
-    "@types/node": "^13.7.4"
+    "@types/node": "^13.7.7"
   }
 }

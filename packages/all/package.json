@@ -32,7 +32,7 @@
     "@tsfun/array": "^0.0.2",
     "@tsfun/tap": "^0.0.10",
     "@tsfun/misc": "^0.0.7",
-    "@types/node": "^13.7.4"
+    "@types/node": "^13.7.7"
   },
   "engines": {
     "node": ">= 8.9.0"
