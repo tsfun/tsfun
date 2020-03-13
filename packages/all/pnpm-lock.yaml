@@ -20,13 +20,13 @@ packages:
     resolution:
       integrity: sha512-BmndXUtiTn/VDDrJzQE7Mm22Ix3PxgLltW9bSNLoeCY31gnG2OPx0QqJnuc9oMIKioYrz487i6K9o4Pdn0j+Kg==
 specifiers:
-  '@tsfun/array': ^0.0.4
-  '@tsfun/function': ^0.0.8
-  '@tsfun/misc': ^0.0.9
-  '@tsfun/object': ^0.0.19
-  '@tsfun/option': ^0.0.17
-  '@tsfun/pipe': ^0.0.13
-  '@tsfun/result': ^0.0.18
-  '@tsfun/tap': ^0.0.12
+  '@tsfun/array': ^0.0.5
+  '@tsfun/function': ^0.0.9
+  '@tsfun/misc': ^0.0.10
+  '@tsfun/object': ^0.0.20
+  '@tsfun/option': ^0.0.18
+  '@tsfun/pipe': ^0.0.14
+  '@tsfun/result': ^0.0.19
+  '@tsfun/tap': ^0.0.13
   '@types/node': ^13.7.7
   tslib: ^1.11.0
