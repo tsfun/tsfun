@@ -27,7 +27,7 @@
   "module": "index.mjs",
   "browser": "index.mjs",
   "dependencies": {
-    "ts-pipe-compose": "^0.1.11",
+    "ts-pipe-compose": "^0.2.0",
     "tslib": "^1.11.0",
     "@types/node": "^13.7.7"
   }
