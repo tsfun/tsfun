@@ -23,7 +23,7 @@
   "browser": "index.mjs",
   "dependencies": {
     "utility-types": "^3.10.0",
-    "tslib": "^1.11.0",
-    "@types/node": "^13.7.7"
+    "tslib": "^1.11.1",
+    "@types/node": "^13.11.1"
   }
 }

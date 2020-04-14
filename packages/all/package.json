@@ -23,7 +23,7 @@
   "module": "index.mjs",
   "browser": "index.mjs",
   "dependencies": {
-    "tslib": "^1.11.0",
+    "tslib": "^1.11.1",
     "@tsfun/function": "^0.0.10",
     "@tsfun/pipe": "^0.0.14",
     "@tsfun/option": "^0.0.18",
@@ -32,7 +32,7 @@
     "@tsfun/array": "^0.0.5",
     "@tsfun/tap": "^0.0.13",
     "@tsfun/misc": "^0.0.10",
-    "@types/node": "^13.7.7"
+    "@types/node": "^13.11.1"
   },
   "engines": {
     "node": ">= 8.9.0"
