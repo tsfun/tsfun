@@ -1,4 +1,4 @@
-import assert from 'static-type-assert'
+import { assert, compare } from 'static-type-assert'
 import { deepMergePartial, deepMergeWithoutCollision, DeepPartial, ErrorType } from '@tsfun/object'
 
 const nonPartial = {
@@ -18,7 +18,7 @@ const nonPartial = {
 
 type NonPartialObject = typeof nonPartial
 type PartialObject = DeepPartial<NonPartialObject>
-assert.compare<PartialObject, {
+compare<PartialObject, {
   readonly a?: 0,
   readonly b?: {
     readonly c?: 1,
