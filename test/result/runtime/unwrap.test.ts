@@ -5,7 +5,7 @@ import {
   unwrapOr,
   unwrapOrElse,
   ok,
-  err
+  err,
 } from '@tsfun/result'
 
 describe('unwrap', () => {

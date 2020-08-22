@@ -1,6 +1,6 @@
 import { Option, clone, some, none } from '@tsfun/option'
 
-const init = <X = never> (original: Option<X>) => ({ original, copy: clone(original) })
+const init = <X = never>(original: Option<X>) => ({ original, copy: clone(original) })
 
 describe('clone(some(x))', () => {
   const { original, copy } = init(some('value'))

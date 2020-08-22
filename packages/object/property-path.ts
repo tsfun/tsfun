@@ -2,18 +2,16 @@ type Key = string | symbol | number
 
 const isObject = (object: any): object is object => typeof object === 'object' && object
 
-export function getPropertyPath (object: any, path: readonly Key[]): any {
+export function getPropertyPath(object: any, path: readonly Key[]): any {
   if (!path.length) return object
   if (!isObject(object)) return object
 
   const [key, ...rest] = path
 
-  return key in object
-    ? getPropertyPath((object as any)[key], rest)
-    : undefined
+  return key in object ? getPropertyPath((object as any)[key], rest) : undefined
 }
 
-export function setPropertyPath (object: any, path: readonly Key[], value: any): any {
+export function setPropertyPath(object: any, path: readonly Key[], value: any): any {
   if (!path.length) return value
   if (!isObject(object)) return setPropertyPath({}, path, value)
 
@@ -21,11 +19,11 @@ export function setPropertyPath (object: any, path: readonly Key[], value: any):
   const { [key]: nextTarget, ...cloned } = object as any
   return {
     ...cloned,
-    [key]: setPropertyPath(nextTarget, nextPath, value)
+    [key]: setPropertyPath(nextTarget, nextPath, value),
   }
 }
 
-export function deletePropertyPath (object: any, path: readonly Key[]): any {
+export function deletePropertyPath(object: any, path: readonly Key[]): any {
   if (!path.length) return undefined
   if (!isObject(object)) return object
 
@@ -36,6 +34,6 @@ export function deletePropertyPath (object: any, path: readonly Key[]): any {
 
   return {
     ...cloned,
-    [key]: deletePropertyPath(nextTarget, nextPath)
+    [key]: deletePropertyPath(nextTarget, nextPath),
   }
 }

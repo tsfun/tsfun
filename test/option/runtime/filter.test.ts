@@ -5,14 +5,14 @@ it('works with Some', () => {
   expect(
     [0, 1, 2, 3, 4, 5]
       .map(some)
-      .map(x => filter(x, isEven))
+      .map(x => filter(x, isEven)),
   ).toEqual([
     some(0),
     none(),
     some(2),
     none(),
     some(4),
-    none()
+    none(),
   ])
 })
 

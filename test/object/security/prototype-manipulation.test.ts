@@ -11,11 +11,11 @@ import {
   deepMergeWithPreference,
   deepMergePartial,
   deepMergeOverwrite,
-  deepMergeWithoutCollision
+  deepMergeWithoutCollision,
 } from '@tsfun/object'
 
 describe('objectExtends', () => {
-  function setup () {
+  function setup() {
     const original = { a: 0 }
     const extension = JSON.parse(`{
       "b": 1,
@@ -44,7 +44,7 @@ describe('objectExtends', () => {
 })
 
 describe('setProperty', () => {
-  function setup () {
+  function setup() {
     const object = { a: 0 }
     const value = { not: 'prototype' }
     const result = setProperty(object, '__proto__', value)
@@ -73,7 +73,7 @@ describe('setProperty', () => {
 })
 
 describe('setPropertyPath', () => {
-  function setup () {
+  function setup() {
     const object = { a: 0 }
     const value = { not: 'prototype' }
     const result = setPropertyPath(object, ['__proto__', '__proto__'], value)
@@ -99,7 +99,7 @@ describe('setPropertyPath', () => {
 })
 
 describe('deletePropertyPath', () => {
-  function setup () {
+  function setup() {
     const object = JSON.parse(`{
       "a": 0,
       "__proto__": {
@@ -134,7 +134,7 @@ describe('deletePropertyPath', () => {
 })
 
 describe('omit', () => {
-  function setup () {
+  function setup() {
     const object = JSON.parse(`{
       "a": 0,
       "b": 1,
@@ -164,7 +164,7 @@ describe('omit', () => {
 })
 
 describe('omitOne', () => {
-  function setup () {
+  function setup() {
     const object = JSON.parse(`{
       "a": 0,
       "b": 1,
@@ -194,7 +194,7 @@ describe('omitOne', () => {
 })
 
 describe('pick', () => {
-  function setup () {
+  function setup() {
     const object = JSON.parse(`{
       "a": 0,
       "b": 1,
@@ -224,7 +224,7 @@ describe('pick', () => {
 })
 
 describe('pickOne', () => {
-  function setup () {
+  function setup() {
     const object = JSON.parse(`{
       "a": 0,
       "b": 1,
@@ -253,7 +253,7 @@ describe('pickOne', () => {
 })
 
 describe('deepMergeWithPreference', () => {
-  function setup () {
+  function setup() {
     const left = JSON.parse(`{
       "a": 0,
       "__proto__": null
@@ -286,7 +286,7 @@ describe('deepMergeWithPreference', () => {
 })
 
 describe('deepMergePartial', () => {
-  function setup () {
+  function setup() {
     const left = JSON.parse(`{
       "a": 0,
       "__proto__": null
@@ -319,7 +319,7 @@ describe('deepMergePartial', () => {
 })
 
 describe('deepMergeOverwrite', () => {
-  function setup () {
+  function setup() {
     const left = JSON.parse(`{
       "a": 0
     }`)
@@ -346,7 +346,7 @@ describe('deepMergeOverwrite', () => {
 })
 
 describe('deepMergeWithoutCollision', () => {
-  function setup () {
+  function setup() {
     const left = JSON.parse(`{
       "a": 0
     }`)

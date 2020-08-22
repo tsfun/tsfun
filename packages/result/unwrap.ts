@@ -7,10 +7,10 @@ import { match } from './match'
  * @param result Result to unwrap
  * @returns Carried payload
  */
-export const unwrap =
-  <Payload = never>
-    (result: Result<Payload, any>) =>
-      unwrapOrElse(result, error => { throw error })
+export const unwrap = <Payload = never>(result: Result<Payload, any>) =>
+  unwrapOrElse(result, error => {
+    throw error
+  })
 
 /**
  * Return `x` if `result` is `ok(x)`,
@@ -19,9 +19,9 @@ export const unwrap =
  * @param def Value to return when `result` carries an error
  * @returns Either carried payload or `def`
  */
-export const unwrapOr = <Payload = never, Default = Payload> (
+export const unwrapOr = <Payload = never, Default = Payload>(
   result: Result<Payload, any>,
-  def: Default
+  def: Default,
 ) => unwrapOrElse(result, () => def)
 
 /**
@@ -34,8 +34,8 @@ export const unwrapOr = <Payload = never, Default = Payload> (
 export const unwrapOrElse = <
   Payload = never,
   Error = never,
-  Default = Payload
-> (
+  Default = Payload,
+>(
   result: Result<Payload, Error>,
-  def: (error: Error) => Default
+  def: (error: Error) => Default,
 ) => match(result, { ok: x => x, err: def })

@@ -102,7 +102,7 @@ describe('with an object as proto', () => {
 })
 
 describe('with key being a property setter', () => {
-  function setup () {
+  function setup() {
     const key = Symbol('key')
     const value = Symbol('value')
     const set = jest.fn()
@@ -130,11 +130,12 @@ describe('with key being a property setter', () => {
 describe('works with @tsfun/pipe', () => {
   const symbol = Symbol('symbol')
 
-  const get = () => pass(null)
-    .to(addProperty, 'abc' as const, 123 as const)
-    .to(addProperty, 456 as const, 'def' as const)
-    .to(addProperty, symbol, value)
-    .get()
+  const get = () =>
+    pass(null)
+      .to(addProperty, 'abc' as const, 123 as const)
+      .to(addProperty, 456 as const, 'def' as const)
+      .to(addProperty, symbol, value)
+      .get()
 
   it('first property', () => {
     expect(get()).toHaveProperty('abc', 123)

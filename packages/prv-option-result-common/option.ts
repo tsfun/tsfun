@@ -6,7 +6,7 @@ import { box } from './box'
  * @param value Value to be carried
  * @returns `Some` of `value`
  */
-export const some: <Value> (value: Value) => Some<Value> = box
+export const some: <Value>(value: Value) => Some<Value> = box
 
 /**
  * Create a `None`

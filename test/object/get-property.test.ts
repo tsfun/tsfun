@@ -48,13 +48,13 @@ describe('getProperty', () => {
         .to(getProperty, 'a')
         .to(getProperty, 'b')
         .to(getProperty, 'c')
-        .get()
+        .get(),
     ).toBe('value')
   })
 })
 
 describe('propertyGetter', () => {
-  function setup () {
+  function setup() {
     const symbolKey = Symbol('symbolKey')
     const symbolVal = Symbol('symbolVal')
     const object = { 'abc': 'def', 123: 456, [symbolKey]: symbolVal } as const

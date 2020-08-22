@@ -6,6 +6,4 @@ import { Option } from './option'
  * @param option Option to get value from
  * @returns An array that may contain contained value
  */
-export const tuple =
-  <Value = never> (option: Option<Value>): [Value] | [] =>
-    option.tag ? [option.value] : []
+export const tuple = <Value = never>(option: Option<Value>): [Value] | [] => option.tag ? [option.value] : []

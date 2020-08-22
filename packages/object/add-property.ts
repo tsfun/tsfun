@@ -13,11 +13,11 @@ export { AddProperty }
 export function addProperty<
   Proto extends object | null,
   Key extends string | number | symbol,
-  Value
-> (
+  Value,
+>(
   proto: Proto,
   key: Key,
-  value: Value
+  value: Value,
 ): AddProperty<Proto, Key, Value> {
   const object = Object.create(proto)
   object[key] = value

@@ -27,19 +27,18 @@ export type SimpleDeepMerge<A, B> = Properties<A> & Properties<B>
 /**
  * Make all properties in a dict optional
  */
-export type DeepPartialNonArray<Object> =
-  Object extends readonly any[] ? Object | undefined :
-  Object extends object ? {
+export type DeepPartialNonArray<Object> = Object extends readonly any[] ? Object | undefined
+  : Object extends object ? {
     [Key in keyof Object]?: DeepPartialNonArray<Object[Key]>
-  } :
-  Object | undefined
+  }
+  : Object | undefined
 
 /**
  * Return type of `objectExtends`
  */
 export type ObjectExtends<
   Proto extends object | null,
-  Properties extends object | null
+  Properties extends object | null,
 > = Assign<
   NullObject<Proto>,
   NullObject<Properties>
@@ -51,11 +50,14 @@ export type ObjectExtends<
 export type AddProperty<
   Proto extends object | null,
   Key extends string | number | symbol,
-  Value
+  Value,
 > = {
-  [SoleKey in Key]: ObjectExtends<Proto, {
-    [_ in SoleKey]: Value
-  }>
+  [SoleKey in Key]: ObjectExtends<
+    Proto,
+    {
+      [_ in SoleKey]: Value
+    }
+  >
 }[Key]
 
 /**

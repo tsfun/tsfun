@@ -3,7 +3,7 @@ import {
   or,
   orElse,
   ok,
-  err
+  err,
 } from '@tsfun/result'
 
 describe('or', () => {

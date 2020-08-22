@@ -9,9 +9,6 @@ import { err } from './err'
  * @param result Result to flip
  * @returns Flipped result
  */
-export const flip =
-  <A = never, B = never>
-    (result: Result<A, B>): Result<B, A> =>
-      match(result, { ok: err, err: ok })
+export const flip = <A = never, B = never>(result: Result<A, B>): Result<B, A> => match(result, { ok: err, err: ok })
 
 export default flip

@@ -7,9 +7,9 @@ import { some } from './some'
  * @param fn Function to call when `option` contains a value
  * @returns An `Option` of `fn`'s return value
  */
-export const map = <Value = never, Return = Value> (
+export const map = <Value = never, Return = Value>(
   option: Option<Value>,
-  fn: (value: Value) => Return
+  fn: (value: Value) => Return,
 ): Option<Return> => option.tag ? some(fn(option.value)) : option
 
 export default map

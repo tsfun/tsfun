@@ -1,19 +1,19 @@
 import assert from 'static-type-assert'
 import { apply, applyIter } from '@tsfun/function'
 
-function foo (a: 0, b: 1, c: 2) {
+function foo(a: 0, b: 1, c: 2) {
   return [a, b, c] as const
 }
 
-function bar (a: 'x', b: 'x', c: 'x') {
+function bar(a: 'x', b: 'x', c: 'x') {
   return [a, b, c] as const
 }
 
-function baz (...xs: 'x'[]) {
+function baz(...xs: 'x'[]) {
   return xs
 }
 
-function * xs () {
+function* xs() {
   while (true) {
     yield 'x' as const
   }

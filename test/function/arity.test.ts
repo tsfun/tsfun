@@ -1,14 +1,14 @@
 import { flip, flipXs, nAry, nAryRight } from '@tsfun/function'
 
 describe('flip', () => {
-  function setup () {
+  function setup() {
     const impl = (a: any, b: any) => [a, b]
     const fn = jest.fn(impl)
     const flipped = flip(fn)
     return { impl, fn, flipped }
   }
 
-  function setupAndCall () {
+  function setupAndCall() {
     const { flipped, ...rest } = setup()
     const xs = ['left', 'right'] as const
     const y = flipped(...xs)
@@ -41,14 +41,14 @@ describe('flip', () => {
 })
 
 describe('flipXs', () => {
-  function setup () {
+  function setup() {
     const impl = (...xs: any[]) => xs.join(', ')
     const fn = jest.fn(impl)
     const flipped = flipXs(fn)
     return { impl, fn, flipped }
   }
 
-  function setupAndCall () {
+  function setupAndCall() {
     const { flipped, ...rest } = setup()
     const xs = ['a', 'b', 'c', 'd'] as const
     const y = flipped(...xs)
@@ -81,14 +81,14 @@ describe('flipXs', () => {
 })
 
 describe('nAry', () => {
-  function setup () {
+  function setup() {
     const impl = (a: string, b: string) => `fn(${a}, ${b})`
     const fn = jest.fn(impl)
     const fnXs = nAry(fn)
     return { impl, fn, fnXs }
   }
 
-  function setupAndCall () {
+  function setupAndCall() {
     const { fnXs, ...rest } = setup()
     const xs = ['a', 'b', 'c', 'd', 'e', 'f'] as const
     const y = fnXs(...xs)
@@ -122,14 +122,14 @@ describe('nAry', () => {
 })
 
 describe('nAryRight', () => {
-  function setup () {
+  function setup() {
     const impl = (a: string, b: string) => `fn(${a}, ${b})`
     const fn = jest.fn(impl)
     const fnXs = nAryRight(fn)
     return { impl, fn, fnXs }
   }
 
-  function setupAndCall () {
+  function setupAndCall() {
     const { fnXs, ...rest } = setup()
     const xs = ['a', 'b', 'c', 'd', 'e', 'f'] as const
     const y = fnXs(...xs)

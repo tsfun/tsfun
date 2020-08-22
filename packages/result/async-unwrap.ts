@@ -8,9 +8,8 @@ import { unwrapOrElse } from './unwrap'
  * @param result Result to unwrap
  * @returns Promise that resolves carried payload
  */
-export const asyncUnwrap =
-  async <Payload = never> (result: AsyncResult<Payload, any>) =>
-    unwrapOrElse(await result, async error => Promise.reject(await error))
+export const asyncUnwrap = async <Payload = never>(result: AsyncResult<Payload, any>) =>
+  unwrapOrElse(await result, async error => Promise.reject(await error))
 
 /**
  * Return a promise that
@@ -20,9 +19,9 @@ export const asyncUnwrap =
  * @param def Value to resolve when `await result` carries an error
  * @returns Promise that resolves either carried payload or `def`
  */
-export const asyncUnwrapOr = async <Payload = never, Default = Payload> (
+export const asyncUnwrapOr = async <Payload = never, Default = Payload>(
   result: AsyncResult<Payload, any>,
-  def: MaybePromise<Default>
+  def: MaybePromise<Default>,
 ) => unwrapOrElse(await result, () => def)
 
 /**
@@ -36,8 +35,8 @@ export const asyncUnwrapOr = async <Payload = never, Default = Payload> (
 export const asyncUnwrapOrElse = async <
   Payload = never,
   Error = never,
-  Default = Payload
-> (
+  Default = Payload,
+>(
   result: AsyncResult<Payload, Error>,
-  def: (error: Error) => MaybePromise<Default>
+  def: (error: Error) => MaybePromise<Default>,
 ) => unwrapOrElse(await result, async error => def(await error))

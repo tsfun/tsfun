@@ -3,7 +3,7 @@ import { exec, call, call0, call1, call2, call3, callXs } from '@tsfun/function'
 
 describe('specs', () => {
   describe('call0', () => {
-    function setup () {
+    function setup() {
       const value = Symbol('value')
       const fn = jest.fn(() => value)
       const y = call0(fn)
@@ -27,7 +27,7 @@ describe('specs', () => {
   })
 
   describe('call1', () => {
-    function setup () {
+    function setup() {
       const x = Symbol('x')
       const impl = (x: symbol) => [x] as const
       const fn = jest.fn(impl)
@@ -52,7 +52,7 @@ describe('specs', () => {
   })
 
   describe('call2', () => {
-    function setup () {
+    function setup() {
       const x0 = Symbol('x0')
       const x1 = Symbol('x1')
       const impl = (x0: symbol, x1: symbol) => [x0, x1] as const
@@ -78,7 +78,7 @@ describe('specs', () => {
   })
 
   describe('call3', () => {
-    function setup () {
+    function setup() {
       const x0 = Symbol('x0')
       const x1 = Symbol('x1')
       const x2 = Symbol('x2')
@@ -105,9 +105,9 @@ describe('specs', () => {
   })
 
   describe('callXs', () => {
-    function setup () {
+    function setup() {
       const xs = [0, 1, 2, 3, 4, 5, 6, 7] as const
-      const impl = <Xs extends typeof xs> (...xs: Xs) => xs
+      const impl = <Xs extends typeof xs>(...xs: Xs) => xs
       const fn = jest.fn(impl)
       const y = callXs(fn, ...xs)
       return { xs, impl, fn, y }
@@ -132,11 +132,7 @@ describe('specs', () => {
 
 describe('usage', () => {
   it('works well with @tsfun/pipe', () => {
-    const fn = () =>
-      <A> (a: A) =>
-        <B, C> (b: B, c: C) =>
-          <D, E, F> (d: D, e: E, f: F) =>
-            [a, b, c, d, e, f] as const
+    const fn = () => <A>(a: A) => <B, C>(b: B, c: C) => <D, E, F>(d: D, e: E, f: F) => [a, b, c, d, e, f] as const
 
     const result = pass(fn)
       .to(call0)

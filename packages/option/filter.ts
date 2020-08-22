@@ -11,9 +11,9 @@ import { andThen } from './and'
  * @param predicate Whether should `filter` return a `Some` when `option` contains a value
  * @returns An `Option`
  */
-export const filter = <Value = never> (
+export const filter = <Value = never>(
   option: Option<Value>,
-  predicate: (value: Value) => boolean
+  predicate: (value: Value) => boolean,
 ) => andThen(option, value => predicate(value) ? option : none())
 
 export default filter

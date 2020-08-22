@@ -3,7 +3,7 @@ import {
   and,
   andThen,
   ok,
-  err
+  err,
 } from '@tsfun/result'
 
 describe('and', () => {

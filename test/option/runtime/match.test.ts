@@ -2,7 +2,7 @@ import { match, some, none } from '@tsfun/option'
 
 const fns = () => ({
   some: jest.fn((x: string) => `Some "${x}"`),
-  none: jest.fn(() => 'None')
+  none: jest.fn(() => 'None'),
 })
 
 describe('with Some', () => {

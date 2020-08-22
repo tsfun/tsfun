@@ -8,8 +8,6 @@ import { match } from './match'
  * @param result Result to clone
  * @returns A new copy of `result`
  */
-export const clone =
-  <Value = never, Error = never> (result: Result<Value, Error>) =>
-    match(result, { ok, err })
+export const clone = <Value = never, Error = never>(result: Result<Value, Error>) => match(result, { ok, err })
 
 export default clone

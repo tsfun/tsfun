@@ -10,10 +10,10 @@ export { ObjectExtends }
  */
 export function objectExtends<
   Proto extends object | null,
-  Properties extends object
-> (
+  Properties extends object,
+>(
   proto: Proto,
-  properties: Properties
+  properties: Properties,
 ): ObjectExtends<Proto, Properties> {
   const object = Object.create(proto)
   const makeProp = (key: string | symbol) => mutObj(object, key, (properties as any)[key])

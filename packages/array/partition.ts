@@ -6,15 +6,15 @@
  *   - First group includes items that `predicate` returns `true`
  *   - Second group includes items that `predicate` returns `false`
  */
-export function partition<Item> (
+export function partition<Item>(
   iterable: Iterable<Item>,
-  predicate: (item: Item) => boolean
+  predicate: (item: Item) => boolean,
 ): [Item[], Item[]] {
   const a = Array<Item>()
   const b = Array<Item>()
 
   for (const item of iterable) {
-    (predicate(item) ? a : b).push(item)
+    ;(predicate(item) ? a : b).push(item)
   }
 
   return [a, b]
@@ -32,8 +32,8 @@ export const partitionPredicate: {
    *   - First group includes items that `predicate` returns `true`
    *   - Second group includes items that `predicate` returns `false`
    */
-  <Type, Subtype extends Type> (
+  <Type, Subtype extends Type>(
     iterable: Iterable<Type>,
-    predicate: (item: Type) => item is Subtype
+    predicate: (item: Type) => item is Subtype,
   ): [Subtype[], Type[]]
 } = partition as any

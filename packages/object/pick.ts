@@ -8,8 +8,8 @@ import { mutObj } from './utils/mut-obj'
  */
 export function pick<
   Object,
-  Key extends keyof Object
-> (object: Object, keys: Iterable<Key>): Partial<Pick<Object, Key>> {
+  Key extends keyof Object,
+>(object: Object, keys: Iterable<Key>): Partial<Pick<Object, Key>> {
   const result: any = {}
 
   for (const key of keys) {
@@ -27,5 +27,5 @@ export function pick<
  */
 export const pickOne = <
   Object,
-  Key extends keyof Object
-> (object: Object, key: Key): Pick<Object, Key> => ({ [key]: object[key] } as any)
+  Key extends keyof Object,
+>(object: Object, key: Key): Pick<Object, Key> => ({ [key]: object[key] } as any)

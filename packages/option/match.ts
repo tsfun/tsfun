@@ -23,10 +23,10 @@ interface MatchHandlers<Value, SomeReturn, NoneReturn> {
 export const match = <
   Value = never,
   SomeReturn = Value,
-  NoneReturn = SomeReturn
-> (
+  NoneReturn = SomeReturn,
+>(
   option: Option<Value>,
-  handle: MatchHandlers<Value, SomeReturn, NoneReturn>
+  handle: MatchHandlers<Value, SomeReturn, NoneReturn>,
 ) => option.tag ? handle.some(option.value) : handle.none()
 
 export default match

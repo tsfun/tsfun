@@ -10,15 +10,13 @@ export { Option }
  * @param value Nullable value
  * @returns An `Option`
  */
-export const option =
-  <Value> (value: Value): MakeReturn<Value> =>
-    (value === null || value === undefined ? none() : some(value)) as any
+export const option = <Value>(value: Value): MakeReturn<Value> =>
+  (value === null || value === undefined ? none() : some(value)) as any
 
-type MakeReturn<Value> =
-  Value extends null ? None :
-  Value extends undefined ? None :
-  null extends Value ? Option<Value> :
-  undefined extends Value ? Option<Value> :
-  Some<Value>
+type MakeReturn<Value> = Value extends null ? None
+  : Value extends undefined ? None
+  : null extends Value ? Option<Value>
+  : undefined extends Value ? Option<Value>
+  : Some<Value>
 
 export default option

@@ -1,11 +1,11 @@
 import { pass } from '@tsfun/pipe'
 import { setProperty } from '@tsfun/object'
 
-function setup () {
+function setup() {
   const original = Object.freeze({
     a: 0,
     b: 1,
-    c: 2
+    c: 2,
   })
 
   const result = pass(original)
@@ -22,7 +22,7 @@ it('returns expected object', () => {
     a: 0,
     b: 'B',
     c: 2,
-    d: 'D'
+    d: 'D',
   })
 })
 
@@ -36,6 +36,6 @@ it('original object is not mutated', () => {
   expect(original).toEqual({
     a: 0,
     b: 1,
-    c: 2
+    c: 2,
   })
 })

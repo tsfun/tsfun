@@ -6,10 +6,10 @@ import { Option } from './option'
  * @param option `Option` of `Result`
  * @returns `Result` of `Option`
  */
-export function transpose <
+export function transpose<
   Payload = never,
-  Error = never
-> (option: Option<Result<Payload, Error>>): Result<Option<Payload>, Error> {
+  Error = never,
+>(option: Option<Result<Payload, Error>>): Result<Option<Payload>, Error> {
   if (!option.tag) return ok(option)
   const result = option.value
   return result.tag ? ok(result) : result

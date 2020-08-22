@@ -59,7 +59,7 @@ describe('getPropertyPath', () => {
 describe('setPropertyPath', () => {
   describe('object', () => {
     describe('that contains only targeted path', () => {
-      function setup () {
+      function setup() {
         const oldValue = Symbol('oldValue')
         const newValue = Symbol('newValue')
         const oldObject = { a: { b: { c: oldValue } } }
@@ -79,7 +79,7 @@ describe('setPropertyPath', () => {
     })
 
     describe('that also contains other paths', () => {
-      function setup () {
+      function setup() {
         const oldValue = Symbol('oldValue')
         const newValue = Symbol('newValue')
         const oldObject = { a: { a: 123, b: { c: oldValue, d: 456 } } }
@@ -99,7 +99,7 @@ describe('setPropertyPath', () => {
     })
 
     describe('that does not contains targeted path', () => {
-      function setup () {
+      function setup() {
         const oldValue = Symbol('oldValue')
         const newValue = Symbol('newValue')
         const oldObject = { a: { a: 123, c: { b: oldValue, d: 456 } } }
@@ -119,7 +119,7 @@ describe('setPropertyPath', () => {
     })
 
     describe('that contains part of targeted path', () => {
-      function setup () {
+      function setup() {
         const newValue = Symbol('newValue')
         const oldObject = { a: { b: null } }
         const newObject = setPropertyPath(oldObject, path, newValue)
@@ -171,7 +171,7 @@ describe('deletePropertyPath', () => {
   describe('non-empty path', () => {
     describe('object', () => {
       describe('that contains only targeted path', () => {
-        function setup () {
+        function setup() {
           const value = Symbol('value')
           const oldObject = { a: { b: { c: value } } }
           const newObject = deletePropertyPath(oldObject, path)
@@ -190,7 +190,7 @@ describe('deletePropertyPath', () => {
       })
 
       describe('that also contains other paths', () => {
-        function setup () {
+        function setup() {
           const value = Symbol('value')
           const oldObject = { a: { a: value, b: { c: value, d: 123 } } }
           const newObject = deletePropertyPath(oldObject, path)
@@ -209,7 +209,7 @@ describe('deletePropertyPath', () => {
       })
 
       describe('that does not contains targeted path', () => {
-        function setup () {
+        function setup() {
           const value = Symbol('value')
           const oldObject = { a: { c: { b: value } } }
           const newObject = deletePropertyPath(oldObject, path)
@@ -228,7 +228,7 @@ describe('deletePropertyPath', () => {
       })
 
       describe('that contains part of targeted path', () => {
-        function setup () {
+        function setup() {
           const oldObject = { a: { b: null } }
           const newObject = deletePropertyPath(oldObject, path)
           return { oldObject, newObject }

@@ -26,10 +26,10 @@ export const match = <
   Payload = never,
   Error = never,
   OkReturn = Payload,
-  ErrReturn = Error
-> (
+  ErrReturn = Error,
+>(
   result: Result<Payload, Error>,
-  handle: MatchHandlers<Payload, Error, OkReturn, ErrReturn>
+  handle: MatchHandlers<Payload, Error, OkReturn, ErrReturn>,
 ) => result.tag ? handle.ok(result.value) : handle.err(result.error)
 
 export default match

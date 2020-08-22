@@ -7,13 +7,13 @@ const bar = Symbol('bar')
 const proto = {
   abc: 123,
   456: 'def',
-  [foo]: bar
+  [foo]: bar,
 } as const
 
 const properties = {
   abc: 123,
   456: 'def',
-  [bar]: foo
+  [bar]: foo,
 } as const
 
 const withNull = objectExtends(null, properties)
@@ -32,11 +32,11 @@ assert<typeof withNonNull>({ ...proto, ...properties })
 
 const sharedA = {
   prvA: 'prvA',
-  shared: 'sharedA'
+  shared: 'sharedA',
 } as const
 const sharedB = {
   prvB: 'prvB',
-  shared: 'sharedB'
+  shared: 'sharedB',
 } as const
 const mergeShared = objectExtends(sharedA, sharedB)
 assert<{
@@ -44,8 +44,10 @@ assert<{
   readonly prvB: 'prvB'
   readonly shared: 'sharedB'
 }>(mergeShared)
-assert<typeof mergeShared>({
-  prvA: 'prvA',
-  prvB: 'prvB',
-  shared: 'sharedB'
-} as const)
+assert<typeof mergeShared>(
+  {
+    prvA: 'prvA',
+    prvB: 'prvB',
+    shared: 'sharedB',
+  } as const,
+)

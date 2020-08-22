@@ -2,7 +2,7 @@ import { Option, map, some, none } from '@tsfun/option'
 import { pass, pipe } from '@tsfun/pipe'
 
 describe('standalone', () => {
-  const fn = <X> (x: X) => [x]
+  const fn = <X>(x: X) => [x]
 
   it('works with Some', () => {
     expect(map(some('x'), fn)).toEqual(some(['x']))

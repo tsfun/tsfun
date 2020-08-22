@@ -27,7 +27,7 @@ export interface SideEffect<Value> {
  * @param fns Side effect functions
  * @returns `value`
  */
-export function tap<Value> (value: Value, ...fns: SideEffect<Value>[]): Value {
+export function tap<Value>(value: Value, ...fns: SideEffect<Value>[]): Value {
   fns.forEach(fn => fn(value))
   return value
 }
@@ -38,7 +38,7 @@ export interface Tapper<Value> {
    * @param value Value from pipeline
    * @returns `value`
    */
-  <Sub extends Value> (value: Sub): Sub
+  <Sub extends Value>(value: Sub): Sub
 }
 
 /**
@@ -63,6 +63,6 @@ export interface Tapper<Value> {
  * @param fns Side effect functions
  * @returns A side-effect function that can be inserted into a pipeline
  */
-export function tapper<Value> (...fns: SideEffect<Value>[]): Tapper<Value> {
+export function tapper<Value>(...fns: SideEffect<Value>[]): Tapper<Value> {
   return value => tap(value, ...fns)
 }

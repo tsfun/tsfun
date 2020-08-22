@@ -11,7 +11,7 @@ const object = {
   b: 1,
   c: 'string',
   123: 456,
-  [symbolKey]: symbolVal
+  [symbolKey]: symbolVal,
 } as const
 
 const getA = propertyOf('a')
@@ -34,19 +34,19 @@ assert<456 | typeof symbolVal>(getProperty(object, ANY as 123 | typeof symbolKey
 assert<0>(
   pass(object)
     .to(getProperty, 'a' as const)
-    .get()
+    .get(),
 )
 
 assert<1>(
   pass(object)
     .to(getProperty, 'b' as const)
-    .get()
+    .get(),
 )
 
 assert<'string'>(
   pass(object)
     .to(getProperty, 'c' as const)
-    .get()
+    .get(),
 )
 
 const fn = propertyGetter(object)

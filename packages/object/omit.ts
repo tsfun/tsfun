@@ -6,8 +6,8 @@
  */
 export function omit<
   Object,
-  Key extends keyof Object
-> (object: Object, keys: Iterable<Key>): Omit<Object, Key> & Partial<Pick<Object, Key>> {
+  Key extends keyof Object,
+>(object: Object, keys: Iterable<Key>): Omit<Object, Key> & Partial<Pick<Object, Key>> {
   const result = { ...object }
 
   for (const key of keys) {
@@ -25,8 +25,8 @@ export function omit<
  */
 export function omitOne<
   Object,
-  Key extends keyof Object
-> (object: Object, key: Key): Omit<Object, Key> {
+  Key extends keyof Object,
+>(object: Object, key: Key): Omit<Object, Key> {
   const { [key]: _, ...result } = object
   return result
 }

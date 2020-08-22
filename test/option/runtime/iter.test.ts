@@ -9,7 +9,7 @@ describe('iter(some(x)) should return iterator that only yields x once', () => {
     expect([first, second, third]).toEqual([
       { done: false, value: 'x' },
       { done: true },
-      { done: true }
+      { done: true },
     ])
   })
 
@@ -27,7 +27,7 @@ describe('iter(none()) should return iterator that does not yield anything', () 
     expect([first, second, third]).toEqual([
       { done: true },
       { done: true },
-      { done: true }
+      { done: true },
     ])
   })
 

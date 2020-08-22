@@ -3,7 +3,7 @@ import {
   expectSomeOr,
   expectSomeOrElse,
   ok,
-  err
+  err,
 } from '@tsfun/result'
 
 import { some, none } from '@tsfun/option'

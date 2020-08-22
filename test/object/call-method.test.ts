@@ -6,11 +6,11 @@ import {
   applyMethod,
   callMethod,
   getMethod,
-  methodGetter
+  methodGetter,
 } from '@tsfun/object'
 
 describe('methodApplierOf', () => {
-  function setup () {
+  function setup() {
     const value = Symbol('value')
     const args = [...'args']
     const name = Symbol('name')
@@ -38,7 +38,7 @@ describe('methodApplierOf', () => {
 })
 
 describe('methodCallerOf', () => {
-  function setup () {
+  function setup() {
     const value = Symbol('value')
     const args = [...'args']
     const name = Symbol('name')
@@ -66,7 +66,7 @@ describe('methodCallerOf', () => {
 })
 
 describe('applyMethod', () => {
-  function setup () {
+  function setup() {
     const value = Symbol('value')
     const method = jest.fn((..._: any[]) => value)
     const object = { method }
@@ -97,7 +97,7 @@ describe('applyMethod', () => {
 })
 
 describe('callMethod', () => {
-  function setup () {
+  function setup() {
     const value = Symbol('value')
     const method = jest.fn((..._: any[]) => value)
     const object = { method }
@@ -128,7 +128,7 @@ describe('callMethod', () => {
 })
 
 describe('getMethod', () => {
-  function setup () {
+  function setup() {
     const value = Symbol('value')
     const method = jest.fn((..._: any[]) => value)
     const object = { method }
@@ -160,7 +160,7 @@ describe('getMethod', () => {
 })
 
 describe('methodGetter', () => {
-  function setup () {
+  function setup() {
     const value = Symbol('value')
     const method = jest.fn((..._: any[]) => value)
     const object = { method }
@@ -196,10 +196,9 @@ describe('works with @tsfun/pipe', () => {
   const setup = () => ({
     setA: (a: 'a') => ({
       setBC: (b: 'b', c: 'c') => ({
-        setDEF: (d: 'd', e: 'e', f: 'f') =>
-          [a, b, c, d, e, f] as const
-      })
-    })
+        setDEF: (d: 'd', e: 'e', f: 'f') => [a, b, c, d, e, f] as const,
+      }),
+    }),
   })
 
   it('applyMethod', () => {
@@ -208,7 +207,7 @@ describe('works with @tsfun/pipe', () => {
         .to(applyMethod, 'setA', ['a'])
         .to(applyMethod, 'setBC', ['b', 'c'])
         .to(applyMethod, 'setDEF', ['d', 'e', 'f'])
-        .get()
+        .get(),
     ).toEqual(['a', 'b', 'c', 'd', 'e', 'f'])
   })
 
@@ -218,7 +217,7 @@ describe('works with @tsfun/pipe', () => {
         .to(callMethod, 'setA', 'a')
         .to(callMethod, 'setBC', 'b', 'c')
         .to(callMethod, 'setDEF', 'd', 'e', 'f')
-        .get()
+        .get(),
     ).toEqual(['a', 'b', 'c', 'd', 'e', 'f'])
   })
 })

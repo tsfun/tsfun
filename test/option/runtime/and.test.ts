@@ -2,7 +2,7 @@ import {
   some,
   none,
   and,
-  andThen
+  andThen,
 } from '@tsfun/option'
 
 describe('and', () => {

@@ -2,7 +2,7 @@ import { partial, partialTail, partialTailIter, partialTailSpread } from '@tsfun
 
 describe('specs', () => {
   describe('partial', () => {
-    function setup () {
+    function setup() {
       const x0 = 0
       const xs = [1, 2, 3, 4, 5] as const
       const impl = (a: 0, b: 1, c: 2, d: 3, e: 4, f: 5) => [a, b, c, d, e, f] as const
@@ -11,7 +11,7 @@ describe('specs', () => {
       return { x0, xs, impl, cb, fn } as const
     }
 
-    function setupAndCall () {
+    function setupAndCall() {
       const { xs, fn, ...rest } = setup()
       const y = fn(...xs)
       return { ...rest, xs, fn, y } as const
@@ -43,7 +43,7 @@ describe('specs', () => {
   })
 
   describe('partialTail', () => {
-    function setup () {
+    function setup() {
       const x0 = 0
       const xs = [1, 2, 3, 4, 5] as const
       const impl = (a: 0, b: 1, c: 2, d: 3, e: 4, f: 5) => [a, b, c, d, e, f] as const
@@ -52,7 +52,7 @@ describe('specs', () => {
       return { x0, xs, impl, cb, fn } as const
     }
 
-    function setupAndCall () {
+    function setupAndCall() {
       const { x0, fn, ...rest } = setup()
       const y = fn(x0)
       return { ...rest, x0, fn, y } as const
@@ -84,11 +84,11 @@ describe('specs', () => {
   })
 
   describe('partialTailIter', () => {
-    function * xs () {
-      yield * 'abcdef'
+    function* xs() {
+      yield* 'abcdef'
     }
 
-    function setup () {
+    function setup() {
       const x0 = 'x0' as const
       const impl = (...xs: string[]) => xs
       const cb = jest.fn(impl)
@@ -96,7 +96,7 @@ describe('specs', () => {
       return { x0, impl, cb, fn } as const
     }
 
-    function setupAndCall () {
+    function setupAndCall() {
       const { x0, fn, ...rest } = setup()
       const y = fn(x0)
       return { ...rest, x0, fn, y } as const
@@ -128,7 +128,7 @@ describe('specs', () => {
   })
 
   describe('partialTailSpread', () => {
-    function setup () {
+    function setup() {
       const x0 = 0
       const xs = [1, 2, 3, 4, 5] as const
       const impl = (a: 0, b: 1, c: 2, d: 3, e: 4, f: 5) => [a, b, c, d, e, f] as const
@@ -137,7 +137,7 @@ describe('specs', () => {
       return { x0, xs, impl, cb, fn } as const
     }
 
-    function setupAndCall () {
+    function setupAndCall() {
       const { x0, fn, ...rest } = setup()
       const y = fn(x0)
       return { ...rest, x0, fn, y } as const
@@ -176,7 +176,7 @@ describe('specs', () => {
 describe('usage', () => {
   const add = (a: number, b: number) => a + b
   const multiply = (a: number, b: number) => a * b
-  const array = <Xs extends any[]> (...xs: Xs) => xs
+  const array = <Xs extends any[]>(...xs: Xs) => xs
 
   it('works well with @tsfun/function/pipe', async () => {
     const { pipe, nAry } = await import('@tsfun/function')
@@ -185,7 +185,7 @@ describe('usage', () => {
       3,
       partialTailSpread(nAry(add), 1, 2),
       partial(multiply, 3),
-      partialTailSpread(array, 'a' as const, 'b' as const)
+      partialTailSpread(array, 'a' as const, 'b' as const),
     )
 
     expect(result).toEqual([(3 + 1 + 2) * 3, 'a', 'b'])

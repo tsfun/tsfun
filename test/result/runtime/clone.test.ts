@@ -1,6 +1,6 @@
 import { Result, clone, ok, err } from '@tsfun/result'
 
-const init = <X = never, E = never> (original: Result<X, E>) => ({ original, copy: clone(original) })
+const init = <X = never, E = never>(original: Result<X, E>) => ({ original, copy: clone(original) })
 
 describe('clone(ok(x))', () => {
   const { original, copy } = init(ok('payload'))

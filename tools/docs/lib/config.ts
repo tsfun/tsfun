@@ -7,5 +7,5 @@ export const title = '@tsfun — API Reference'
  * Glob patterns that match package names to be ignored
  */
 export const ignoredPackages = [
-  'prv-*'
+  'prv-*',
 ] as const

@@ -10,6 +10,6 @@ import { Option } from './option'
  * In reality, this function merely returns the same object it takes
  * since `Result` interface is compatible with `Option`
  */
-export const expectOk = <Payload = never> (result: Result<Payload, any>): Option<Payload> => result
+export const expectOk = <Payload = never>(result: Result<Payload, any>): Option<Payload> => result
 
 export default expectOk

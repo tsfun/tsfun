@@ -4,10 +4,10 @@
  * @param index Where to split
  * @returns A tuple of two parts
  */
-export const splitAt = <Item> (
+export const splitAt = <Item>(
   array: readonly Item[],
-  index: number
+  index: number,
 ): [Item[], Item[]] => [
   array.slice(0, index),
-  array.slice(index)
+  array.slice(index),
 ]

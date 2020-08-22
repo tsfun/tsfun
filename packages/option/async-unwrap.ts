@@ -7,8 +7,7 @@ import { unwrap, unwrapOrElse } from './unwrap'
  * @param option Option to unwrap
  * @returns A `Promise` that may resolve contained value
  */
-export const asyncUnwrap =
-  async <Value = never> (option: AsyncOption<Value>) => unwrap(await option)
+export const asyncUnwrap = async <Value = never>(option: AsyncOption<Value>) => unwrap(await option)
 
 /**
  * Unwrap contained value of a `Some`,
@@ -19,9 +18,11 @@ export const asyncUnwrap =
  */
 export const asyncUnwrapOrErr = <
   Value = never,
-  Message = Error
-> (option: AsyncOption<Value>, message: Message) =>
-  asyncUnwrapOrElse(option, () => { throw message })
+  Message = Error,
+>(option: AsyncOption<Value>, message: Message) =>
+  asyncUnwrapOrElse(option, () => {
+    throw message
+  })
 
 /**
  * Return contained value of a `Some`
@@ -30,9 +31,9 @@ export const asyncUnwrapOrErr = <
  * @param def Value to return when `option` does not contain a value
  * @returns Promise that resolves contained value or `def`
  */
-export const asyncUnwrapOr = <Value = never, Default = Value> (
+export const asyncUnwrapOr = <Value = never, Default = Value>(
   option: AsyncOption<Value>,
-  def: Default
+  def: Default,
 ) => asyncUnwrapOrElse(option, () => def)
 
 /**
@@ -42,7 +43,7 @@ export const asyncUnwrapOr = <Value = never, Default = Value> (
  * @param def Function to be called when `option` does not contain a value
  * @returns Promise that resolves to either contained value or returning value of `none`
  */
-export const asyncUnwrapOrElse = async <Value = never, Default = Value> (
+export const asyncUnwrapOrElse = async <Value = never, Default = Value>(
   option: AsyncOption<Value>,
-  def: () => Default | Promise<Default>
+  def: () => Default | Promise<Default>,
 ) => unwrapOrElse(await option, def)

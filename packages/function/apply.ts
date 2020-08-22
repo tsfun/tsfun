@@ -4,9 +4,9 @@
  * @param xs Arguments to be passed to `fn`
  * @returns Result of function application
  */
-export const apply = <Xs extends readonly any[], Y> (
+export const apply = <Xs extends readonly any[], Y>(
   fn: (...xs: Xs) => Y,
-  xs: Xs
+  xs: Xs,
 ) => fn(...xs)
 
 /**
@@ -16,8 +16,8 @@ export const apply = <Xs extends readonly any[], Y> (
  * @returns Result of function application
  */
 export const applyIter: (
-  <X, Y> (
+  <X, Y>(
     fn: (...xs: X[]) => Y,
-    xs: Iterable<X>
+    xs: Iterable<X>,
   ) => Y
 ) = apply as any
