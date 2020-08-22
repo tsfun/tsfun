@@ -1,17 +1,17 @@
 dependencies:
-  '@types/node': 14.0.6
+  '@types/node': 14.6.0
   ts-pipe-compose: 0.2.0
-  tslib: 2.0.0
+  tslib: 2.0.1
 lockfileVersion: 5.1
 packages:
   /@types/node/12.7.11:
     dev: false
     resolution:
       integrity: sha512-Otxmr2rrZLKRYIybtdG/sgeO+tHY20GxeDjcGmUnmmlCWyEnv2a2x1ZXBo3BTec4OiTXMQCiazB8NMBf0iRlFw==
-  /@types/node/14.0.6:
+  /@types/node/14.6.0:
     dev: false
     resolution:
-      integrity: sha512-FbNmu4F67d3oZMWBV6Y4MaPER+0EpE9eIYf2yaHhCWovc1dlXCZkqGX4NLHfVVr6umt20TNBdRzrNJIzIKfdbw==
+      integrity: sha512-mikldZQitV94akrc4sCcSjtJfsTKt4p+e/s0AGscVA6XArQ9kFclP+ZiYUMnq987rc6QlYxXv/EivqlfSLxpKA==
   /ts-pipe-compose/0.2.0:
     dependencies:
       '@types/node': 12.7.11
@@ -25,11 +25,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-BmndXUtiTn/VDDrJzQE7Mm22Ix3PxgLltW9bSNLoeCY31gnG2OPx0QqJnuc9oMIKioYrz487i6K9o4Pdn0j+Kg==
-  /tslib/2.0.0:
+  /tslib/2.0.1:
     dev: false
     resolution:
-      integrity: sha512-lTqkx847PI7xEDYJntxZH89L2/aXInsyF2luSafe/+0fHOMjlBNXdH6th7f70qxLDhul7KZK0zC8V5ZIyHl0/g==
+      integrity: sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==
 specifiers:
-  '@types/node': ^14.0.6
+  '@types/node': ^14.6.0
   ts-pipe-compose: ^0.2.0
-  tslib: ^2.0.0
+  tslib: ^2.0.1

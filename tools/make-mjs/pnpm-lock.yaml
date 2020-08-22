@@ -399,4 +399,4 @@ specifiers:
   '@make-mjs/main': ^0.4.9
   '@tools/places': 'file:../places'
   '@types/fs-extra': ^9.0.1
-  fs-extra: ^9.0.0
+  fs-extra: ^9.0.1
