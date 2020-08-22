@@ -2,7 +2,7 @@ import { pass } from '@tsfun/pipe'
 import { curry, uncurry } from '@tsfun/function'
 
 describe('curry', () => {
-  function setup () {
+  function setup() {
     const impl = (a: 0, b: 1, c: 2) => [a, b, c] as const
     const curriable = jest.fn(impl)
     const curried = curry(curriable)
@@ -10,7 +10,7 @@ describe('curry', () => {
   }
 
   describe('curried :: (1, 2) -> _', () => {
-    function init () {
+    function init() {
       const { curried, ...rest } = setup()
       const result = curried(1, 2)
       return { ...rest, curried, result }
@@ -28,7 +28,7 @@ describe('curry', () => {
   })
 
   describe('curried :: (1, 2) -> (0) -> [0, 1, 2]', () => {
-    function init () {
+    function init() {
       const { curried, ...rest } = setup()
       const result = curried(1, 2)(0)
       return { ...rest, curried, result }
@@ -52,7 +52,7 @@ describe('curry', () => {
 
   it('over-curry', () => {
     const expected = Symbol('value')
-    const curried = curry(curry(curry(<X> (x: X) => x)))
+    const curried = curry(curry(curry(<X>(x: X) => x)))
     const received = curried()(null)(null)(expected)
     expect(received).toBe(expected)
   })
@@ -72,7 +72,7 @@ describe('curry', () => {
 
 describe('uncurry', () => {
   describe('generic use', () => {
-    function setup () {
+    function setup() {
       const impl = (b: 1, c: 2) => (a: 0) => [a, b, c] as const
       const uncurriable = jest.fn(impl)
       const uncurried = uncurry(uncurriable)
@@ -92,7 +92,7 @@ describe('uncurry', () => {
     })
 
     describe('uncurried :: (0, 1, 2) -> [0, 1, 2]', () => {
-      function init () {
+      function init() {
         const { uncurried, ...rest } = setup()
         const result = uncurried(0, 1, 2)
         return { ...rest, uncurried, result }
@@ -116,7 +116,7 @@ describe('uncurry', () => {
   })
 
   describe('under the hook', () => {
-    function setup () {
+    function setup() {
       const value = Symbol('value')
       const inner = jest.fn(() => value)
       const outer = jest.fn(() => inner)
@@ -137,7 +137,7 @@ describe('uncurry', () => {
     })
 
     describe('when uncurried is called', () => {
-      function init () {
+      function init() {
         const { uncurried, ...rest } = setup()
         const arg = Symbol('arg')
         const result = uncurried(arg)

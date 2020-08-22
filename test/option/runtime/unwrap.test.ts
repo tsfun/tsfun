@@ -6,7 +6,7 @@ import {
   unwrapOr,
   unwrapOrElse,
   some,
-  none
+  none,
 } from '@tsfun/option'
 
 describe('unwrap', () => {

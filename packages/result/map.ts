@@ -11,10 +11,10 @@ import { err } from './err'
 export const map = <
   Payload = never,
   Error = never,
-  Return = Payload
-> (
+  Return = Payload,
+>(
   result: Result<Payload, Error>,
-  fn: (payload: Payload) => Return
+  fn: (payload: Payload) => Return,
 ): Result<Return, Error> => result.tag ? ok(fn(result.value)) : result
 
 /**
@@ -26,10 +26,10 @@ export const map = <
 export const mapErr = <
   Error = never,
   Payload = never,
-  Return = Error
-> (
+  Return = Error,
+>(
   result: Result<Payload, Error>,
-  fn: (error: Error) => Return
+  fn: (error: Error) => Return,
 ): Result<Payload, Return> => result.tag ? result : err(fn(result.error))
 
 /**
@@ -43,11 +43,9 @@ export const mapOrElse = <
   Payload = never,
   Error = never,
   OkReturn = Payload,
-  ErrReturn = Error
-> (
+  ErrReturn = Error,
+>(
   result: Result<Payload, Error>,
   handleErr: (error: Error) => ErrReturn,
-  handleOk: (payload: Payload) => OkReturn
-): Result<OkReturn, ErrReturn> => result.tag
-  ? ok(handleOk(result.value))
-  : err(handleErr(result.error))
+  handleOk: (payload: Payload) => OkReturn,
+): Result<OkReturn, ErrReturn> => result.tag ? ok(handleOk(result.value)) : err(handleErr(result.error))

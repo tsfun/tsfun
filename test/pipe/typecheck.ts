@@ -10,15 +10,15 @@ declare const ft0: () => 0
 declare const f321t0: (a: 3, b: 2, c: 1) => 0
 
 assert<4>(
-  pass(x0).to(f0t1).to(f1t2).to(f2t3).to(f3t4).get()
+  pass(x0).to(f0t1).to(f1t2).to(f2t3).to(f3t4).get(),
 )
 
 assert<() => 4>(
-  pipe(ft0).to(f0t1).to(f1t2).to(f2t3).to(f3t4).get
+  pipe(ft0).to(f0t1).to(f1t2).to(f2t3).to(f3t4).get,
 )
 
 assert<(a: 3, b: 2, c: 1) => 4>(
-  pipe(f321t0).to(f0t1).to(f1t2).to(f2t3).to(f3t4).get
+  pipe(f321t0).to(f0t1).to(f1t2).to(f2t3).to(f3t4).get,
 )
 
 declare const y0: 'y0'
@@ -31,7 +31,7 @@ assert<'y3'>(
     .to(f, 'bf', 'cf')
     .to(g, 'bg')
     .to(h)
-    .get()
+    .get(),
 )
 
 assert<
@@ -40,5 +40,5 @@ assert<
   pipe(f)
     .to(g, 'bg')
     .to(h)
-    .get
+    .get,
 )

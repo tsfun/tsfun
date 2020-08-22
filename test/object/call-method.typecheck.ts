@@ -7,7 +7,7 @@ import {
   applyMethod,
   callMethod,
   getMethod,
-  methodGetter
+  methodGetter,
 } from '@tsfun/object'
 
 const symbolKey = Symbol('symbolKey')
@@ -15,16 +15,16 @@ const symbolKey = Symbol('symbolKey')
 const object = {
   a: 0,
   b: 1,
-  foo (this) {
+  foo(this) {
     return 123 as const
   },
-  bar (this, a: 0, b: 1) {
+  bar(this, a: 0, b: 1) {
     return [a, b] as const
   },
   baz: (a: 0, b: 1, c: 2) => [a, b, c] as const,
-  [symbolKey] (this) {
+  [symbolKey](this) {
     return this
-  }
+  },
 } as const
 
 const ANY: any = null
@@ -104,89 +104,89 @@ assert<typeof object>(callMethod(object, symbolKey))
 assert<123>(
   pass(object)
     .to(applyMethod, 'foo' as const, [])
-    .get()
+    .get(),
 )
 
 assert<123>(
   pass(object)
     .to(applyMethod, 'foo' as const, [] as const)
-    .get()
+    .get(),
 )
 
 assert<readonly [0, 1]>(
   pass(object)
     .to(applyMethod, 'bar' as const, [0, 1])
-    .get()
+    .get(),
 )
 
 assert<readonly [0, 1]>(
   pass(object)
     .to(applyMethod, 'bar' as const, [0, 1] as const)
-    .get()
+    .get(),
 )
 
 assert<readonly [0, 1, 2]>(
   pass(object)
     .to(applyMethod, 'baz' as const, [0, 1, 2])
-    .get()
+    .get(),
 )
 
 assert<readonly [0, 1, 2]>(
   pass(object)
     .to(applyMethod, 'baz' as const, [0, 1, 2] as const)
-    .get()
+    .get(),
 )
 
 assert<typeof object>(
   pass(object)
     .to(applyMethod, symbolKey, [])
-    .get()
+    .get(),
 )
 
 assert<typeof object>(
   pass(object)
     .to(applyMethod, symbolKey, [] as const)
-    .get()
+    .get(),
 )
 
 assert<123>(
   pass(object)
     .to(callMethod, 'foo' as const)
-    .get()
+    .get(),
 )
 
 assert<readonly [0, 1]>(
   pass(object)
     .to(callMethod, 'bar' as const, 0, 1)
-    .get()
+    .get(),
 )
 
 assert<readonly [0, 1, 2]>(
   pass(object)
     .to(callMethod, 'baz' as const, 0, 1, 2)
-    .get()
+    .get(),
 )
 
 assert<() => 123>(
   pass(object)
     .to(getMethod, 'foo' as const)
-    .get()
+    .get(),
 )
 
 assert<(a: 0, b: 1) => readonly [0, 1]>(
   pass(object)
     .to(getMethod, 'bar' as const)
-    .get()
+    .get(),
 )
 
 assert<(a: 0, b: 1, c: 2) => readonly [0, 1, 2]>(
   pass(object)
     .to(getMethod, 'baz' as const)
-    .get()
+    .get(),
 )
 
 assert(
   pass(object)
     .to(callMethod, symbolKey)
-    .get()
+    .get(),
 )

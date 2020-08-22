@@ -97,7 +97,7 @@ describe('usage', () => {
       partial(add, 7),
       String,
       partial(concat, 'prefix '),
-      upper
+      upper,
     )
 
     expect(result).toBe(upper(concat('prefix ', String(add(7, 3)))))

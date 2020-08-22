@@ -6,70 +6,71 @@ const nonPartial = {
   b: {
     c: 1,
     d: {
-      e: 2
-    }
+      e: 2,
+    },
   },
   f: {
     g: 3,
     h: [0, 1, 2],
-    i: [{ j: 4 }]
-  }
+    i: [{ j: 4 }],
+  },
 } as const
 
 type NonPartialObject = typeof nonPartial
 type PartialObject = DeepPartial<NonPartialObject>
 compare<PartialObject, {
-  readonly a?: 0,
+  readonly a?: 0
   readonly b?: {
-    readonly c?: 1,
+    readonly c?: 1
     readonly d?: {
       readonly e?: 2
     }
-  },
+  }
   readonly f?: {
-    readonly g?: 3,
-    readonly h?: readonly [0, 1, 2], // spec: does not make array elements partial
+    readonly g?: 3
+    readonly h?: readonly [0, 1, 2]
     readonly i?: readonly [{
       readonly j: 4 // spec: does not make objects inside array partial
     }]
   }
-}>('equal')
+} // spec: does not make array elements partial
+>('equal')
 assert<PartialObject>(nonPartial)
 assert<PartialObject>({})
 assert<PartialObject>({
   a: undefined,
   b: undefined,
-  f: undefined
+  f: undefined,
 })
 assert<PartialObject>({
   a: 0,
   b: {
     c: 1,
-    d: undefined
+    d: undefined,
   },
-  f: undefined
+  f: undefined,
 })
 assert<PartialObject>({
   a: 0,
   b: {
     c: 1,
-    d: undefined
-  },
-  f: {
-    g: 3,
-    h: undefined
-  }
-})
-assert<PartialObject>({
-  a: 0,
-  b: {
-    c: 1,
-    d: undefined
+    d: undefined,
   },
   f: {
     g: 3,
-    h: [0, 1, 2]
-  }
+    h: undefined,
+  },
+})
+assert<PartialObject>({
+  a: 0,
+  b: {
+    c: 1,
+    d: undefined,
+  },
+  f: {
+    g: 3,
+    h: [0, 1, 2],
+  },
 })
 assert<NonPartialObject>(deepMergePartial(nonPartial, {}, () => undefined!))
 assert<NonPartialObject>(deepMergePartial(nonPartial, nonPartial, () => undefined!))
@@ -77,38 +78,38 @@ assert<NonPartialObject>(deepMergePartial(nonPartial, {
   a: 0,
   b: {
     c: 1,
-    d: undefined
+    d: undefined,
   },
-  f: undefined
+  f: undefined,
 }, () => undefined!))
 
 const A = {
   a: 0 as const,
   b: 'b' as const,
   c: {
-    a: 1 as const
+    a: 1 as const,
   },
   d: {
     c: {
       b: {
-        a: 'dcba' as const
-      }
-    }
-  }
+        a: 'dcba' as const,
+      },
+    },
+  },
 }
 
 const B = {
   c: {
-    b: 'a' as const
+    b: 'a' as const,
   },
   d: {
     a: 0 as const,
     c: {
       b: {
-        b: 'dcbb' as const
-      }
-    }
-  }
+        b: 'dcbb' as const,
+      },
+    },
+  },
 }
 
 const AB = deepMergeWithoutCollision(A, B)

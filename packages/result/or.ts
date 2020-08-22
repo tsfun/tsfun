@@ -10,10 +10,10 @@ import { Result } from './result'
 export const or = <
   Payload = never,
   Left = never,
-  Right = Left
-> (
+  Right = Left,
+>(
   left: Result<Payload, Left>,
-  right: Result<Payload, Right>
+  right: Result<Payload, Right>,
 ) => left.tag ? left : right
 
 /**
@@ -26,8 +26,8 @@ export const or = <
 export const orElse = <
   Payload = never,
   Left = never,
-  Right = Left
-> (
+  Right = Left,
+>(
   left: Result<Payload, Left>,
-  right: (error: Left) => Result<Payload, Right>
+  right: (error: Left) => Result<Payload, Right>,
 ) => left.tag ? left : right(left.error)

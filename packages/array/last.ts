@@ -5,7 +5,7 @@ import { NonEmptyArray } from './utils/types'
  * @param array Array to get last item from
  * @returns Last item of `array`
  */
-export const last = <First, Rest> (array: NonEmptyArray<First, Rest>): Rest => array[array.length - 1] as any
+export const last = <First, Rest>(array: NonEmptyArray<First, Rest>): Rest => array[array.length - 1] as any
 
 /**
  * Get last item of an array
@@ -13,9 +13,9 @@ export const last = <First, Rest> (array: NonEmptyArray<First, Rest>): Rest => a
  * @param def Value to return should `array` is found empty
  * @returns Last item of `array` if it's not empty, or `def` otherwise
  */
-export const lastOr = <Item, Default> (
+export const lastOr = <Item, Default>(
   array: readonly Item[],
-  def: Default
+  def: Default,
 ): Item | Default => array.length ? last(array as any) : def
 
 /**
@@ -23,4 +23,4 @@ export const lastOr = <Item, Default> (
  * @param array Array to get last item from
  * @returns Last item of `array` if it's not empty, or `undefined` otherwise
  */
-export const lastOrUndefined = <Item> (array: readonly Item[]) => lastOr(array, undefined)
+export const lastOrUndefined = <Item>(array: readonly Item[]) => lastOr(array, undefined)

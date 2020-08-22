@@ -12,7 +12,7 @@ class PipeNode<Args extends any[], Return> {
    */
   public readonly get: (...args: Args) => Return
 
-  constructor (fn: (...args: Args) => Return) {
+  constructor(fn: (...args: Args) => Return) {
     this.get = fn
   }
 
@@ -22,12 +22,12 @@ class PipeNode<Args extends any[], Return> {
    * @param tailArgs Parameters of `fn` without the first one
    * @returns Another node of the pipeline
    */
-  public to<NextReturn, Tail extends any[]> (
+  public to<NextReturn, Tail extends any[]>(
     fn: (pipedValue: Return, ...tailArgs: Tail) => NextReturn,
     ...tailArgs: Tail
   ) {
     return pipe(
-      (...firstArgs: Args) => fn(this.get(...firstArgs), ...tailArgs)
+      (...firstArgs: Args) => fn(this.get(...firstArgs), ...tailArgs),
     )
   }
 }
@@ -84,7 +84,7 @@ class PipeNode<Args extends any[], Return> {
  * @param x First value in the pipeline
  * @returns First node of the pipeline
  */
-export const pass = <X> (x: X) => pipe(() => x)
+export const pass = <X>(x: X) => pipe(() => x)
 
 /**
  * Start a pipeline with a function
@@ -135,7 +135,4 @@ export const pass = <X> (x: X) => pipe(() => x)
  * @param fn First function in the pipeline
  * @returns First node of the pipeline
  */
-export const pipe =
-  <Args extends any[], Return>
-    (fn: (...args: Args) => Return) =>
-      new PipeNode(fn)
+export const pipe = <Args extends any[], Return>(fn: (...args: Args) => Return) => new PipeNode(fn)

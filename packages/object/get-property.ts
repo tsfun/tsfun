@@ -5,10 +5,8 @@ import { SingleDict } from './utils/types'
  * @param key Property key
  * @returns Function that accesses `[key]` of an object
  */
-export const propertyOf =
-  <Key extends string | number | symbol> (key: Key) =>
-    <Value> (object: SingleDict<Key, Value>): Value =>
-      object[key]
+export const propertyOf = <Key extends string | number | symbol>(key: Key) =>
+  <Value>(object: SingleDict<Key, Value>): Value => object[key]
 
 /**
  * Access a property from an object
@@ -18,8 +16,8 @@ export const propertyOf =
  */
 export const getProperty = <
   Object extends object,
-  Key extends keyof Object = keyof Object
-> (object: Object, key: Key) => object[key]
+  Key extends keyof Object = keyof Object,
+>(object: Object, key: Key) => object[key]
 
 export interface PropertyGetter<Object> {
   /**
@@ -27,7 +25,7 @@ export interface PropertyGetter<Object> {
    * @param key Property key
    * @returns Property value
    */
-  <Key extends keyof Object> (key: Key): Object[Key]
+  <Key extends keyof Object>(key: Key): Object[Key]
 }
 
 /**
@@ -35,6 +33,5 @@ export interface PropertyGetter<Object> {
  * @param object Object to get properties from
  * @returns A function that lookup an object property
  */
-export const propertyGetter =
-  <Object extends object> (object: Object): PropertyGetter<Object> =>
-    <Key extends keyof Object> (key: Key) => object[key]
+export const propertyGetter = <Object extends object>(object: Object): PropertyGetter<Object> =>
+  <Key extends keyof Object>(key: Key) => object[key]

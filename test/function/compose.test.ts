@@ -6,12 +6,12 @@ import {
   composeFns,
   composeFnsRight,
   composeFnsXs,
-  composeFnsXsRight
+  composeFnsXsRight,
 } from '@tsfun/function'
 
 describe('specs', () => {
   describe('compose', () => {
-    function setup () {
+    function setup() {
       const x = 'x'
       const fImpl = (x: string) => `f ${x}`
       const gImpl = (x: string) => `g ${x}`
@@ -21,7 +21,7 @@ describe('specs', () => {
       return { x, fImpl, gImpl, f, g, fxg }
     }
 
-    function setupAndCall () {
+    function setupAndCall() {
       const { x, fxg, ...rest } = setup()
       const y = fxg(x)
       return { ...rest, x, fxg, y }
@@ -68,7 +68,7 @@ describe('specs', () => {
   })
 
   describe('composeRight', () => {
-    function setup () {
+    function setup() {
       const x = 'x'
       const fImpl = (x: string) => `f ${x}`
       const gImpl = (x: string) => `g ${x}`
@@ -78,7 +78,7 @@ describe('specs', () => {
       return { x, fImpl, gImpl, f, g, fxg }
     }
 
-    function setupAndCall () {
+    function setupAndCall() {
       const { x, fxg, ...rest } = setup()
       const y = fxg(x)
       return { ...rest, x, fxg, y }
@@ -125,7 +125,7 @@ describe('specs', () => {
   })
 
   describe('composeXs', () => {
-    function setup () {
+    function setup() {
       const xs = ['a', 'b', 'c', 'd'] as const
       const fImpl = (...xs: string[]) => `f ${xs.join(', ')}`
       const gImpl = (...xs: string[]) => `g ${xs.join(', ')}`
@@ -135,7 +135,7 @@ describe('specs', () => {
       return { xs, fImpl, gImpl, f, g, fxg }
     }
 
-    function setupAndCall () {
+    function setupAndCall() {
       const { xs, fxg, ...rest } = setup()
       const y = fxg(...xs)
       return { ...rest, xs, fxg, y }
@@ -182,7 +182,7 @@ describe('specs', () => {
   })
 
   describe('composeXsRight', () => {
-    function setup () {
+    function setup() {
       const xs = ['a', 'b', 'c', 'd'] as const
       const fImpl = (...xs: string[]) => `f ${xs.join(', ')}`
       const gImpl = (...xs: string[]) => `g ${xs.join(', ')}`
@@ -192,7 +192,7 @@ describe('specs', () => {
       return { xs, fImpl, gImpl, f, g, fxg }
     }
 
-    function setupAndCall () {
+    function setupAndCall() {
       const { xs, fxg, ...rest } = setup()
       const y = fxg(...xs)
       return { ...rest, xs, fxg, y }
@@ -736,7 +736,7 @@ describe('specs', () => {
 })
 
 describe('usage', () => {
-  async function fns () {
+  async function fns() {
     const { partial } = await import('@tsfun/function')
     const add = (a: number, b: number) => a + b
     const multiply = (a: number, b: number) => a * b
@@ -748,8 +748,8 @@ describe('usage', () => {
     return { add, multiply, square, inc, dec, double, half }
   }
 
-  async function fnsXs () {
-    const map = <X, Y> (fn: (x: X) => Y, ...xs: readonly X[]) => xs.map(x => fn(x))
+  async function fnsXs() {
+    const map = <X, Y>(fn: (x: X) => Y, ...xs: readonly X[]) => xs.map(x => fn(x))
     const join = (sep: string, ...xs: readonly string[]) => xs.join(sep)
     const split = (sep: string, str: string) => str.split(sep)
     return { map, join, split, ...await fns() }

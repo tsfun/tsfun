@@ -8,6 +8,6 @@ import { match } from './match'
  * @param option Option to clone
  * @returns A new copy of `option`
  */
-export const clone = <Value = never> (option: Option<Value>) => match(option, { some, none })
+export const clone = <Value = never>(option: Option<Value>) => match(option, { some, none })
 
 export default clone

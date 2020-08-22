@@ -6,8 +6,8 @@ it('apply', () => {
 })
 
 it('applyIter', () => {
-  function * gen () {
-    yield * 'abcdef'
+  function* gen() {
+    yield* 'abcdef'
   }
   const join = (...args: string[]) => args.join(', ')
   expect(applyIter(join, gen())).toBe('a, b, c, d, e, f')

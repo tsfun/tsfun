@@ -9,9 +9,9 @@ import { Result } from './result'
 export const flatten = <
   Payload = never,
   InnerError = never,
-  OuterError = InnerError
-> (
-  deepResult: DeepPayloadResult<Payload, InnerError, OuterError>
+  OuterError = InnerError,
+>(
+  deepResult: DeepPayloadResult<Payload, InnerError, OuterError>,
 ): Result<Payload, InnerError | OuterError> => deepResult.tag ? deepResult.value : deepResult
 
 /**
@@ -22,7 +22,7 @@ export const flatten = <
 export const flattenError = <
   OuterPayload = never,
   Error = never,
-  InnerPayload = OuterPayload
-> (
-  deepResult: DeepErrorResult<OuterPayload, Error, InnerPayload>
+  InnerPayload = OuterPayload,
+>(
+  deepResult: DeepErrorResult<OuterPayload, Error, InnerPayload>,
 ): Result<OuterPayload | InnerPayload, Error> => deepResult.tag ? deepResult : deepResult.error

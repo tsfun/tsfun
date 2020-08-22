@@ -4,7 +4,7 @@ const foo = Symbol('foo')
 const bar = Symbol('bar')
 
 describe('with null as proto', () => {
-  function setup () {
+  function setup() {
     const proto = null
     const properties = { abc: 123, 0: 'zero', [foo]: 'foo' } as const
     const result = objectExtends(proto, properties)
@@ -28,7 +28,7 @@ describe('with null as proto', () => {
 })
 
 describe('with an object as proto', () => {
-  function setup () {
+  function setup() {
     const proto = { abc: 123, 0: 'zero', [foo]: 'foo' } as const
     const properties = { def: 456, 1: 'one', [bar]: 'bar' } as const
     const result = objectExtends(proto, properties)

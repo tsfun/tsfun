@@ -4,9 +4,9 @@
  * @param x First argument of `fn`
  * @returns Function that provides remaining arguments to `fn`
  */
-export const partial = <X, Xs extends any[], Y> (
+export const partial = <X, Xs extends any[], Y>(
   fn: (x: X, ...xs: Xs) => Y,
-  x: X
+  x: X,
 ) => (...xs: Xs) => fn(x, ...xs)
 
 /**
@@ -15,9 +15,9 @@ export const partial = <X, Xs extends any[], Y> (
  * @param xs Array of all arguments except the first one
  * @returns Function that provides the first argument to `fn`
  */
-export const partialTail = <X, Xs extends readonly any[], Y> (
+export const partialTail = <X, Xs extends readonly any[], Y>(
   fn: (x: X, ...xs: Xs) => Y,
-  xs: Xs
+  xs: Xs,
 ) => (x: X) => fn(x, ...xs)
 
 /**
@@ -27,9 +27,9 @@ export const partialTail = <X, Xs extends readonly any[], Y> (
  * @returns Function that provides the first argument to `fn`
  */
 export const partialTailIter: (
-  <X0, X1, Y> (
+  <X0, X1, Y>(
     fn: (x: X0, ...xs: X1[]) => Y,
-    xs: Iterable<X1>
+    xs: Iterable<X1>,
   ) => (x: X0) => Y
 ) = partialTail as any
 
@@ -39,7 +39,7 @@ export const partialTailIter: (
  * @param xs All arguments except the first one
  * @returns Function that provides the first argument to `fn`
  */
-export const partialTailSpread = <X, Xs extends readonly any[], Y> (
+export const partialTailSpread = <X, Xs extends readonly any[], Y>(
   fn: (x: X, ...xs: Xs) => Y,
   ...xs: Xs
 ) => partialTail(fn, xs)

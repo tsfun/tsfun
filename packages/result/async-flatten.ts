@@ -9,12 +9,12 @@ import { err } from './err'
  * @param deepResultPromise Result to flatten
  * @returns Promise that resolves flattened result
  */
-export async function asyncFlatten <
+export async function asyncFlatten<
   Payload = never,
   InnerError = never,
-  OuterError = InnerError
-> (
-  deepResultPromise: AsyncDeepPayloadResult<Payload, InnerError, OuterError>
+  OuterError = InnerError,
+>(
+  deepResultPromise: AsyncDeepPayloadResult<Payload, InnerError, OuterError>,
 ): Promise<Result<Payload, InnerError | OuterError>> {
   const deepResult = await deepResultPromise
   if (!deepResult.tag) return err(await deepResult.error)
@@ -31,12 +31,12 @@ export async function asyncFlatten <
  * @param deepResultPromise Result to flatten
  * @returns Promise that resolves flattened result
  */
-export async function asyncFlattenError <
+export async function asyncFlattenError<
   OuterPayload = never,
   Error = never,
-  InnerPayload = OuterPayload
-> (
-  deepResultPromise: AsyncDeepErrorResult<OuterPayload, Error, InnerPayload>
+  InnerPayload = OuterPayload,
+>(
+  deepResultPromise: AsyncDeepErrorResult<OuterPayload, Error, InnerPayload>,
 ): Promise<Result<OuterPayload | InnerPayload, Error>> {
   const deepResult = await deepResultPromise
   if (deepResult.tag) return ok(await deepResult.value)

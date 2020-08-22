@@ -10,10 +10,10 @@ import { Result } from './result'
 export const and = <
   Left = never,
   Right = Left,
-  Error = never
-> (
+  Error = never,
+>(
   left: Result<Left, Error>,
-  right: Result<Right, Error>
+  right: Result<Right, Error>,
 ) => left.tag ? right : left
 
 /**
@@ -26,8 +26,8 @@ export const and = <
 export const andThen = <
   Left = never,
   Right = Left,
-  Error = never
-> (
+  Error = never,
+>(
   left: Result<Left, Error>,
-  right: (payload: Left) => Result<Right, Error>
+  right: (payload: Left) => Result<Right, Error>,
 ) => left.tag ? right(left.value) : left

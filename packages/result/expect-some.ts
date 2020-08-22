@@ -8,9 +8,8 @@ import { err } from './err'
  * @param option Option to match against
  * @returns `Result`
  */
-export const expectSome =
-  <Payload = never> (option: Option<Payload>): Result<Payload, Error> =>
-    expectSomeOrElse(option, () => new Error('Expecting Some but received None'))
+export const expectSome = <Payload = never>(option: Option<Payload>): Result<Payload, Error> =>
+  expectSomeOrElse(option, () => new Error('Expecting Some but received None'))
 
 /**
  * If `option` is `some(x)`, return `ok(x)`,
@@ -19,9 +18,9 @@ export const expectSome =
  * @param error Error to carry should `option` is a `None`
  * @returns `Result`
  */
-export const expectSomeOr = <Payload = never, Error = never> (
+export const expectSomeOr = <Payload = never, Error = never>(
   option: Option<Payload>,
-  error: Error
+  error: Error,
 ): Result<Payload, Error> => option.tag ? option : err(error)
 
 /**
@@ -31,7 +30,7 @@ export const expectSomeOr = <Payload = never, Error = never> (
  * @param error Function to execute should `option` is a `None`
  * @returns `Result`
  */
-export const expectSomeOrElse = <Payload = never, Error = never> (
+export const expectSomeOrElse = <Payload = never, Error = never>(
   option: Option<Payload>,
-  error: () => Error
+  error: () => Error,
 ): Result<Payload, Error> => option.tag ? option : err(error())

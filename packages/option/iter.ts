@@ -5,7 +5,7 @@ import { Option } from './option'
  * @param option Option to iterate over
  * @returns An iterator that yields contained value
  */
-export function * iter<Value = never> (option: Option<Value>) {
+export function* iter<Value = never>(option: Option<Value>) {
   if (option.tag) yield option.value
 }
 

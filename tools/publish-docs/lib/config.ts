@@ -5,5 +5,5 @@ import { Options } from '@tools/gh-pages'
  */
 export const optionsList: Options[] = [
   // https://tsfun.github.io
-  { branch: 'master', repo: 'https://github.com/tsfun/tsfun.github.io.git' }
+  { branch: 'master', repo: 'https://github.com/tsfun/tsfun.github.io.git' },
 ]

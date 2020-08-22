@@ -2,8 +2,7 @@ import { mutObj } from './utils/mut-obj'
 import { DeepPartialNonArray as DeepPartial, SimpleDeepMerge as DeepMergeWithoutCollision } from './utils/types'
 export { DeepPartial, DeepMergeWithoutCollision }
 
-const isObject = (value: any): value is object =>
-  value && typeof value === 'object' && !Array.isArray(value)
+const isObject = (value: any): value is object => value && typeof value === 'object' && !Array.isArray(value)
 
 /**
  * Merge two objects of the same interface
@@ -12,10 +11,10 @@ const isObject = (value: any): value is object =>
  * @param resolveConflict Function that resolves property conflict
  * @returns Result of the merge
  */
-export function deepMergeWithPreference<Value> (
+export function deepMergeWithPreference<Value>(
   left: Value,
   right: Value,
-  resolveConflict: PropertyConflictResolver
+  resolveConflict: PropertyConflictResolver,
 ): Value {
   if (!isObject(left) || !isObject(right)) {
     return resolveConflict([left, right]) ? right : left
@@ -49,7 +48,7 @@ export function deepMergeWithPreference<Value> (
  * @param right Object or value to merge
  * @returns Result of the merge
  */
-export function deepMergeOverwrite<Value> (left: Value, right: Value): Value {
+export function deepMergeOverwrite<Value>(left: Value, right: Value): Value {
   return deepMergeWithPreference(left, right, PREFER_RIGHT)
 }
 
@@ -62,15 +61,15 @@ const PREFER_RIGHT = () => PropertyPreference.Right
  * @param resolveConflict Function that resolves property conflict
  * @returns Result of the merge
  */
-export function deepMergePartial<Object> (
+export function deepMergePartial<Object>(
   left: Object,
   right: DeepPartial<Object>,
-  resolveConflict: PropertyConflictResolver
+  resolveConflict: PropertyConflictResolver,
 ): Object {
   return deepMergeWithPreference(
     left,
     right as Object,
-    values => values[1] === undefined ? PropertyPreference.Left : resolveConflict(values)
+    values => values[1] === undefined ? PropertyPreference.Left : resolveConflict(values),
   )
 }
 
@@ -86,8 +85,8 @@ export function deepMergePartial<Object> (
  */
 export function deepMergeWithoutCollision<
   Left extends object,
-  Right extends object
-> (left: Left, right: Right, onerror = DMWOC_DEF_ERR_HDLR): DeepMergeWithoutCollision<Left, Right> {
+  Right extends object,
+>(left: Left, right: Right, onerror = DMWOC_DEF_ERR_HDLR): DeepMergeWithoutCollision<Left, Right> {
   const result: any = {}
 
   for (const [key, leftValue] of Object.entries(left)) {
@@ -100,7 +99,7 @@ export function deepMergeWithoutCollision<
           type: ErrorType.PropertyCollision,
           objects: [left, right],
           key,
-          values: [leftValue, rightValue]
+          values: [leftValue, rightValue],
         })
       }
     } else {
@@ -142,7 +141,7 @@ export const enum PropertyPreference {
   /**
    * Choose the right value (`values[1]`)
    */
-  Right = 1
+  Right = 1,
 }
 
 /**
@@ -159,8 +158,7 @@ export interface ErrorProcessor {
 /**
  * Param to pass to {@link ErrorProcessor} should {@link deepMergeWithoutCollision} fails
  */
-export type ErrorProcessorParam =
-  PropertyCollision
+export type ErrorProcessorParam = PropertyCollision
 
 /**
  * Code of errors that `deepMergeWithoutCollision may cause
@@ -169,7 +167,7 @@ export const enum ErrorType {
   /**
    * Indicates that two merging objects possess properties of same name
    */
-  PropertyCollision = 1
+  PropertyCollision = 1,
 }
 
 /**

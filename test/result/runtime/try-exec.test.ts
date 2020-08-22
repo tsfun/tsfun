@@ -2,7 +2,10 @@ import { tryExec, ok, err } from '@tsfun/result'
 import { pass } from '@tsfun/pipe'
 
 const fnOk = () => jest.fn((...args: number[]) => args.join(', '))
-const fnErr = () => jest.fn((msg: string) => { throw new Error(msg) })
+const fnErr = () =>
+  jest.fn((msg: string) => {
+    throw new Error(msg)
+  })
 
 describe('standalone', () => {
   describe('when fn returns x', () => {

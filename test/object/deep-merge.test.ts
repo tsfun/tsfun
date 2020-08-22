@@ -12,12 +12,12 @@ import {
   setPropertyPath,
   PropertyPreference,
   DeepPartial,
-  ErrorType
+  ErrorType,
 } from '@tsfun/object'
 
 describe('deepMergeWithPreference', () => {
   describe('no collision', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: {
           readonly a1?: {
@@ -44,39 +44,39 @@ describe('deepMergeWithPreference', () => {
       const A: AB = {
         a0: {
           a1: {
-            a2: 'a0.a1.a2'
+            a2: 'a0.a1.a2',
           },
           b1: {
-            a2: 'a0.b1.a2'
-          }
+            a2: 'a0.b1.a2',
+          },
         },
         b0: {
           a1: {
-            a2: 'b0.a1.a2'
+            a2: 'b0.a1.a2',
           },
           b1: {
-            a2: 'b0.b1.a2'
-          }
-        }
+            a2: 'b0.b1.a2',
+          },
+        },
       }
 
       const B: AB = {
         a0: {
           a1: {
-            b2: 'a0.a1.b2'
+            b2: 'a0.a1.b2',
           },
           b1: {
-            b2: 'a0.b1.b2'
-          }
+            b2: 'a0.b1.b2',
+          },
         },
         b0: {
           a1: {
-            b2: 'b0.a1.b2'
+            b2: 'b0.a1.b2',
           },
           b1: {
-            b2: 'b0.b1.b2'
-          }
-        }
+            b2: 'b0.b1.b2',
+          },
+        },
       }
 
       const resolveConflict = jest.fn(() => {
@@ -106,7 +106,7 @@ describe('deepMergeWithPreference', () => {
   })
 
   describe('with collision but prefer truthy values', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: {
           readonly a1?: {
@@ -134,38 +134,38 @@ describe('deepMergeWithPreference', () => {
         a0: {
           a1: {
             a2: 'a0.a1.a2',
-            b2: undefined
+            b2: undefined,
           },
           b1: {
             a2: 'a0.b1.a2',
-            b2: null
-          }
+            b2: null,
+          },
         },
         b0: {
           a1: {
             a2: 'b0.a1.a2',
-            b2: false
+            b2: false,
           },
           b1: {
             a2: 'b0.b1.a2',
-            b2: 0
-          }
-        }
+            b2: 0,
+          },
+        },
       }
 
       const B: AB = {
         a0: {
           a1: undefined,
-          b1: undefined
+          b1: undefined,
         },
         b0: {
           a1: {
-            b2: 'b0.a1.b2'
+            b2: 'b0.a1.b2',
           },
           b1: {
-            b2: 'b0.b1.b2'
-          }
-        }
+            b2: 'b0.b1.b2',
+          },
+        },
       }
 
       const resolveConflict = jest.fn(([left, right]: [any, any]) => {
@@ -187,12 +187,12 @@ describe('deepMergeWithPreference', () => {
         'a0.a1': AB.a0!.a1,
         'a0.b1': AB.a0!.b1,
         'b0.a1.b2': AB.b0!.a1!.b2,
-        'b0.b1.b2': AB.b0!.b1!.b2
+        'b0.b1.b2': AB.b0!.b1!.b2,
       }).toEqual({
         'a0.a1': expect.any(Object),
         'a0.b1': expect.any(Object),
         'b0.a1.b2': expect.any(String),
-        'b0.b1.b2': expect.any(String)
+        'b0.b1.b2': expect.any(String),
       })
     })
 
@@ -202,7 +202,7 @@ describe('deepMergeWithPreference', () => {
   })
 
   describe('with collision but prefer falsy values', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: {
           readonly a1?: {
@@ -230,38 +230,38 @@ describe('deepMergeWithPreference', () => {
         a0: {
           a1: {
             a2: 'a0.a1.a2',
-            b2: undefined
+            b2: undefined,
           },
           b1: {
             a2: 'a0.b1.a2',
-            b2: null
-          }
+            b2: null,
+          },
         },
         b0: {
           a1: {
             a2: 'b0.a1.a2',
-            b2: false
+            b2: false,
           },
           b1: {
             a2: 'b0.b1.a2',
-            b2: 0
-          }
-        }
+            b2: 0,
+          },
+        },
       }
 
       const B: AB = {
         a0: {
           a1: undefined,
-          b1: undefined
+          b1: undefined,
         },
         b0: {
           a1: {
-            b2: 'b0.a1.b2'
+            b2: 'b0.a1.b2',
           },
           b1: {
-            b2: 'b0.b1.b2'
-          }
-        }
+            b2: 'b0.b1.b2',
+          },
+        },
       }
 
       const resolveConflict = jest.fn(([left, right]: [any, any]) => {
@@ -283,12 +283,12 @@ describe('deepMergeWithPreference', () => {
         'a0.a1': AB.a0!.a1,
         'a0.b1': AB.a0!.b1,
         'b0.a1.b2': AB.b0!.a1!.b2,
-        'b0.b1.b2': AB.b0!.b1!.b2
+        'b0.b1.b2': AB.b0!.b1!.b2,
       }).toEqual({
         'a0.a1': undefined,
         'a0.b1': undefined,
         'b0.a1.b2': false,
-        'b0.b1.b2': 0
+        'b0.b1.b2': 0,
       })
     })
 
@@ -300,7 +300,7 @@ describe('deepMergeWithPreference', () => {
 
 describe('deepMergeOverwrite', () => {
   describe('no shallow collision', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: symbol
         readonly a1?: symbol
@@ -313,13 +313,13 @@ describe('deepMergeOverwrite', () => {
       const A: AB = deepFreeze({
         a0: Symbol('a0'),
         a1: Symbol('a1'),
-        a2: Symbol('a2')
+        a2: Symbol('a2'),
       })
 
       const B: AB = deepFreeze({
         b0: Symbol('b0'),
         b1: Symbol('b1'),
-        b2: Symbol('b2')
+        b2: Symbol('b2'),
       })
 
       const AB = deepMergeOverwrite(A, B)
@@ -348,7 +348,7 @@ describe('deepMergeOverwrite', () => {
   })
 
   describe('some shallow collisions', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: symbol
         readonly a1?: symbol
@@ -365,7 +365,7 @@ describe('deepMergeOverwrite', () => {
         a1: Symbol('a1'),
         a2: Symbol('a2'),
         ab: 'from A',
-        ba: 'from A'
+        ba: 'from A',
       })
 
       const B: AB = deepFreeze({
@@ -373,7 +373,7 @@ describe('deepMergeOverwrite', () => {
         b1: Symbol('b1'),
         b2: Symbol('b2'),
         ab: 'from B',
-        ba: 'from B'
+        ba: 'from B',
       })
 
       const AB = deepMergeOverwrite(A, B)
@@ -398,7 +398,7 @@ describe('deepMergeOverwrite', () => {
   })
 
   describe('no deep collision', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: symbol
         readonly a1?: symbol
@@ -426,12 +426,12 @@ describe('deepMergeOverwrite', () => {
         a2: Symbol('a2'),
         ab: {
           a0: 'ab.a0',
-          a1: 123
+          a1: 123,
         },
         ba: {
           a0: 456,
-          a1: 'ba.a1'
-        }
+          a1: 'ba.a1',
+        },
       })
 
       const B: AB = deepFreeze({
@@ -440,12 +440,12 @@ describe('deepMergeOverwrite', () => {
         b2: Symbol('b2'),
         ab: {
           b0: 'ab.b0',
-          b1: 321
+          b1: 321,
         },
         ba: {
           b0: 654,
-          b1: 'ba.b1'
-        }
+          b1: 'ba.b1',
+        },
       })
 
       const AB = deepMergeOverwrite(A, B)
@@ -475,7 +475,7 @@ describe('deepMergeOverwrite', () => {
   })
 
   describe('some deep collisions', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: symbol
         readonly a1?: symbol
@@ -509,14 +509,14 @@ describe('deepMergeOverwrite', () => {
           a0: 'ab.a0',
           a1: 123,
           ab: 'from A',
-          ba: 135
+          ba: 135,
         },
         ba: {
           a0: 456,
           a1: 'ba.a1',
           ab: 246,
-          ba: 'from A'
-        }
+          ba: 'from A',
+        },
       })
 
       const B: AB = deepFreeze({
@@ -527,14 +527,14 @@ describe('deepMergeOverwrite', () => {
           b0: 'ab.b0',
           b1: 321,
           ab: 'from B',
-          ba: 531
+          ba: 531,
         },
         ba: {
           b0: 654,
           b1: 'ba.b1',
           ab: 642,
-          ba: 'from B'
-        }
+          ba: 'from B',
+        },
       })
 
       const AB = deepMergeOverwrite(A, B)
@@ -570,7 +570,7 @@ describe('deepMergeOverwrite', () => {
   })
 
   describe('null is not considered an object', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: symbol
         readonly a1?: symbol
@@ -599,8 +599,8 @@ describe('deepMergeOverwrite', () => {
         ab: null,
         ba: {
           a0: 456,
-          a1: 'ba.a1'
-        }
+          a1: 'ba.a1',
+        },
       })
 
       const B: AB = deepFreeze({
@@ -609,9 +609,9 @@ describe('deepMergeOverwrite', () => {
         b2: Symbol('b2'),
         ab: {
           b0: 'ab.b0',
-          b1: 321
+          b1: 321,
         },
-        ba: null
+        ba: null,
       })
 
       const AB = deepMergeOverwrite(A, B)
@@ -640,7 +640,7 @@ describe('deepMergeOverwrite', () => {
   })
 
   describe('arrays are not considered objects', () => {
-    function setup () {
+    function setup() {
       interface AB {
         readonly a0?: symbol
         readonly a1?: symbol
@@ -669,8 +669,8 @@ describe('deepMergeOverwrite', () => {
         ab: ['A', 'a', 'b'],
         ba: {
           a0: 456,
-          a1: 'ba.a1'
-        }
+          a1: 'ba.a1',
+        },
       })
 
       const B: AB = deepFreeze({
@@ -679,9 +679,9 @@ describe('deepMergeOverwrite', () => {
         b2: Symbol('b2'),
         ab: {
           b0: 'ab.b0',
-          b1: 321
+          b1: 321,
         },
-        ba: ['B', 'b', 'a']
+        ba: ['B', 'b', 'a'],
       })
 
       const AB = deepMergeOverwrite(A, B)
@@ -723,34 +723,34 @@ describe('deepMergePartial', () => {
     readonly c: readonly [
       string,
       { readonly a: string },
-      { readonly b?: string }
+      { readonly b?: string },
     ]
     readonly d?: readonly [
       string,
       { readonly a: string },
-      { readonly b?: string }
+      { readonly b?: string },
     ]
   }
 
   type Right = DeepPartial<Left>
 
   describe('no collision', () => {
-    function setup () {
+    function setup() {
       const left: Left = {
         a: {
-          a: 'aa'
+          a: 'aa',
         },
-        c: ['c0', { a: 'c1a' }, { b: 'c1b' }]
+        c: ['c0', { a: 'c1a' }, { b: 'c1b' }],
       }
 
       const right: Right = {
         a: {
-          b: 'ab'
+          b: 'ab',
         },
         b: {
-          a: ['b', 'a']
+          a: ['b', 'a'],
         },
-        d: ['d0', { a: 'd1a' }, { b: 'd1b' }]
+        d: ['d0', { a: 'd1a' }, { b: 'd1b' }],
       }
 
       const resolveConflict = jest.fn(() => {
@@ -780,29 +780,29 @@ describe('deepMergePartial', () => {
   })
 
   describe('collide with undefined from right', () => {
-    function setup () {
+    function setup() {
       const left: Left = {
         a: {
-          a: 'aa'
+          a: 'aa',
         },
         b: {
           a: ['b', 'a'],
-          b: ['b', 'b']
+          b: ['b', 'b'],
         },
-        c: ['c0', { a: 'c1a' }, { b: 'c1b' }]
+        c: ['c0', { a: 'c1a' }, { b: 'c1b' }],
       }
 
       const right: Right = {
         a: {
           a: undefined,
-          b: 'ab'
+          b: 'ab',
         },
         b: {
           a: undefined,
-          b: undefined
+          b: undefined,
         },
         c: undefined,
-        d: ['d0', { a: 'd1a' }, { b: 'd1b' }]
+        d: ['d0', { a: 'd1a' }, { b: 'd1b' }],
       }
 
       const resolveConflict = jest.fn(() => {
@@ -827,29 +827,29 @@ describe('deepMergePartial', () => {
   })
 
   describe('collide with non-undefined from right and have a conflict resolver that prefers right', () => {
-    function setup () {
+    function setup() {
       const left: Left = {
         a: {
-          a: 'left aa'
+          a: 'left aa',
         },
         b: {
           a: ['left', 'b', 'a'],
-          b: ['left', 'b', 'b']
+          b: ['left', 'b', 'b'],
         },
-        c: ['left c0', { a: 'left c1a' }, { b: 'left c1b' }]
+        c: ['left c0', { a: 'left c1a' }, { b: 'left c1b' }],
       }
 
       const right: Right = {
         a: {
           a: 'right aa',
-          b: 'right ab'
+          b: 'right ab',
         },
         b: {
           a: ['right', 'a', 'b'],
-          b: ['right', 'b', 'b']
+          b: ['right', 'b', 'b'],
         },
         c: ['right c0', { a: 'right c1a' }, { b: 'right c1b' }],
-        d: ['right d0', { a: 'right d1a' }, { b: 'right d1b' }]
+        d: ['right d0', { a: 'right d1a' }, { b: 'right d1b' }],
       }
 
       const resolveConflict = jest.fn(() => PropertyPreference.Right)
@@ -874,36 +874,36 @@ describe('deepMergePartial', () => {
 
 describe('deepMergeWithoutCollision', () => {
   describe('without collision', () => {
-    function setup () {
+    function setup() {
       const A = deepFreeze({
         a: 0,
         b: 'b',
         c: {
-          a: 1
+          a: 1,
         },
         d: {
           c: {
             b: {
-              a: 'dcba'
-            }
-          }
+              a: 'dcba',
+            },
+          },
         },
-        f: null
+        f: null,
       })
 
       const B = deepFreeze({
         c: {
-          b: 'a'
+          b: 'a',
         },
         d: {
           a: 0,
           c: {
             b: {
-              b: 'dcbb'
-            }
-          }
+              b: 'dcbb',
+            },
+          },
         },
-        e: [0, 1, { a: null }]
+        e: [0, 1, { a: null }],
       })
 
       const AB = deepMergeWithoutCollision(A, B)
@@ -948,34 +948,34 @@ describe('deepMergeWithoutCollision', () => {
 
   describe('with collision', () => {
     describe('with default error handler', () => {
-      function setup () {
+      function setup() {
         const A = {
           a: 0,
           b: 'b',
           c: {
-            a: 1
+            a: 1,
           },
           d: {
             c: {
               b: {
-                a: 44
-              }
-            }
-          }
+                a: 44,
+              },
+            },
+          },
         }
 
         const B = {
           c: {
-            a: 'a'
+            a: 'a',
           },
           d: {
             a: 0,
             c: {
               b: {
-                a: () => 123
-              }
-            }
-          }
+                a: () => 123,
+              },
+            },
+          },
         }
 
         const fAB = () => deepMergeWithoutCollision(A, B)
@@ -996,45 +996,45 @@ describe('deepMergeWithoutCollision', () => {
       it('throws an object with expected properties', () => {
         const { rAB } = setup()
         expect({
-          ...(rAB as any).error
+          ...(rAB as any).error,
         }).toEqual({
           type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
-          values: [expect.anything(), expect.anything()]
+          values: [expect.anything(), expect.anything()],
         })
       })
     })
 
     describe('with custom error handler', () => {
-      function setup () {
+      function setup() {
         const A = {
           a: 0,
           b: 'b',
           c: {
-            a: 1
+            a: 1,
           },
           d: {
             c: {
               b: {
-                a: 44
-              }
-            }
-          }
+                a: 44,
+              },
+            },
+          },
         }
 
         const B = {
           c: {
-            a: 'a'
+            a: 'a',
           },
           d: {
             a: 0,
             c: {
               b: {
-                a: () => 123
-              }
-            }
-          }
+                a: () => 123,
+              },
+            },
+          },
         }
 
         const errReturn = Symbol('errReturn')
@@ -1060,21 +1060,21 @@ describe('deepMergeWithoutCollision', () => {
           type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
-          values: [expect.anything(), expect.anything()]
+          values: [expect.anything(), expect.anything()],
         })
       })
     })
 
     describe('with null in a', () => {
-      function setup () {
+      function setup() {
         const A = {
-          a: null
+          a: null,
         }
 
         const B = {
           a: {
-            b: 123
-          }
+            b: 123,
+          },
         }
 
         const fAB = () => deepMergeWithoutCollision(A, B)
@@ -1095,26 +1095,26 @@ describe('deepMergeWithoutCollision', () => {
       it('throws an object with expected properties', () => {
         const { rAB } = setup()
         expect({
-          ...(rAB as any).error
+          ...(rAB as any).error,
         }).toEqual({
           type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
-          values: [null, expect.anything()]
+          values: [null, expect.anything()],
         })
       })
     })
 
     describe('with null in b', () => {
-      function setup () {
+      function setup() {
         const A = {
           a: {
-            b: 123
-          }
+            b: 123,
+          },
         }
 
         const B = {
-          a: null
+          a: null,
         }
 
         const fAB = () => deepMergeWithoutCollision(A, B)
@@ -1135,26 +1135,26 @@ describe('deepMergeWithoutCollision', () => {
       it('throws an object with expected properties', () => {
         const { rAB } = setup()
         expect({
-          ...(rAB as any).error
+          ...(rAB as any).error,
         }).toEqual({
           type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
-          values: [expect.anything(), null]
+          values: [expect.anything(), null],
         })
       })
     })
 
     describe('with array in a', () => {
-      function setup () {
+      function setup() {
         const A = {
-          a: [0, 1, 2]
+          a: [0, 1, 2],
         }
 
         const B = {
           a: {
-            b: 123
-          }
+            b: 123,
+          },
         }
 
         const fAB = () => deepMergeWithoutCollision(A, B)
@@ -1175,26 +1175,26 @@ describe('deepMergeWithoutCollision', () => {
       it('throws an object with expected properties', () => {
         const { rAB } = setup()
         expect({
-          ...(rAB as any).error
+          ...(rAB as any).error,
         }).toEqual({
           type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
-          values: [expect.any(Array), expect.anything()]
+          values: [expect.any(Array), expect.anything()],
         })
       })
     })
 
     describe('with array in b', () => {
-      function setup () {
+      function setup() {
         const A = {
           a: {
-            b: 123
-          }
+            b: 123,
+          },
         }
 
         const B = {
-          a: [0, 1, 2]
+          a: [0, 1, 2],
         }
 
         const fAB = () => deepMergeWithoutCollision(A, B)
@@ -1215,12 +1215,12 @@ describe('deepMergeWithoutCollision', () => {
       it('throws an object with expected properties', () => {
         const { rAB } = setup()
         expect({
-          ...(rAB as any).error
+          ...(rAB as any).error,
         }).toEqual({
           type: ErrorType.PropertyCollision,
           objects: [expect.any(Object), expect.any(Object)],
           key: expect.any(String),
-          values: [expect.anything(), expect.any(Array)]
+          values: [expect.anything(), expect.any(Array)],
         })
       })
     })

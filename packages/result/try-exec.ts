@@ -9,7 +9,7 @@ import { err } from './err'
  * @param args Arguments to pass to function
  * @returns `Result` of function execution
  */
-export function tryExec <Args extends any[], Return> (
+export function tryExec<Args extends any[], Return>(
   fn: (...args: Args) => Return,
   ...args: Args
 ): Result<Return, any> {

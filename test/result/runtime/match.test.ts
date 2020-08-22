@@ -2,7 +2,7 @@ import { match, ok, err } from '@tsfun/result'
 
 const fns = () => ({
   ok: jest.fn((x: string) => `Ok "${x}"`),
-  err: jest.fn((x: string) => `Err "${x}"`)
+  err: jest.fn((x: string) => `Err "${x}"`),
 })
 
 describe('with Ok', () => {

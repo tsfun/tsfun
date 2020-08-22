@@ -3,7 +3,7 @@ import { pass, pipe } from '@tsfun/pipe'
 
 describe('map', () => {
   describe('standalone', () => {
-    const fn = <X> (x: X) => [x]
+    const fn = <X>(x: X) => [x]
 
     it('works with Ok', () => {
       expect(map(ok('x'), fn)).toEqual(ok(['x']))
@@ -52,7 +52,7 @@ describe('map', () => {
 
 describe('mapErr', () => {
   describe('standalone', () => {
-    const fn = <X> (x: X) => [x]
+    const fn = <X>(x: X) => [x]
 
     it('works with Ok', () => {
       expect(mapErr(ok('x'), fn)).toEqual(ok('x'))

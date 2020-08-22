@@ -7,10 +7,10 @@ import { bindContext } from './utils/bind'
  * @param name Method name
  * @returns Function that executes method `[name]` of an object
  */
-export function methodApplierOf<MethodName extends string | number | symbol> (name: MethodName) {
-  return <Args extends readonly any[], Return> (
+export function methodApplierOf<MethodName extends string | number | symbol>(name: MethodName) {
+  return <Args extends readonly any[], Return>(
     object: SingleDict<MethodName, (...args: Args) => Return>,
-    args: Args
+    args: Args,
   ) => applyMethod(object, name as any, args as any) as Return
 }
 
@@ -19,8 +19,8 @@ export function methodApplierOf<MethodName extends string | number | symbol> (na
  * @param name Method name
  * @returns Function that executes method `[name]` of an object
  */
-export function methodCallerOf<MethodName extends string | number | symbol> (name: MethodName) {
-  return <Args extends readonly any[], Return> (
+export function methodCallerOf<MethodName extends string | number | symbol>(name: MethodName) {
+  return <Args extends readonly any[], Return>(
     object: SingleDict<MethodName, (...args: Args) => Return>,
     ...args: Args
   ) => applyMethod(object, name as any, args as any) as Return
@@ -36,11 +36,11 @@ export function methodCallerOf<MethodName extends string | number | symbol> (nam
 export const applyMethod = <
   Object extends object,
   MethodName extends FunctionKeys<Object>,
-  Method extends Object[MethodName]
-> (
+  Method extends Object[MethodName],
+>(
   object: Object,
   name: MethodName,
-  args: Readonly<MaybeParam<Method>>
+  args: Readonly<MaybeParam<Method>>,
 ): MaybeReturn<Method> => (object[name] as any)(...args as any)
 
 /**
@@ -53,8 +53,8 @@ export const applyMethod = <
 export const callMethod = <
   Object extends object,
   MethodName extends FunctionKeys<Object>,
-  Method extends Object[MethodName]
-> (
+  Method extends Object[MethodName],
+>(
   object: Object,
   name: MethodName,
   ...args: MaybeParam<Method>
@@ -69,10 +69,10 @@ export const callMethod = <
 export const getMethod = <
   Object extends object,
   MethodName extends FunctionKeys<Object>,
-  Method extends Object[MethodName]
-> (
+  Method extends Object[MethodName],
+>(
   object: Object,
-  name: MethodName
+  name: MethodName,
 ): OmitThisParameter<Method> => bindContext(object[name] as any, object as any)
 
 /**
@@ -80,8 +80,8 @@ export const getMethod = <
  * @param object Object to get methods from
  * @returns A function that get object method
  */
-export const methodGetter = <Object extends object> (object: Object) =>
+export const methodGetter = <Object extends object>(object: Object) =>
   <
     MethodName extends FunctionKeys<Object>,
-    Method extends Object[MethodName]
-  > (name: MethodName): OmitThisParameter<Method> => getMethod(object as any, name as any)
+    Method extends Object[MethodName],
+  >(name: MethodName): OmitThisParameter<Method> => getMethod(object as any, name as any)

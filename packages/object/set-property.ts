@@ -11,14 +11,14 @@ export { SetProperty }
 export const setProperty = <
   Object extends object,
   Key extends string | number | symbol,
-  Value
-> (
+  Value,
+>(
   object: Object,
   key: Key,
-  value: Value
+  value: Value,
 ): SetProperty<Object, Key, Value> => ({
   ...object,
-  [key]: value
+  [key]: value,
 } as any)
 
 export default setProperty
