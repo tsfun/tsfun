@@ -52,7 +52,7 @@ describe('curry', () => {
 
   it('over-curry', () => {
     const expected = Symbol('value')
-    const curried = curry(curry(curry(<X>(x: X) => x)))
+    const curried = curry(curry(curry((x: typeof expected) => x)))
     const received = curried()(null)(null)(expected)
     expect(received).toBe(expected)
   })
