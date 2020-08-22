@@ -1,6 +1,7 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "ban-types": false,
     "no-console": false,
     "no-empty-interface": false,
     "no-namespace": false,
