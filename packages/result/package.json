@@ -1,6 +1,6 @@
 {
   "name": "@tsfun/result",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Result in TypeScript",
   "author": "Hoàng Văn Khải <hvksmr1996@gmail.com>",
   "license": "MIT",
@@ -25,9 +25,9 @@
   "browser": "index.mjs",
   "dependencies": {
     "tslib": "^2.0.1",
-    "@tsfun/prv-option-result-common": "^0.0.14",
-    "@tsfun/prv-types": "^0.0.9",
-    "@tsfun/tap": "^0.0.13",
+    "@tsfun/prv-option-result-common": "^0.0.15",
+    "@tsfun/prv-types": "^0.0.10",
+    "@tsfun/tap": "^0.0.14",
     "@types/node": "^14.6.0"
   },
   "engines": {
