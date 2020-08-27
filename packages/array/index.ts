@@ -1,4 +1,4 @@
-export * from './first'
+export * from './head'
 export * from './last'
 export * from './partition'
 export * from './range'
