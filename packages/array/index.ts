@@ -1,4 +1,5 @@
 export * from './head'
+export * from './init'
 export * from './last'
 export * from './partition'
 export * from './range'
