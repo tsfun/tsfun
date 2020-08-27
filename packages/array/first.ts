@@ -1,11 +1,9 @@
-import { NonEmptyArray } from './utils/types'
-
 /**
  * Get first item of an array
  * @param array Array to get first item from
  * @returns First item of `array`
  */
-export const first = <First>(array: NonEmptyArray<First, any>) => array[0]
+export const first = <First>(array: readonly [First, ...any[]]) => array[0]
 
 /**
  * Get first item of an array
