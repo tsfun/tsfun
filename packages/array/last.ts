@@ -1,11 +1,10 @@
-import { NonEmptyArray } from './utils/types'
-
 /**
  * Get last item of an array
  * @param array Array to get last item from
  * @returns Last item of `array`
  */
-export const last = <First, Rest>(array: NonEmptyArray<First, Rest>): Rest => array[array.length - 1] as any
+export const last = <Body extends any[], Last>(array: readonly [...Body, Last]): Last =>
+  array[array.length - 1] as any
 
 /**
  * Get last item of an array
