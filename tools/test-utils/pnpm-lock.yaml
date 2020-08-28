@@ -1,29 +1,29 @@
 dependencies:
-  string-template-format-inspect: 0.1.7
+  string-template-format-inspect: 0.1.8
 lockfileVersion: 5.1
 packages:
-  /@types/node/13.11.1:
+  /@types/node/14.6.1:
     dev: false
     resolution:
-      integrity: sha512-eWQGP3qtxwL8FGneRrC5DwrJLGN4/dH1clNTuLfN81HCrxVtxRjygDTUoZJ5ASlDEeo0ppYFQjQIlXhtXpOn6g==
-  /string-template-format-base/0.1.6:
+      integrity: sha512-HnYlg/BRF8uC1FyKRFZwRaCPTPYKa+6I8QiUZFLredaGOou481cgFS4wKRFyKvQtX8xudqkSdBczJHIYSQYKrQ==
+  /string-template-format-base/0.1.7:
     dependencies:
-      '@types/node': 13.11.1
-      tslib: 1.11.1
+      '@types/node': 14.6.1
+      tslib: 2.0.1
     dev: false
     resolution:
-      integrity: sha512-4mvYtipF6d/XUUEQ5/V/EHlnT1JhdrfOIen2GO7gdt2grF8sd2Wi8+Frmyr0+huedmloca51vvk6R0xYBdr/Hw==
-  /string-template-format-inspect/0.1.7:
+      integrity: sha512-ySUoRCuRa6nhwJ6Xcu41VEpvwuDDVVPPqOnEf4P0UG4L860xbvC66YH0xno7dKW2JjN8jX0YstAcGk2q6Z6JzA==
+  /string-template-format-inspect/0.1.8:
     dependencies:
-      '@types/node': 13.11.1
-      string-template-format-base: 0.1.6
-      tslib: 1.11.1
+      '@types/node': 14.6.1
+      string-template-format-base: 0.1.7
+      tslib: 2.0.1
     dev: false
     resolution:
-      integrity: sha512-1TsPe/viDWaZU6s0vRL0JgKqgZZlzrVfzLOL6CkOX+l2nvOADQh6cjfLOXgYKs/1AW/rBbINRDOZi9KDxw9q3Q==
-  /tslib/1.11.1:
+      integrity: sha512-k3lQNBDZ8o6Q0o9WYXLUgKwDtmn1OpERFJZb4NPwG2MvgDD2iI6+9yDVK66WsyGI90ljF2wh/5KjO0E5tIE1Ig==
+  /tslib/2.0.1:
     dev: false
     resolution:
-      integrity: sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
+      integrity: sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==
 specifiers:
-  string-template-format-inspect: ^0.1.7
+  string-template-format-inspect: ^0.1.8

@@ -2,14 +2,14 @@ dependencies:
   '@tsfun/prv-option-result-common': 'link:../prv-option-result-common'
   '@tsfun/prv-types': 'link:../prv-types'
   '@tsfun/tap': 'link:../tap'
-  '@types/node': 14.6.0
+  '@types/node': 14.6.1
   tslib: 2.0.1
 lockfileVersion: 5.1
 packages:
-  /@types/node/14.6.0:
+  /@types/node/14.6.1:
     dev: false
     resolution:
-      integrity: sha512-mikldZQitV94akrc4sCcSjtJfsTKt4p+e/s0AGscVA6XArQ9kFclP+ZiYUMnq987rc6QlYxXv/EivqlfSLxpKA==
+      integrity: sha512-HnYlg/BRF8uC1FyKRFZwRaCPTPYKa+6I8QiUZFLredaGOou481cgFS4wKRFyKvQtX8xudqkSdBczJHIYSQYKrQ==
   /tslib/2.0.1:
     dev: false
     resolution:
@@ -18,5 +18,5 @@ specifiers:
   '@tsfun/prv-option-result-common': ^0.0.15
   '@tsfun/prv-types': ^0.0.10
   '@tsfun/tap': ^0.0.14
-  '@types/node': ^14.6.0
+  '@types/node': ^14.6.1
   tslib: ^2.0.1

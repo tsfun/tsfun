@@ -3,17 +3,17 @@ dependencies:
   '@tsfun/object': 'link:../../packages/object'
   '@tsfun/pipe': 'link:../../packages/pipe'
   '@tsfun/result': 'link:../../packages/result'
-  static-type-assert: 4.0.0
+  static-type-assert: 4.0.1
 lockfileVersion: 5.1
 packages:
-  /static-type-assert/4.0.0:
+  /static-type-assert/4.0.1:
     dependencies:
       typescript-compare: 0.0.2
     dev: false
     peerDependencies:
-      typescript: ^3.0.3
+      typescript: ~4.0.0 || ^3.0.0
     resolution:
-      integrity: sha512-Ss1RVV8Hp+DVaAQsGgssl2+xuLqyJQOJzrz/6GJG8wfObU7t8tFbQddquX+U//pwU1tSLghUgTQ4JQPaOxfsww==
+      integrity: sha512-/1o4BSVuM2L2Nnj3DC9XGvsY0rHLK0u1nNx2RjC45UysMjSPThreUVCorIt0xfiHap7MLE7domgclGhT6FUuhA==
   /typescript-compare/0.0.2:
     dependencies:
       typescript-logic: 0.0.0
@@ -29,4 +29,4 @@ specifiers:
   '@tsfun/object': 'file:../../packages/object'
   '@tsfun/pipe': 'file:../../packages/pipe'
   '@tsfun/result': 'file:../../packages/result'
-  static-type-assert: ^4.0.0
+  static-type-assert: ^4.0.1
